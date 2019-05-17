@@ -134,11 +134,7 @@ if [[ $NodeName = controller* ]];then
     CINDER_PARTITION=$(system host-disk-partition-add -t lvm_phys_vol ${NodeName} ${CINDER_DISK_UUID} ${CinderSize})
     CINDER_PARTITION_UUID=$(echo ${CINDER_PARTITION} | grep -ow "| uuid | [a-z0-9\-]* |" | awk '{print $4}')
     echo "--- Wait for partition $CINDER_PARTITION_UUID to be ready."
-    if [[ $NodeName = controller-0 ]];then
-        while true; do system host-disk-partition-list $NodeName --nowrap | grep $CINDER_PARTITION_UUID | grep 'Ready\|on unlock'; if [ $? -eq 0 ]; then break; fi; sleep 2; done
-    else
-        sleep 20
-    fi
+    while true; do system host-disk-partition-list $NodeName --nowrap | grep $CINDER_PARTITION_UUID | grep 'Ready\|on unlock'; if [ $? -eq 0 ]; then break; fi; sleep 2; done
     system host-lvg-add ${NodeName} cinder-volumes
     system host-pv-add ${NodeName} cinder-volumes ${CINDER_PARTITION_UUID}
 

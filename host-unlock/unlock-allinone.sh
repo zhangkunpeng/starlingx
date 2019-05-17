@@ -3,8 +3,7 @@
 #exec > >(tee -i ./unlock.log)
 #exec 2>&1
 
-#source /etc/nova/openrc
-
+source /etc/nova/openrc
 
 while [ ! $NodeName ] 
 do
@@ -92,8 +91,7 @@ do
     fi
 done
 
-
-set -x
+#set -x
 
 if [[ $NodeName = controller-1 ]];then
     echo ">>> Configure oam interface"

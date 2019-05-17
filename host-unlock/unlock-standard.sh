@@ -2,7 +2,7 @@
 #exec > >(tee -i ./unlock.log)
 #exec 2>&1
 
-#source /etc/nova/openrc
+source /etc/nova/openrc
 
 
 while [ ! $NodeName ] 
@@ -108,8 +108,7 @@ do
     fi
 done
 
-
-set -x
+#set -x
 
 echo ">>> Configure provider net and data interface"
 if [[ $NodeName = controller-0 ]];then

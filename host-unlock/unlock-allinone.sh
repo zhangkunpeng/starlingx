@@ -3,7 +3,7 @@
 #exec > >(tee -i ./unlock.log)
 #exec 2>&1
 
-source /etc/nova/openrc
+#source /etc/nova/openrc
 
 
 while [ ! $NodeName ] 
@@ -87,6 +87,9 @@ echo ""
 while [ "$Apply" != "y" ]
 do 
     read -p "Apply the above configuration? [y/n]:" Apply
+    if [ "$Apply" == "n" ];then
+        exit 1
+    fi
 done
 
 

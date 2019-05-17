@@ -46,3 +46,11 @@ Apply the above configuration? [y/n]:
 wget https://github.com/zhangkunpeng/starlingx/blob/master/host-unlock/unlock-standard.sh
 sh unlock-standrad.sh
 ```
+
+#### 解锁 中心云 Central Cloud
+实现 中心云 controller-0 controller-1的解锁
+```
+wget https://github.com/zhangkunpeng/starlingx/blob/master/host-unlock/unlock-central.sh
+sh unlock-central.sh
+```
+

@@ -53,6 +53,10 @@ do
 done
 
 #set -x
+if [[ $NodeName = controller-1 ]];then
+    # 在第二台控制节点上配置 OAM网络
+    system host-if-modify -c platform -n $OAM_IF --networks oam $NodeName $OAM_IF
+fi
 
 if [[ $NodeName = controller* ]];then
     echo ">>> Configure Cinder Volume <<<"

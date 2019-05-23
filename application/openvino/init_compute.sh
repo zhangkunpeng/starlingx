@@ -5,10 +5,13 @@ WORKDIR=$(dirname $(readlink -f $0))
 CONF_FILE=$WORKDIR/nova_pci_pass.conf
 
 restart_compute(){
+    echo "copy nova.conf ..."
     if [ ! -f "$WORKDIR/nova.conf_bak" ];then
         cp /etc/nova/nova.conf $WORKDIR/nova.conf_bak
     fi
     sudo cp $CONF_FILE /etc/nova/nova.conf
+    
+    echo "restart nvoa ..."
     NOVA=$(pgrep nova)
     sudo kill -9 $NOVA
     sudo service iptables stop
@@ -16,6 +19,7 @@ restart_compute(){
 
 build_conf(){
     if [ ! -f "$CONF_FILE" ];then
+        echo "build nova_pci_pass.conf ..."
         cp /etc/nova/nova.conf $CONF_FILE
         add_pci_alias
         modify_cpu_mode
@@ -32,9 +36,9 @@ add_pci_alias(){
     read -p "Input the vendor_id (front):" vendor_id
     read -p "Input the product_id (back):" product_id
     content="alias={\"vendor_id\":\"$vendor_id\",\"product_id\":\"$product_id\",\"device_type\":\"type-PCI\",\"name\":\"a1\"}"
-    whitelist="passthrough_whitelist={\"product_id\":\"a12f\",\"vendor_id\":\"8086\"}"
-    sed -i "/\[pci\]/a$content" $CONF_FILE
+    whitelist="passthrough_whitelist={\"product_id\":\"$product_id\",\"vendor_id\":\"$vendor_id\"}"
     sed -i "/\[pci\]/a$whitelist" $CONF_FILE
+    sed -i "/\[pci\]/a$content" $CONF_FILE
 }
 
 modify_cpu_mode(){

@@ -2,7 +2,14 @@
 
 # 用于在keystone上新增用户,脚本必须在starlingx控制节点上运行
 
-source openrc
+WORKDIR=$(cd "$(dirname "$0")";pwd)
+RCFILE=$WORKDIR/openrc.sh
+if [ ! -f "$RCFILE" ]; then
+    echo "rc file is not exist ..."
+    exit 1
+fi
+
+source $RCFILE
 
 create_project(){
     local project=$1
@@ -34,6 +41,10 @@ check_user_in_dist(){
 
 set_admin_password(){
     echo "set admin password ..."
+    if [ $STX_OS_PASSWORD = $DIST_OS_PASSWORD ];then
+        echo "dist keystone admin password is same as starlingx ..."
+        return 0
+    fi
     switch_dist_keytone
     openstack user password set --password $STX_OS_PASSWORD --original-password $DIST_OS_PASSWORD
     if [ $? -ne 0 ];then
@@ -49,25 +60,23 @@ create_user(){
     local PASSWORD=$(keyring get $USERNAME $project)
     if [ "$USERNAME" == "admin" ];then
         set_admin_password
-        return
-    fi
-    if [ ! -n "$PASSWORD" ]; then
+    elif [ ! -n "$PASSWORD" ]; then
         echo "Can not get $USERNAME password ..."
-        return
-    fi
-    check_user_in_dist $USERNAME $PASSWORD $project
-    if [ $? -ne 0 ];then
-        switch_dist_keytone
-        openstack user show $USERNAME
-        if [ $? -eq 0 ]; then
-            openstack user delete $USERNAME
-            error_exit "delete user $USERNAME failed ..."
-        fi
-        openstack user create --domain $OS_USER_DOMAIN_NAME --project-domain $OS_PROJECT_DOMAIN_NAME --project $project --password $PASSWORD --email $USERNAME@starlingx $USERNAME
-        error_exit "create user [$USERNAME] failed."
+    else
         check_user_in_dist $USERNAME $PASSWORD $project
-        error_exit "check user [$USERNAME] failed. Unknow problems occured"
-        echo "create user $USERNAME is ok ..."
+        if [ $? -ne 0 ];then
+            switch_dist_keytone
+            openstack user show $USERNAME
+            if [ $? -eq 0 ]; then
+                openstack user delete $USERNAME
+                error_exit "delete user $USERNAME failed ..."
+            fi
+            openstack user create --domain $OS_USER_DOMAIN_NAME --project-domain $OS_PROJECT_DOMAIN_NAME --project $project --password $PASSWORD --email $USERNAME@starlingx $USERNAME
+            error_exit "create user [$USERNAME] failed."
+            check_user_in_dist $USERNAME $PASSWORD $project
+            error_exit "check user [$USERNAME] failed. Unknow problems occured"
+            echo "create user $USERNAME is ok ..."
+        fi
     fi
 }
 
@@ -78,10 +87,10 @@ update_users_in_dist(){
     OUL=/tmp/openstack-user-list-$project
     openstack user list --project $project > $OUL
     local Users=($(cat ${OUL} |grep -v Name | awk '{print $4}'))
-    for(( i=0;i<${#Users[@]};i++)) do
+    for(( j=0;j<${#Users[@]};j++)) do
         #${#array[@]}获取数组长度用于循环
-        create_user ${Users[i]} $project
-    done;
+        create_user ${Users[j]} $project
+    done
 }
 
 update_projects_in_dist(){
@@ -89,12 +98,14 @@ update_projects_in_dist(){
     switch_stx_keystone
     OPL=/tmp/openstack-project-list
     openstack project list > $OPL
+    cat ${OPL}
     local Projects=($(cat ${OPL} |grep -v Name | awk '{print $4}'))
     for(( i=0;i<${#Projects[@]};i++)) do
         #${#array[@]}获取数组长度用于循环
+        echo ${Projects[i]}
         create_project ${Projects[i]}
         update_users_in_dist ${Projects[i]}
-    done;
+    done
 }
 
 update_projects_in_dist

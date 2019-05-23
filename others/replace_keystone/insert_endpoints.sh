@@ -1,6 +1,13 @@
 #! bin/bash
 
-source openrc
+WORKDIR=$(cd "$(dirname "$0")";pwd)
+RCFILE=$WORKDIR/openrc.sh
+if [ ! -f "$RCFILE" ]; then
+    echo "rc file is not exist ..."
+    exit 1
+fi
+
+source $RCFILE
 
 create_service(){
     local Name=$1

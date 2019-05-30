@@ -19,7 +19,7 @@ password: St8rlingX*
 网络地址也是使用的文档中给出的默认的地址。
 ```
 # sudo ifconfig enp2s1 10.10.10.3/24
-# sudo ip routes add default via 10.10.10.1 dev enp2s1
+# sudo ip route add default via 10.10.10.1 dev enp2s1
 ```
 设置好之后，`ping 8.8.8.8` 来保证网络的连通性。
 
@@ -65,7 +65,7 @@ source_helm_bind_dir: /opt/cgcs/helm_charts
 target_helm_bind_dir: /www/pages/helm_charts
 ```
 ---
-##修改helm repo源
+## 修改helm repo源
 除了上面的镜像源之外，helm repo 默认使用的源同样也是被墙掉的。
 ```
 [root@kubernetes-1 ~]# helm repo list
@@ -80,9 +80,17 @@ local   http://127.0.0.1:8879/charts
 ```
 - name: remove stable repo
   command: helm repo remove stable
+  become_user: wrsroot
+  environment:
+    KUBECONFIG: /etc/kubernetes/admin.conf
+    HOME: /home/wrsroot
 
 - name: helm repo add stable
   command: helm repo add stable https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts
+  beacome_user: wrsroot
+  environment:
+    KUBECONFIG: /etc/kubernetes/admin.conf
+    HOME: /home/wrsroot
 ```
 
 ## 运行ansible-playbook

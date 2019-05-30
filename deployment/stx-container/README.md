@@ -24,6 +24,7 @@ password: St8rlingX*
 设置好之后，`ping 8.8.8.8` 来保证网络的连通性。
 
 ## 修改镜像源
+解决镜像被墙掉的方法是将镜像源换成Azure。
 将下面几处代码中所有的
 - `k8s.gcr.io`替换为`gcr.azk8s.cn/google-containers`
 - `gcr.io`替换为`gcr.azk8s.cn`
@@ -62,6 +63,26 @@ tiller_img: gcr.io/kubernetes-helm/tiller:v2.13.1
 armada_img: quay.io/airshipit/armada:af8a9ffd0873c2fbc915794e235dbd357f2adab1
 source_helm_bind_dir: /opt/cgcs/helm_charts
 target_helm_bind_dir: /www/pages/helm_charts
+```
+---
+##修改helm repo源
+除了上面的镜像源之外，helm repo 默认使用的源同样也是被墙掉的。
+```
+[root@kubernetes-1 ~]# helm repo list
+NAME    URL                                             
+stable  https://kubernetes-charts.storage.googleapis.com
+local   http://127.0.0.1:8879/charts 
+```
+所以我们需要将其stable源给改掉，这里替换成阿里云的源。
+文件路径：
+`/usr/share/ansible/stx-ansible/playbooks/bootstrap/roles/bringup-essential-services/tasks/bringup_helm.yml`
+在文件236行左右的位置，添加这些语句：
+```
+- name: remove stable repo
+  command: helm repo remove stable
+
+- name: helm repo add stable
+  command: helm repo add stable https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts
 ```
 
 ## 运行ansible-playbook

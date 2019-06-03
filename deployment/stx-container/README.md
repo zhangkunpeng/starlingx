@@ -8,14 +8,14 @@ https://wiki.openstack.org/wiki/StarlingX/Containers/InstallationOnStandardStora
 
 ---
 
-## 用户名密码初始化
+### 用户名密码初始化
 为了后面的命令方便，这里密码设置也是用的默认密码。
 ```
 login: wrsroot
 password: St8rlingX*
 ```
 
-## 初始化网络
+### 初始化网络
 网络地址也是使用的文档中给出的默认的地址。
 ```
 # sudo ifconfig enp2s1 10.10.10.3/24
@@ -27,12 +27,12 @@ password: St8rlingX*
 > 这里介绍两种方式来解决被墙掉的问题。
 - 修改镜像源
 - 使用代理
-# 修改镜像源
+## 修改镜像源
 解决镜像被墙掉的方法是将镜像源换成Azure。
 将下面几处代码中所有的
 - `k8s.gcr.io`替换为`gcr.azk8s.cn/google-containers`
 - `gcr.io`替换为`gcr.azk8s.cn`
-### 第一处
+#### 第一处
 文件路径
 `/usr/share/ansible/stx-ansible/playbooks/bootstrap/roles/prepare-env/tasks/main.yml`
 ```
@@ -45,7 +45,7 @@ password: St8rlingX*
         - docker.io
     when: docker_registries is none
 ```
-### 第二处
+#### 第二处
 文件路径
 `/usr/share/ansible/stx-ansible/playbooks/bootstrap/roles/validate-config/tasks/main.yml`
 ```
@@ -59,7 +59,7 @@ password: St8rlingX*
       default_docker_registry: docker.io
       default_no_proxy:
 ```
-### 第三处
+#### 第三处
 文件路径
 `/usr/share/ansible/stx-ansible/playbooks/bootstrap/roles/bringup-essential-services/vars/main.yml`
 ```
@@ -69,7 +69,7 @@ source_helm_bind_dir: /opt/cgcs/helm_charts
 target_helm_bind_dir: /www/pages/helm_charts
 ```
 ---
-## 修改helm repo源
+### 修改helm repo源
 除了上面的镜像源之外，helm repo 默认使用的源同样也是被墙掉的。
 ```
 [root@kubernetes-1 ~]# helm repo list
@@ -99,23 +99,23 @@ local   http://127.0.0.1:8879/charts
 ---
 至此，修改镜像源的工作就完成了。
 
-# 使用代理
-## 新建docker配置文件`/etc/systemd/system/docker.service.d/http-proxy.conf`,在这个文件中加入以下代码。
+## 使用代理
+### 新建docker配置文件`/etc/systemd/system/docker.service.d/http-proxy.conf`,在这个文件中加入以下代码。
 ```
 [Service]
 Environment="HTTP_PROXY=http://172.16.30.31:3128"
 Environment="NO_PROXY=localhost, 127.0.0.1, 192.168.204.2"
 ```
-## 之后必须重启服务docker服务，但是因为某些原因，重启docker服务会产生问题，这里建议直接重启。
+### 之后必须重启服务docker服务，但是因为某些原因，重启docker服务会产生问题，这里建议直接重启。
 ```
 # sudo reboot
 ```
-## 验证docker代理配置
+### 验证docker代理配置
 ```
 # sudo systemctl show --property Environment docker 
 ```
 
-## 使用环境变量来配置helm的配置
+### 使用环境变量来配置helm的配置
 ```
 # export http_proxy="http://172.16.30.31:3128"
 # export https_proxy="http://172.16.30.31L3128"
@@ -126,7 +126,7 @@ Environment="NO_PROXY=localhost, 127.0.0.1, 192.168.204.2"
 ----
 使用上面的任意一种方法之后，就可以开始运行ansible-playbook了。
 
-## 运行ansible-playbook
+### 运行ansible-playbook
 ```
 ansible-playbook /usr/share/ansible/stx-ansible/playbooks/bootstrap/bootstrap.yml
 ```

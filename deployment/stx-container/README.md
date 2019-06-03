@@ -91,7 +91,7 @@ local   http://127.0.0.1:8879/charts
 
 - name: helm repo add stable
   command: helm repo add stable https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts
-  beacome_user: wrsroot
+  become_user: wrsroot
   environment:
     KUBECONFIG: /etc/kubernetes/admin.conf
     HOME: /home/wrsroot

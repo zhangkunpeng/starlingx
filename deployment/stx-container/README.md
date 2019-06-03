@@ -100,30 +100,35 @@ local   http://127.0.0.1:8879/charts
 至此，修改镜像源的工作就完成了。
 
 ## 使用代理
-### 新建docker配置文件`/etc/systemd/system/docker.service.d/http-proxy.conf`,在这个文件中加入以下代码。
+### docker配置
+新建docker配置文件`/etc/systemd/system/docker.service.d/http-proxy.conf`,在这个文件中加入以下代码。
 ```
 [Service]
 Environment="HTTP_PROXY=http://172.16.30.31:3128"
 Environment="NO_PROXY=localhost, 127.0.0.1, 192.168.204.2"
 ```
-### 之后必须重启服务docker服务，但是因为某些原因，重启docker服务会产生问题，这里建议直接重启。
+### 重启服务
+之后必须重启服务docker服务，但是因为某些原因，重启docker服务会产生问题，这里建议直接重启。
 ```
 # sudo reboot
 ```
-### 验证docker代理配置
+### 验证
+验证docker代理配置
 ```
 # sudo systemctl show --property Environment docker 
 ```
 
-### 使用环境变量来配置helm的配置
+### helm配置
+使用环境变量来配置helm的配置
 ```
 # export http_proxy="http://172.16.30.31:3128"
-# export https_proxy="http://172.16.30.31L3128"
-# export no_proxy='localhost,127.0.0.1,192.168.206.2'
+# export https_proxy="http://172.16.30.31:3128"
+# export no_proxy="localhost,127.0.0.1,192.168.206.2"
 ```
 
 
 ----
+
 使用上面的任意一种方法之后，就可以开始运行ansible-playbook了。
 
 ### 运行ansible-playbook

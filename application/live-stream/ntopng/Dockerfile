@@ -1,0 +1,1 @@
+FROM junquera/ntopng:latest

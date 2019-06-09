@@ -5,7 +5,7 @@ sudo yum update
 sudo yum install docker
 
 CENTRAL_IP=$1
-EDGE_SRS_NAME=registry.cn-shanghai.aliyuncs.com/zhangkunpeng/cental_srs
+EDGE_SRS_NAME=registry.cn-shanghai.aliyuncs.com/zhangkunpeng/edge_srs
 EDGE_SRS_TAG=latest
 WEBPLAYER_NAME=registry.cn-shanghai.aliyuncs.com/zhangkunpeng/webplayer
 WEBPLAYER_TAG=1.0

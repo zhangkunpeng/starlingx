@@ -1,0 +1,100 @@
+---
+
+- name: init live-stream environment
+  hosts: all
+  gather_facts: no
+  tasks:
+  # - name: install ssh key
+  #   authorized_key: user=root
+  #                   key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}" 
+  #                   state=present
+  #   tags:
+  #     - sshkey
+
+  - name: Check DNS server
+    lineinfile: 
+      path: /etc/resolv.conf
+      line: nameserver 8.8.8.8
+      create: yes
+  
+  - name: Install Docker Service
+    yum: name=docker update_cache=yes
+  
+  - name: Ensure docker running
+    service: name=docker state=started
+  
+  - name: install python-pip
+    yum: name={{ item }}
+    with_items:
+      - epel-release
+      - python-pip
+  
+  - name: Upgrade pip
+    pip:
+      name: pip
+      extra_args: --upgrade
+
+  - name: Install Docker-py
+    pip: name=docker-py
+
+
+- name: Deploy central live-stream server
+  hosts: central
+  gather_facts: no
+  tasks:
+  - name: docker pull images
+    docker_image: 
+      name: "{{ item.name }}"
+      tag: "{{ item.tag }}"
+      source: pull
+    with_items:
+      - "{{ srs }}"
+  
+  - name: srs start
+    docker_container:
+      name: srs
+      image: "{{ srs.name }}:{{ srs.tag }}"
+      state: started
+      ports:
+        - "1935:1935"
+
+- name: Deploy edge live-stream server
+  hosts: edge
+  gather_facts: no
+  tasks:
+  - name: docker pull images
+    docker_image: 
+      name: "{{ item.name }}"
+      tag: "{{ item.tag }}"
+      source: pull
+    with_items:
+      - "{{ srs }}"
+      - "{{ ntopng }}"
+      - "{{ webplayer }}"
+  
+  - name: srs start
+    docker_container:
+      name: srs
+      image: "{{ srs.name }}:{{ srs.tag }}"
+      state: started
+      ports:
+        - "1935:1935"
+      env:
+        CENTRAL_IP: "{{ hostvars['master-1']['ansible_ssh_host'] }}"
+      
+  - name: ntopng start
+    docker_container:
+      name: ntopng
+      image: "{{ ntopng.name }}:{{ ntopng.tag }}"
+      state: started
+      network_mode: host
+      ports:
+        - "3000:3000"
+  
+  - name: webplayer start
+    docker_container:
+      name: webplayer
+      image: "{{ webplayer.name }}:{{ webplayer.tag }}"
+      state: started
+      ports:
+        - "80:80"

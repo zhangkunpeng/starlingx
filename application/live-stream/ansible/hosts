@@ -1,0 +1,31 @@
+---
+central:
+  hosts:
+    master-1:
+      ansible_ssh_host: 172.16.130.146
+      ansible_ssh_port: 22
+      ansible_ssh_user: root
+  vars:
+    srs:
+      name: registry.cn-shanghai.aliyuncs.com/zhangkunpeng/cental_srs
+      tag: latest
+    
+
+edge:
+  hosts:
+    slave-1:
+      ansible_ssh_host: 172.16.130.148
+      ansible_ssh_port: 22
+      ansible_ssh_user: root
+      #ansible_ssh_pass: 123456
+  vars:
+    srs:
+      name: registry.cn-shanghai.aliyuncs.com/zhangkunpeng/edge_srs
+      tag: latest
+    webplayer:
+      name: registry.cn-shanghai.aliyuncs.com/zhangkunpeng/webplayer
+      tag: 1.0
+    ntopng:
+      name: registry.cn-shanghai.aliyuncs.com/zhangkunpeng/ntopng
+      tag: latest
+

@@ -24,7 +24,7 @@ edge:
       tag: latest
     webplayer:
       name: registry.cn-shanghai.aliyuncs.com/zhangkunpeng/webplayer
-      tag: 1.0
+      tag: 1.1
     ntopng:
       name: registry.cn-shanghai.aliyuncs.com/zhangkunpeng/ntopng
       tag: latest

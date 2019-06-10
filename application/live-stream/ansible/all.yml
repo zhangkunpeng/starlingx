@@ -98,3 +98,5 @@
       state: started
       ports:
         - "80:80"
+      env:
+        CENTRAL_IP: "{{ ansible_ssh_host }}"

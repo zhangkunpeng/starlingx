@@ -1,4 +1,5 @@
 export OS_CLOUD=openstack_helm
+
 ADMINID=`openstack project list | grep admin | awk '{print $2}'`
 PHYSNET0='physnet0'
 PHYSNET1='physnet1'

@@ -1,5 +1,5 @@
 export OS_CLOUD=openstack_helm
-ADMINID=`openstack project list | grep admin | awk '{print $2}'`
+
 PHYSNET0='physnet0'
 PHYSNET1='physnet1'
 PUBLICNET='public-net0'
@@ -12,24 +12,24 @@ INTERNALSUBNET='internal-subnet0'
 EXTERNALSUBNET='external-subnet0'
 PUBLICROUTER='public-router0'
 PRIVATEROUTER='private-router0'
- 
-neutron net-create --tenant-id ${ADMINID} --provider:network_type=vlan --provider:physical_network=${PHYSNET0} --provider:segmentation_id=10 --router:external ${EXTERNALNET}
-neutron net-create --tenant-id ${ADMINID} --provider:network_type=vlan --provider:physical_network=${PHYSNET0} --provider:segmentation_id=400 ${PUBLICNET}
-neutron net-create --tenant-id ${ADMINID} --provider:network_type=vlan --provider:physical_network=${PHYSNET1} --provider:segmentation_id=500 ${PRIVATENET}
-neutron net-create --tenant-id ${ADMINID} ${INTERNALNET}
-PUBLICNETID=`neutron net-list | grep ${PUBLICNET} | awk '{print $2}'`
-PRIVATENETID=`neutron net-list | grep ${PRIVATENET} | awk '{print $2}'`
-INTERNALNETID=`neutron net-list | grep ${INTERNALNET} | awk '{print $2}'`
-EXTERNALNETID=`neutron net-list | grep ${EXTERNALNET} | awk '{print $2}'`
-neutron subnet-create --tenant-id ${ADMINID} --name ${PUBLICSUBNET} ${PUBLICNET} 192.168.101.0/24
-neutron subnet-create --tenant-id ${ADMINID} --name ${PRIVATESUBNET} ${PRIVATENET} 192.168.201.0/24
-neutron subnet-create --tenant-id ${ADMINID} --name ${INTERNALSUBNET} --no-gateway  ${INTERNALNET} 10.10.0.0/24
-neutron subnet-create --tenant-id ${ADMINID} --name ${EXTERNALSUBNET} --gateway 192.168.1.1 --disable-dhcp ${EXTERNALNET} 192.168.1.0/24
-neutron router-create ${PUBLICROUTER}
-neutron router-create ${PRIVATEROUTER}
-PRIVATEROUTERID=`neutron router-list | grep ${PRIVATEROUTER} | awk '{print $2}'`
-PUBLICROUTERID=`neutron router-list | grep ${PUBLICROUTER} | awk '{print $2}'`
-neutron router-gateway-set --disable-snat ${PUBLICROUTERID} ${EXTERNALNETID}
-neutron router-gateway-set --disable-snat ${PRIVATEROUTERID} ${EXTERNALNETID}
-neutron router-interface-add ${PUBLICROUTER} ${PUBLICSUBNET}
-neutron router-interface-add ${PRIVATEROUTER} ${PRIVATESUBNET}
+
+openstack network create --project ${ADMINID} --provider-network-type=vlan --provider-physical-network=${PHYSNET0} --provider-segment=10 --share --external ${EXTERNALNET}
+openstack network create --project ${ADMINID} --provider-network-type=vlan --provider-physical-network=${PHYSNET0} --provider-segment=400 ${PUBLICNET}
+openstack network create --project ${ADMINID} --provider-network-type=vlan --provider-physical-network=${PHYSNET1} --provider-segment=500 ${PRIVATENET}
+openstack network create --project ${ADMINID} ${INTERNALNET}
+PUBLICNETID=`openstack network list | grep ${PUBLICNET} | awk '{print $2}'`
+PRIVATENETID=`openstack network list | grep ${PRIVATENET} | awk '{print $2}'`
+INTERNALNETID=`openstack network list | grep ${INTERNALNET} | awk '{print $2}'`
+EXTERNALNETID=`openstack network list | grep ${EXTERNALNET} | awk '{print $2}'`
+openstack subnet create --project ${ADMINID} ${PUBLICSUBNET} --network ${PUBLICNET} --subnet-range 192.168.101.0/24
+openstack subnet create --project ${ADMINID} ${PRIVATESUBNET} --network ${PRIVATENET} --subnet-range 192.168.201.0/24
+openstack subnet create --project ${ADMINID} ${INTERNALSUBNET} --gateway none --network ${INTERNALNET} --subnet-range 10.1.1.0/24
+openstack subnet create --project ${ADMINID} ${EXTERNALSUBNET} --gateway 192.168.1.1 --no-dhcp --network ${EXTERNALNET} --subnet-range 192.168.51.0/24 --ip-version 4
+openstack router create ${PUBLICROUTER}
+openstack router create ${PRIVATEROUTER}
+PRIVATEROUTERID=`openstack router list | grep ${PRIVATEROUTER} | awk '{print $2}'`
+PUBLICROUTERID=`openstack router list | grep ${PUBLICROUTER} | awk '{print $2}'`
+openstack router set ${PUBLICROUTER} --external-gateway ${EXTERNALNETID} --disable-snat
+openstack router set ${PRIVATEROUTER} --external-gateway ${EXTERNALNETID} --disable-snat
+openstack router add subnet ${PUBLICROUTER} ${PUBLICSUBNET}
+openstack router add subnet ${PRIVATEROUTER} ${PRIVATESUBNET}

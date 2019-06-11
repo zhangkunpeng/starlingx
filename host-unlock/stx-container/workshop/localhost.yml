@@ -1,0 +1,8 @@
+external_oam_subnet: 10.10.10.0/24
+external_oam_gateway_address: 10.10.10.1
+external_oam_floating_address: 10.10.10.2
+management_subnet: 192.168.204.0/24
+dns_servers:
+  - 8.8.4.4
+admin_password: "Your Password"
+ansible_become_pass: "Your Password"

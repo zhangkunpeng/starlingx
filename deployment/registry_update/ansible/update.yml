@@ -1,0 +1,20 @@
+---
+
+- name: update registry from existed starlingx
+  hosts: controller-0
+  gather_facts: no
+  tasks:
+  - name: Ensure docker running
+    become: yes
+    service: name=docker state=started
+  
+  - name: list docker images
+    become: yes
+    shell: docker images
+    register: images
+  
+  - debug:
+      msg: "{{ images }}"
+  
+
+  

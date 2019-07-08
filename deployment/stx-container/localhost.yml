@@ -1,0 +1,7 @@
+
+admin_password: 99cloud@SH
+ansible_become_pass: 99cloud@SH
+docker_registries:
+  unified: 47.100.127.100:5000
+
+is_secure_registry: false

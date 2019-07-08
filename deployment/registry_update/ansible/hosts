@@ -1,0 +1,34 @@
+---
+
+starlingx:
+  hosts:
+    controller-0:
+      ansible_ssh_host: 147.75.65.105
+      ansible_ssh_port: 22222
+      ansible_ssh_user: sysadmin
+      #ansible_ssh_pass: St8rlingX*
+      ansible_become_pass: St8rlingX*
+      #ansible_sudo_pass: St8rlingX*
+
+public_registry:
+  hosts:
+    docker_registry:
+      ansible_ssh_host: 47.100.127.100
+      ansible_ssh_port: 22
+      ansible_ssh_user: root
+
+  vars:
+    docker_registry_port: 5000
+    is_secure_registry: false
+
+remote_registry:
+  hosts:
+    remote_host:
+      ansible_ssh_host: 172.16.130.131
+      ansible_ssh_port: 22
+      ansible_ssh_user: starlingx
+      ansible_become_pass: 99cloud
+
+  vars:
+    docker_registry_port: 5000
+    is_secure_registry: false

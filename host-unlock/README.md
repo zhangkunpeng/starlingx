@@ -11,7 +11,7 @@
 #### 解锁 simplex 和 duplex
 实现 controller-0 、controller-1 的解锁
 ```
-wget https://github.com/zhangkunpeng/starlingx/blob/master/host-unlock/unlock-allinone.sh
+wget https://raw.githubusercontent.com/zhangkunpeng/starlingx/master/host-unlock/stx-2018.10/unlock-allinone.sh
 sh unlock-allinone.sh
 ```
 脚本需要一些必要的配置项，通过交互式输入
@@ -43,14 +43,14 @@ Apply the above configuration? [y/n]:
 #### 解锁 Controller Storage
 实现 controller-0 、controller-1 以及 compute-* 的解锁
 ```
-wget https://github.com/zhangkunpeng/starlingx/blob/master/host-unlock/unlock-standard.sh
+wget https://raw.githubusercontent.com/zhangkunpeng/starlingx/master/host-unlock/stx-2018.10/unlock-standard.sh
 sh unlock-standrad.sh
 ```
 
 #### 解锁 中心云 Central Cloud
 实现 中心云 controller-0 controller-1的解锁
 ```
-wget https://github.com/zhangkunpeng/starlingx/blob/master/host-unlock/unlock-central.sh
+wget https://raw.githubusercontent.com/zhangkunpeng/starlingx/master/host-unlock/stx-2018.10/unlock-central.sh
 sh unlock-central.sh
 ```
 

@@ -1,0 +1,4 @@
+network:
+  server:
+    node_port:
+      enabled: true

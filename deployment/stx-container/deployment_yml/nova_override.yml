@@ -1,0 +1,4 @@
+network:
+  osapi:
+    node_port:
+      enabled: true

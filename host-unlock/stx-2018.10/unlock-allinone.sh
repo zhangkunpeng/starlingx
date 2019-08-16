@@ -102,7 +102,7 @@ if [[ $NodeName = controller-0 ]];then
     echo ">>> Configure provider net and data interface"
     neutron providernet-create $NetName --type=$NetType
     if [ "$NetType" = "vlan" ]; then
-        neurton providernet-range-create --name $NetName-range1 --range $VlanMin-$VlanMax $NetName
+        neutron providernet-range-create --name $NetName-range1 --range $VlanMin-$VlanMax $NetName
     fi
 fi
 system host-if-modify -c data $NodeName $DATA_IF -p $NetName

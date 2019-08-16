@@ -1,0 +1,4 @@
+network:
+  api:
+    node_port:
+      enabled: true

@@ -53,4 +53,3 @@ sh unlock-standrad.sh
 wget https://raw.githubusercontent.com/zhangkunpeng/starlingx/master/host-unlock/stx-2018.10/unlock-central.sh
 sh unlock-central.sh
 ```
-

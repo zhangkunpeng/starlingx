@@ -1,0 +1,8 @@
+---
+
+starlingx:
+  hosts:
+    remotehost:
+      ansible_ssh_host: 147.75.94.91
+      ansible_ssh_port: 22
+      ansible_ssh_user: root

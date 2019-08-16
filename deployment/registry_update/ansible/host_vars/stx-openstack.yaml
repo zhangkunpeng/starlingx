@@ -1,0 +1,2923 @@
+data:
+  chart_group:
+  - openstack-aodh
+  - openstack-gnocchi
+  - openstack-panko
+  - openstack-ceilometer
+  description: Deploy telemetry
+  sequenced: true
+metadata:
+  name: openstack-telemetry
+  schema: metadata/Document/v1
+schema: armada/ChartGroup/v1
+---
+data:
+  chart_name: nova-api-proxy
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-nova-api-proxy
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/nova-api-proxy-0.1.0.tgz
+    reference: master
+    subpath: nova-api-proxy
+    type: tar
+  test:
+    enabled: false
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-nova-api-proxy
+        type: job
+      - labels:
+          component: test
+          release_group: osh-openstack-nova-api-proxy
+        type: pod
+  values:
+    images:
+      tags:
+        ks_endpoints: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        nova_api_proxy: docker.io/starlingx/stx-nova-api-proxy:rc-2.0-centos-stable-latest
+    pod:
+      affinity:
+        anti:
+          type:
+            default: requiredDuringSchedulingIgnoredDuringExecution
+  wait:
+    labels:
+      release_group: osh-openstack-nova-api-proxy
+    timeout: 1800
+metadata:
+  name: openstack-nova-api-proxy
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_name: rabbitmq
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-rabbitmq
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/rabbitmq-0.1.0.tgz
+    reference: master
+    subpath: rabbitmq
+    type: tar
+  test:
+    enabled: false
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-rabbitmq
+        type: job
+      - labels:
+          component: test
+          release_group: osh-openstack-rabbitmq
+        type: pod
+  values:
+    images:
+      tags:
+        prometheus_rabbitmq_exporter_helm_tests: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        rabbitmq_init: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+    labels:
+      prometheus_rabbitmq_exporter:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      server:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+    monitoring:
+      prometheus:
+        enabled: false
+    pod:
+      affinity:
+        anti:
+          type:
+            default: requiredDuringSchedulingIgnoredDuringExecution
+    volume:
+      size: 1Gi
+  wait:
+    labels:
+      release_group: osh-openstack-rabbitmq
+    timeout: 1800
+metadata:
+  name: openstack-rabbitmq
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_group:
+  - openstack-rabbitmq
+  description: Rabbitmq
+  sequenced: true
+metadata:
+  name: openstack-rabbitmq
+  schema: metadata/Document/v1
+schema: armada/ChartGroup/v1
+---
+data:
+  chart_group:
+  - kube-system-ingress
+  description: System Ingress Controller
+  sequenced: false
+metadata:
+  name: kube-system-ingress
+  schema: metadata/Document/v1
+schema: armada/ChartGroup/v1
+---
+data:
+  chart_name: ceilometer
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-ceilometer
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/ceilometer-0.1.0.tgz
+    reference: master
+    subpath: ceilometer
+    type: tar
+  test:
+    enabled: false
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-ceilometer
+        type: job
+      - labels:
+          component: test
+          release_group: osh-openstack-ceilometer
+        type: pod
+  values:
+    conf:
+      ceilometer:
+        cache:
+          expiration_time: 86400
+        compute:
+          instance_discovery_method: workload_partitioning
+          resource_update_interval: 60
+        oslo_messaging_notifications:
+          topics:
+          - notifications
+      event_pipeline:
+        sinks:
+        - name: event_sink
+          publishers:
+          - panko://
+          - gnocchi://
+        sources:
+        - events:
+          - '*'
+          name: event_source
+          sinks:
+          - event_sink
+      gnocchi_resources:
+        archive_policies:
+        - aggregation_methods:
+          - mean
+          back_window: 0
+          definition:
+          - granularity: 5 minutes
+            timespan: 7 days
+          name: ceilometer-low
+        - aggregation_methods:
+          - mean
+          - rate:mean
+          back_window: 0
+          definition:
+          - granularity: 5 minutes
+            timespan: 7 days
+          name: ceilometer-low-rate
+        archive_policy_default: ceilometer-low
+        resources:
+        - metrics:
+            identity.authenticate.failure: null
+            identity.authenticate.pending: null
+            identity.authenticate.success: null
+            identity.group.created: null
+            identity.group.deleted: null
+            identity.group.updated: null
+            identity.project.created: null
+            identity.project.deleted: null
+            identity.project.updated: null
+            identity.role.created: null
+            identity.role.deleted: null
+            identity.role.updated: null
+            identity.role_assignment.created: null
+            identity.role_assignment.deleted: null
+            identity.trust.created: null
+            identity.trust.deleted: null
+            identity.user.created: null
+            identity.user.deleted: null
+            identity.user.updated: null
+          resource_type: identity
+        - metrics:
+            radosgw.api.request: null
+            radosgw.containers.objects: null
+            radosgw.containers.objects.size: null
+            radosgw.objects: null
+            radosgw.objects.containers: null
+            radosgw.objects.size: null
+          resource_type: ceph_account
+        - attributes:
+            created_at: resource_metadata.created_at
+            deleted_at: resource_metadata.deleted_at
+            display_name: resource_metadata.display_name
+            flavor_id: resource_metadata.(instance_flavor_id|(flavor.id)|flavor_id)
+            flavor_name: resource_metadata.(instance_type|(flavor.name)|flavor_name)
+            host: resource_metadata.(instance_host|host)
+            image_ref: resource_metadata.image_ref
+            launched_at: resource_metadata.launched_at
+            server_group: resource_metadata.user_metadata.server_group
+          event_associated_resources:
+            instance_disk: '{"=": {"instance_id": "%s"}}'
+            instance_network_interface: '{"=": {"instance_id": "%s"}}'
+          event_attributes:
+            id: instance_id
+          event_delete: compute.instance.delete.start
+          metrics:
+            compute.instance.booting.time: null
+            cpu:
+              archive_policy_name: ceilometer-low-rate
+            cpu_l3_cache: null
+            disk.allocation: null
+            disk.capacity: null
+            disk.ephemeral.size: null
+            disk.iops: null
+            disk.latency: null
+            disk.root.size: null
+            disk.usage: null
+            memory: null
+            memory.bandwidth.local: null
+            memory.bandwidth.total: null
+            memory.resident: null
+            memory.swap.in: null
+            memory.swap.out: null
+            memory.usage: null
+            perf.cache.misses: null
+            perf.cache.references: null
+            perf.cpu.cycles: null
+            perf.instructions: null
+            vcpus:
+              archive_policy_name: ceilometer-low-rate
+          resource_type: instance
+        - attributes:
+            instance_id: resource_metadata.instance_id
+            name: resource_metadata.vnic_name
+          metrics:
+            network.incoming.bytes:
+              archive_policy_name: ceilometer-low-rate
+            network.incoming.packets:
+              archive_policy_name: ceilometer-low-rate
+            network.incoming.packets.drop:
+              archive_policy_name: ceilometer-low-rate
+            network.incoming.packets.error:
+              archive_policy_name: ceilometer-low-rate
+            network.outgoing.bytes:
+              archive_policy_name: ceilometer-low-rate
+            network.outgoing.packets:
+              archive_policy_name: ceilometer-low-rate
+            network.outgoing.packets.drop:
+              archive_policy_name: ceilometer-low-rate
+            network.outgoing.packets.error:
+              archive_policy_name: ceilometer-low-rate
+          resource_type: instance_network_interface
+        - attributes:
+            instance_id: resource_metadata.instance_id
+            name: resource_metadata.disk_name
+          metrics:
+            disk.device.allocation: null
+            disk.device.capacity: null
+            disk.device.iops: null
+            disk.device.latency: null
+            disk.device.read.bytes:
+              archive_policy_name: ceilometer-low-rate
+            disk.device.read.latency: null
+            disk.device.read.requests:
+              archive_policy_name: ceilometer-low-rate
+            disk.device.usage: null
+            disk.device.write.bytes:
+              archive_policy_name: ceilometer-low-rate
+            disk.device.write.latency: null
+            disk.device.write.requests:
+              archive_policy_name: ceilometer-low-rate
+          resource_type: instance_disk
+        - attributes:
+            container_format: resource_metadata.container_format
+            disk_format: resource_metadata.disk_format
+            name: resource_metadata.name
+          event_attributes:
+            id: resource_id
+          event_delete: image.delete
+          metrics:
+            image.download: null
+            image.serve: null
+            image.size: null
+          resource_type: image
+        - metrics:
+            hardware.ipmi.node.airflow: null
+            hardware.ipmi.node.cpu_util: null
+            hardware.ipmi.node.cups: null
+            hardware.ipmi.node.current: null
+            hardware.ipmi.node.fan: null
+            hardware.ipmi.node.inlet_temperature: null
+            hardware.ipmi.node.io_util: null
+            hardware.ipmi.node.mem_util: null
+            hardware.ipmi.node.outlet_temperature: null
+            hardware.ipmi.node.power: null
+            hardware.ipmi.node.temperature: null
+            hardware.ipmi.node.voltage: null
+          resource_type: ipmi
+        - attributes:
+            node: resource_metadata.node
+          metrics:
+            hardware.ipmi.current: null
+            hardware.ipmi.fan: null
+            hardware.ipmi.temperature: null
+            hardware.ipmi.voltage: null
+          resource_type: ipmi_sensor
+        - event_attributes:
+            id: resource_id
+          event_delete: floatingip.delete.end
+          metrics:
+            bandwidth: null
+            ip.floating: null
+          resource_type: network
+        - metrics:
+            stack.create: null
+            stack.delete: null
+            stack.resume: null
+            stack.suspend: null
+            stack.update: null
+          resource_type: stack
+        - metrics:
+            storage.containers.objects: null
+            storage.containers.objects.size: null
+            storage.objects: null
+            storage.objects.containers: null
+            storage.objects.incoming.bytes: null
+            storage.objects.outgoing.bytes: null
+            storage.objects.size: null
+          resource_type: swift_account
+        - attributes:
+            display_name: resource_metadata.(display_name|name)
+            image_id: resource_metadata.image_id
+            instance_id: resource_metadata.instance_id
+            volume_type: resource_metadata.volume_type
+          event_attributes:
+            id: resource_id
+          event_delete: volume.delete.start
+          metrics:
+            snapshot.size: null
+            volume: null
+            volume.backup.size: null
+            volume.size: null
+            volume.snapshot.size: null
+          resource_type: volume
+        - metrics:
+            volume.provider.capacity.allocated: null
+            volume.provider.capacity.free: null
+            volume.provider.capacity.provisioned: null
+            volume.provider.capacity.total: null
+            volume.provider.capacity.virtual_free: null
+          resource_type: volume_provider
+        - attributes:
+            provider: resource_metadata.provider
+          metrics:
+            volume.provider.pool.capacity.allocated: null
+            volume.provider.pool.capacity.free: null
+            volume.provider.pool.capacity.provisioned: null
+            volume.provider.pool.capacity.total: null
+            volume.provider.pool.capacity.virtual_free: null
+          resource_type: volume_provider_pool
+        - attributes:
+            host_name: resource_metadata.resource_url
+          metrics:
+            hardware.cpu.load.15min: null
+            hardware.cpu.load.1min: null
+            hardware.cpu.load.5min: null
+            hardware.cpu.util: null
+            hardware.memory.buffer: null
+            hardware.memory.cached: null
+            hardware.memory.swap.avail: null
+            hardware.memory.swap.total: null
+            hardware.memory.total: null
+            hardware.memory.used: null
+            hardware.network.ip.incoming.datagrams: null
+            hardware.network.ip.outgoing.datagrams: null
+            hardware.system_stats.cpu.idle: null
+            hardware.system_stats.io.incoming.blocks: null
+            hardware.system_stats.io.outgoing.blocks: null
+          resource_type: host
+        - attributes:
+            device_name: resource_metadata.device
+            host_name: resource_metadata.resource_url
+          metrics:
+            hardware.disk.read.bytes: null
+            hardware.disk.read.requests: null
+            hardware.disk.size.total: null
+            hardware.disk.size.used: null
+            hardware.disk.write.bytes: null
+            hardware.disk.write.requests: null
+          resource_type: host_disk
+        - attributes:
+            device_name: resource_metadata.name
+            host_name: resource_metadata.resource_url
+          metrics:
+            hardware.network.incoming.bytes: null
+            hardware.network.outgoing.bytes: null
+            hardware.network.outgoing.errors: null
+          resource_type: host_network_interface
+        - attributes:
+            host_name: resource_metadata.host
+          metrics:
+            compute.node.cpu.frequency: null
+            compute.node.cpu.idle.percent: null
+            compute.node.cpu.idle.time: null
+            compute.node.cpu.iowait.percent: null
+            compute.node.cpu.iowait.time: null
+            compute.node.cpu.kernel.percent: null
+            compute.node.cpu.kernel.time: null
+            compute.node.cpu.percent: null
+            compute.node.cpu.user.percent: null
+            compute.node.cpu.user.time: null
+          resource_type: nova_compute
+        - attributes:
+            availability_zone: resource_metadata.availability_zone
+            host: resource_metadata.host
+            name: resource_metadata.name
+            protocol: resource_metadata.protocol
+            status: resource_metadata.status
+          metrics:
+            manila.share.size: null
+          resource_type: manila_share
+        - attributes:
+            controller: resource_metadata.controller
+          metrics:
+            switch: null
+            switch.ports: null
+          resource_type: switch
+        - attributes:
+            controller: resource_metadata.controller
+            neutron_port_id: resource_metadata.neutron_port_id
+            port_number_on_switch: resource_metadata.port_number_on_switch
+            switch: resource_metadata.switch
+          metrics:
+            switch.port: null
+            switch.port.collision.count: null
+            switch.port.receive.bytes: null
+            switch.port.receive.crc_error: null
+            switch.port.receive.drops: null
+            switch.port.receive.errors: null
+            switch.port.receive.frame_error: null
+            switch.port.receive.overrun_error: null
+            switch.port.receive.packets: null
+            switch.port.transmit.bytes: null
+            switch.port.transmit.drops: null
+            switch.port.transmit.errors: null
+            switch.port.transmit.packets: null
+            switch.port.uptime: null
+          resource_type: switch_port
+        - attributes:
+            controller: resource_metadata.controller
+          metrics:
+            port: null
+            port.receive.bytes: null
+            port.receive.drops: null
+            port.receive.errors: null
+            port.receive.packets: null
+            port.transmit.bytes: null
+            port.transmit.packets: null
+            port.uptime: null
+          resource_type: port
+        - attributes:
+            controller: resource_metadata.controller
+            switch: resource_metadata.switch
+          metrics:
+            switch.table.active.entries: null
+          resource_type: switch_table
+      pipeline:
+        sinks:
+        - name: meter_sink
+          publishers:
+          - gnocchi://
+        sources:
+        - meters:
+          - '*'
+          name: meter_source
+          sinks:
+          - meter_sink
+      polling:
+        sources:
+        - interval: 30
+          meters:
+          - cpu
+          name: instance_cpu_pollster
+        - interval: 600
+          meters:
+          - disk.capacity
+          - disk.allocation
+          - disk.usage
+          - disk.device.read.requests
+          - disk.device.write.requests
+          - disk.device.read.bytes
+          - disk.device.write.bytes
+          - disk.device.capacity
+          - disk.device.allocation
+          - disk.device.usage
+          name: instance_disk_pollster
+        - interval: 600
+          meters:
+          - hardware.ipmi.node.power
+          - hardware.ipmi.node.temperature
+          - hardware.ipmi.node.outlet_temperature
+          - hardware.ipmi.node.airflow
+          - hardware.ipmi.node.cups
+          - hardware.ipmi.node.cpu_util
+          - hardware.ipmi.node.mem_util
+          - hardware.ipmi.node.io_util
+          - hardware.ipmi.temperature
+          - hardware.ipmi.voltage
+          - hardware.ipmi.current
+          - hardware.ipmi.fan
+          name: ipmi_pollster
+        - interval: 600
+          meters:
+          - radosgw.objects
+          - radosgw.objects.size
+          - radosgw.objects.containers
+          - radosgw.api.request
+          - radosgw.containers.objects
+          - radosgw.containers.objects.size
+          name: ceph_pollster
+        - interval: 600
+          meters:
+          - image.size
+          name: image_pollster
+        - interval: 600
+          meters:
+          - volume.size
+          - volume.snapshot.size
+          - volume.backup.size
+          name: volume_pollster
+    dependencies:
+      static:
+        central:
+          jobs:
+          - ceilometer-db-sync
+          - ceilometer-rabbit-init
+          services: null
+        compute:
+          jobs:
+          - ceilometer-db-sync
+          - ceilometer-rabbit-init
+          services: null
+        db_sync:
+          jobs:
+          - ceilometer-ks-user
+          - ceilometer-ks-service
+          services:
+          - endpoint: internal
+            service: identity
+          - endpoint: internal
+            service: metric
+        ipmi:
+          jobs:
+          - ceilometer-db-sync
+          - ceilometer-rabbit-init
+          services: null
+        notification:
+          jobs:
+          - ceilometer-db-sync
+          - ceilometer-rabbit-init
+          services:
+          - endpoint: internal
+            service: event
+    endpoints:
+      event:
+        host_fqdn_override:
+          default: null
+        hosts:
+          default: panko-api
+          public: panko
+        name: panko
+        path:
+          default: null
+        port:
+          api:
+            default: 8977
+            public: 80
+        scheme:
+          default: http
+      oslo_cache:
+        hosts:
+          default: memcached
+    images:
+      tags:
+        ceilometer_api: docker.io/starlingx/stx-ceilometer:rc-2.0-centos-stable-latest
+        ceilometer_central: docker.io/starlingx/stx-ceilometer:rc-2.0-centos-stable-latest
+        ceilometer_collector: docker.io/starlingx/stx-ceilometer:rc-2.0-centos-stable-latest
+        ceilometer_compute: docker.io/starlingx/stx-ceilometer:rc-2.0-centos-stable-latest
+        ceilometer_db_sync: docker.io/starlingx/stx-ceilometer:rc-2.0-centos-stable-latest
+        ceilometer_ipmi: docker.io/starlingx/stx-ceilometer:rc-2.0-centos-stable-latest
+        ceilometer_notification: docker.io/starlingx/stx-ceilometer:rc-2.0-centos-stable-latest
+        db_init: docker.io/starlingx/stx-ceilometer:rc-2.0-centos-stable-latest
+        db_init_mongodb: docker.io/starlingx/stx-ceilometer:rc-2.0-centos-stable-latest
+        ks_endpoints: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_service: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_user: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        test: docker.io/starlingx/stx-ceilometer:rc-2.0-centos-stable-latest
+    manifests:
+      deployment_api: false
+      deployment_collector: false
+      job_db_init: false
+      job_db_init_mongodb: false
+      job_ks_endpoints: false
+      secret_db: false
+      secret_mongodb: false
+      service_api: false
+    pod:
+      affinity:
+        anti:
+          type:
+            default: requiredDuringSchedulingIgnoredDuringExecution
+  wait:
+    labels:
+      release_group: osh-openstack-ceilometer
+    timeout: 1800
+metadata:
+  name: openstack-ceilometer
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_group:
+  - openstack-heat
+  description: Deploy heat
+  sequenced: true
+metadata:
+  name: openstack-heat
+  schema: metadata/Document/v1
+schema: armada/ChartGroup/v1
+---
+data:
+  chart_name: ingress
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: kube-system
+  release: kube-system-ingress
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/ingress-0.1.0.tgz
+    reference: master
+    subpath: ingress
+    type: tar
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-kube-system-ingress
+        type: job
+  values:
+    conf:
+      ingress:
+        worker-processes: '4'
+    labels:
+      error_server:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      server:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+    pod:
+      affinity:
+        anti:
+          type:
+            default: requiredDuringSchedulingIgnoredDuringExecution
+      replicas:
+        error_page: 2
+        ingress: 2
+  wait:
+    labels:
+      release_group: osh-kube-system-ingress
+    timeout: 1800
+metadata:
+  name: kube-system-ingress
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_name: garbd
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-garbd
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/garbd-0.1.0.tgz
+    subpath: garbd
+    type: tar
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-garbd
+        type: job
+  values:
+    images:
+      tags:
+        garbd: docker.io/starlingx/stx-mariadb:rc-2.0-centos-stable-latest
+    labels:
+      server:
+        node_selector_key: openstack-compute-node
+        node_selector_value: enabled
+  wait:
+    labels:
+      release_group: osh-openstack-garbd
+    timeout: 1800
+metadata:
+  name: openstack-garbd
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_name: libvirt
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-libvirt
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/libvirt-0.1.0.tgz
+    reference: master
+    subpath: libvirt
+    type: tar
+  upgrade:
+    no_hooks: false
+  values:
+    ceph_client:
+      user_secret_name: cinder-volume-rbd-keyring
+    conf:
+      ceph:
+        enabled: true
+      kubernetes:
+        cgroup: k8s-infra
+    images:
+      tags:
+        libvirt: docker.io/starlingx/stx-libvirt:rc-2.0-centos-stable-latest
+    labels:
+      agent:
+        libvirt:
+          node_selector_key: openstack-compute-node
+          node_selector_value: enabled
+  wait:
+    labels:
+      release_group: osh-openstack-libvirt
+    timeout: 1800
+metadata:
+  name: openstack-libvirt
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_name: placement
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-placement
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/placement-0.1.0.tgz
+    reference: master
+    subpath: placement
+    type: tar
+  test:
+    enabled: false
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-placement
+        type: job
+  values:
+    conf:
+      placement:
+        DEFAULT:
+          log_config_append: /etc/placement/logging.conf
+    images:
+      tags:
+        db_drop: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_init: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_endpoints: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_service: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_user: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        placement: docker.io/starlingx/stx-placement:rc-2.0-centos-stable-latest
+        placement_db_sync: docker.io/starlingx/stx-placement:rc-2.0-centos-stable-latest
+    labels:
+      job:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      placement:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+    pod:
+      affinity:
+        anti:
+          type:
+            default: requiredDuringSchedulingIgnoredDuringExecution
+      replicas:
+        placement: 1
+      user:
+        placement:
+          uid: 42424
+  wait:
+    labels:
+      release_group: osh-openstack-placement
+    timeout: 1800
+metadata:
+  name: openstack-placement
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_name: barbican
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-barbican
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/barbican-0.1.0.tgz
+    reference: master
+    subpath: barbican
+    type: tar
+  test:
+    enabled: false
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-barbican
+        type: job
+      - labels:
+          component: test
+          release_group: osh-openstack-barbican
+        type: pod
+  values:
+    images:
+      tags:
+        barbican_api: docker.io/starlingx/stx-barbican:rc-2.0-centos-stable-latest
+        barbican_db_sync: docker.io/starlingx/stx-barbican:rc-2.0-centos-stable-latest
+        bootstrap: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_drop: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_init: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_endpoints: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_service: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_user: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        scripted_test: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+    labels:
+      api:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      job:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+    pod:
+      affinity:
+        anti:
+          type:
+            default: requiredDuringSchedulingIgnoredDuringExecution
+      replicas:
+        api: 2
+  wait:
+    labels:
+      release_group: osh-openstack-barbican
+    timeout: 1800
+metadata:
+  name: openstack-barbican
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_group:
+  - openstack-keystone
+  description: Deploy keystone
+  sequenced: true
+metadata:
+  name: openstack-keystone
+  schema: metadata/Document/v1
+schema: armada/ChartGroup/v1
+---
+data:
+  chart_group:
+  - openstack-mariadb
+  - openstack-garbd
+  description: Mariadb
+  sequenced: true
+metadata:
+  name: openstack-mariadb
+  schema: metadata/Document/v1
+schema: armada/ChartGroup/v1
+---
+data:
+  chart_name: keystone
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-keystone
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/keystone-0.1.0.tgz
+    reference: master
+    subpath: keystone
+    type: tar
+  test:
+    enabled: false
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-keystone
+        type: job
+      - labels:
+          component: test
+          release_group: osh-openstack-keystone
+        type: pod
+  values:
+    endpoints:
+      identity:
+        name: keystone
+        namespace: openstack
+    images:
+      tags:
+        bootstrap: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_drop: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_init: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        keystone_api: docker.io/starlingx/stx-keystone:rc-2.0-centos-stable-latest
+        keystone_credential_rotate: docker.io/starlingx/stx-keystone:rc-2.0-centos-stable-latest
+        keystone_credential_setup: docker.io/starlingx/stx-keystone:rc-2.0-centos-stable-latest
+        keystone_db_sync: docker.io/starlingx/stx-keystone:rc-2.0-centos-stable-latest
+        keystone_domain_manage: docker.io/starlingx/stx-keystone:rc-2.0-centos-stable-latest
+        keystone_fernet_rotate: docker.io/starlingx/stx-keystone:rc-2.0-centos-stable-latest
+        keystone_fernet_setup: docker.io/starlingx/stx-keystone:rc-2.0-centos-stable-latest
+        ks_user: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+    labels:
+      api:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      job:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+    pod:
+      affinity:
+        anti:
+          type:
+            default: requiredDuringSchedulingIgnoredDuringExecution
+      replicas:
+        api: 2
+      security_context:
+        keystone:
+          pod:
+            runAsUser: 0
+      user:
+        keystone:
+          uid: 0
+  wait:
+    labels:
+      release_group: osh-openstack-keystone
+    timeout: 1800
+metadata:
+  name: openstack-keystone
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_name: nova
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-nova
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/nova-0.1.0.tgz
+    reference: master
+    subpath: nova
+    type: tar
+  test:
+    enabled: false
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-nova
+        type: job
+  values:
+    conf:
+      ceph:
+        enabled: true
+      hypervisor:
+        address_search_enabled: false
+      nova:
+        DEFAULT:
+          allow_resize_to_same_host: true
+          block_device_allocate_retries: 2400
+          block_device_allocate_retries_interval: 3
+          compute_monitors: cpu.virt_driver
+          concurrent_disk_operations: 2
+          cpu_allocation_ratio: 16.0
+          default_mempages_size: 2048
+          disk_allocation_ratio: 1.0
+          enable_new_services: false
+          force_raw_images: false
+          long_rpc_timeout: 400
+          map_new_hosts: false
+          mkisofs_cmd: /usr/bin/genisoimage
+          network_allocate_retries: 2
+          ram_allocation_ratio: 1.0
+          remove_unused_original_minimum_age_seconds: 3600
+          reserved_host_memory_mb: 0
+          running_deleted_instance_poll_interval: 60
+          service_down_time: 90
+        api_database:
+          idle_timeout: 60
+          max_overflow: 64
+          max_pool_size: 1
+        cell0_database:
+          idle_timeout: 60
+          max_overflow: 64
+          max_pool_size: 1
+        database:
+          idle_timeout: 60
+          max_overflow: 64
+          max_pool_size: 1
+        filter_scheduler:
+          build_failure_weight_multiplier: 0.0
+          cpu_weight_multiplier: 0.0
+          disk_weight_multiplier: 0.0
+          enabled_filters:
+          - RetryFilter
+          - ComputeFilter
+          - AvailabilityZoneFilter
+          - AggregateInstanceExtraSpecsFilter
+          - ComputeCapabilitiesFilter
+          - ImagePropertiesFilter
+          - NUMATopologyFilter
+          - ServerGroupAffinityFilter
+          - ServerGroupAntiAffinityFilter
+          - PciPassthroughFilter
+          pci_weight_multiplier: 0.0
+          ram_weight_multiplier: 0.0
+          shuffle_best_same_weighed_hosts: true
+          soft_affinity_weight_multiplier: 20.0
+          soft_anti_affinity_weight_multiplier: 20.0
+        libvirt:
+          cpu_mode: host-model
+          live_migration_completion_timeout: 180
+          live_migration_permit_auto_converge: true
+          mem_stats_period_seconds: 0
+          rbd_user: cinder
+          remove_unused_resized_minimum_age_seconds: 86400
+        metrics:
+          required: false
+        neutron:
+          default_floating_pool: public
+        notifications:
+          notification_format: unversioned
+        scheduler:
+          discover_hosts_in_cells_interval: 30
+          periodic_task_interval: -1
+          workers: 1
+        service_user:
+          send_service_user_token: true
+        upgrade_levels: None
+        workarounds:
+          enable_numa_live_migration: true
+    console:
+      address_search_enabled: false
+    images:
+      tags:
+        bootstrap: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_drop: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_init: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_endpoints: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_service: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_user: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        nova_api: docker.io/starlingx/stx-nova:rc-2.0-centos-stable-latest
+        nova_cell_setup: docker.io/starlingx/stx-nova:rc-2.0-centos-stable-latest
+        nova_cell_setup_init: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        nova_compute: docker.io/starlingx/stx-nova:rc-2.0-centos-stable-latest
+        nova_compute_ironic: docker.io/starlingx/stx-nova:rc-2.0-centos-stable-latest
+        nova_compute_ssh: docker.io/starlingx/stx-nova:rc-2.0-centos-stable-latest
+        nova_conductor: docker.io/starlingx/stx-nova:rc-2.0-centos-stable-latest
+        nova_consoleauth: docker.io/starlingx/stx-nova:rc-2.0-centos-stable-latest
+        nova_db_sync: docker.io/starlingx/stx-nova:rc-2.0-centos-stable-latest
+        nova_novncproxy: docker.io/starlingx/stx-nova:rc-2.0-centos-stable-latest
+        nova_placement: docker.io/starlingx/stx-nova:rc-2.0-centos-stable-latest
+        nova_scheduler: docker.io/starlingx/stx-nova:rc-2.0-centos-stable-latest
+        nova_spiceproxy: docker.io/starlingx/stx-nova:rc-2.0-centos-stable-latest
+        nova_spiceproxy_assets: docker.io/starlingx/stx-nova:rc-2.0-centos-stable-latest
+    labels:
+      agent:
+        compute:
+          node_selector_key: openstack-compute-node
+          node_selector_value: enabled
+        compute_ironic:
+          node_selector_key: openstack-ironic
+          node_selector_value: enabled
+      api_metadata:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      conductor:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      consoleauth:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      job:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      novncproxy:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      osapi:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      scheduler:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      spiceproxy:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      test:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+    manifests:
+      cron_job_cell_setup: false
+      deployment_placement: false
+      ingress_osapi: false
+      ingress_placement: false
+      job_db_init_placement: false
+      job_ks_endpoints: false
+      job_ks_placement_endpoints: false
+      job_ks_placement_service: false
+      job_ks_placement_user: false
+      pdb_placement: false
+      secret_keystone_placement: false
+      service_ingress_osapi: false
+      service_ingress_placement: false
+      service_placement: false
+      statefulset_compute_ironic: false
+    network:
+      sshd:
+        enabled: true
+    pod:
+      affinity:
+        anti:
+          type:
+            default: requiredDuringSchedulingIgnoredDuringExecution
+      mandatory_access_control:
+        type: null
+      probes:
+        liveness:
+          nova_scheduler:
+            enabled: false
+        readiness:
+          nova_scheduler:
+            enabled: false
+      replicas:
+        api_metadata: 1
+        conductor: 1
+        consoleauth: 1
+        novncproxy: 1
+        osapi: 1
+        scheduler: 1
+      user:
+        nova:
+          uid: 0
+  wait:
+    labels:
+      release_group: osh-openstack-nova
+    timeout: 1800
+metadata:
+  name: openstack-nova
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_name: panko
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-panko
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/panko-0.1.0.tgz
+    reference: master
+    subpath: panko
+    type: tar
+  test:
+    enabled: false
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-panko
+        type: job
+      - labels:
+          component: test
+          release_group: osh-openstack-panko
+        type: pod
+  values:
+    conf:
+      paste:
+        app:pankov2:
+          paste.app_factory: panko.api.app:app_factory
+          root: panko.api.controllers.v2.root.V2Controller
+        app:pankoversions:
+          paste.app_factory: panko.api.app:app_factory
+          root: panko.api.controllers.root.VersionsController
+        composite:panko+keystone:
+          /: pankoversions_pipeline
+          /v2: pankov2_keystone_pipeline
+          use: egg:Paste#urlmap
+        composite:panko+noauth:
+          /: pankoversions_pipeline
+          /v2: pankov2_noauth_pipeline
+          use: egg:Paste#urlmap
+        filter:authtoken:
+          oslo_config_project: panko
+          paste.filter_factory: keystonemiddleware.auth_token:filter_factory
+        filter:cors:
+          oslo_config_project: panko
+          paste.filter_factory: oslo_middleware.cors:filter_factory
+        filter:http_proxy_to_wsgi:
+          oslo_config_project: panko
+          paste.filter_factory: oslo_middleware.http_proxy_to_wsgi:HTTPProxyToWSGI.factory
+        filter:request_id:
+          paste.filter_factory: oslo_middleware:RequestId.factory
+        pipeline:pankov2_keystone_pipeline:
+          pipeline: cors http_proxy_to_wsgi request_id authtoken pankov2
+        pipeline:pankov2_noauth_pipeline:
+          pipeline: cors http_proxy_to_wsgi request_id pankov2
+        pipeline:pankoversions_pipeline:
+          pipeline: cors http_proxy_to_wsgi pankoversions
+    images:
+      tags:
+        bootstrap: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_drop: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_init: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_endpoints: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_service: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_user: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        panko_api: docker.io/starlingx/stx-panko:rc-2.0-centos-stable-latest
+        panko_db_sync: docker.io/starlingx/stx-panko:rc-2.0-centos-stable-latest
+        panko_events_cleaner: docker.io/starlingx/stx-panko:rc-2.0-centos-stable-latest
+    jobs:
+      events_cleaner:
+        cron: 10 * * * *
+    pod:
+      affinity:
+        anti:
+          type:
+            default: requiredDuringSchedulingIgnoredDuringExecution
+      user:
+        panko:
+          uid: 0
+  wait:
+    labels:
+      release_group: osh-openstack-panko
+    timeout: 1800
+metadata:
+  name: openstack-panko
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_name: ceph-rgw
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-ceph-rgw
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/ceph-rgw-0.1.0.tgz
+    reference: master
+    subpath: ceph-rgw
+    type: tar
+  test:
+    enabled: false
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-ceph-rgw
+        type: job
+      - labels:
+          component: test
+          release_group: osh-openstack-ceph-rgw
+        type: pod
+  values:
+    conf:
+      ceph:
+        global:
+          cephx: false
+      rgw_ks:
+        enabled: true
+    endpoints:
+      object_store:
+        path:
+          default: /swift/v1
+        port:
+          api:
+            admin: 7480
+            default: null
+            internal: 7480
+            public: 7480
+    images:
+      tags:
+        ks_endpoints: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_service: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_user: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+    labels:
+      api:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      job:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      registry:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+    pod:
+      affinity:
+        anti:
+          type:
+            default: requiredDuringSchedulingIgnoredDuringExecution
+      replicas:
+        api: 2
+        registry: 2
+  wait:
+    labels:
+      release_group: osh-openstack-ceph-rgw
+    resources:
+    - type: job
+    timeout: 300
+metadata:
+  name: openstack-ceph-rgw
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_group:
+  - openstack-barbican
+  description: Deploy barbican
+  sequenced: true
+metadata:
+  name: openstack-barbican
+  schema: metadata/Document/v1
+schema: armada/ChartGroup/v1
+---
+data:
+  chart_group:
+  - openstack-ingress
+  - openstack-nginx-ports-control
+  description: OpenStack Ingress Controller
+  sequenced: false
+metadata:
+  name: openstack-ingress
+  schema: metadata/Document/v1
+schema: armada/ChartGroup/v1
+---
+data:
+  chart_group:
+  - openstack-glance
+  description: Deploy glance
+  sequenced: true
+metadata:
+  name: openstack-glance
+  schema: metadata/Document/v1
+schema: armada/ChartGroup/v1
+---
+data:
+  chart_name: mariadb
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-mariadb
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/mariadb-0.1.0.tgz
+    subpath: mariadb
+    type: tar
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-mariadb
+        type: job
+  values:
+    conf:
+      ingress_conf:
+        worker-processes: '4'
+    images:
+      tags:
+        prometheus_mysql_exporter_helm_tests: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+    labels:
+      prometheus_mysql_exporter:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      server:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+    monitoring:
+      prometheus:
+        enabled: false
+    pod:
+      affinity:
+        anti:
+          type:
+            default: requiredDuringSchedulingIgnoredDuringExecution
+  wait:
+    labels:
+      release_group: osh-openstack-mariadb
+    timeout: 1800
+metadata:
+  name: openstack-mariadb
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_name: ingress
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-ingress
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/ingress-0.1.0.tgz
+    reference: master
+    subpath: ingress
+    type: tar
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-ingress
+        type: job
+  values:
+    conf:
+      ingress:
+        worker-processes: '4'
+    labels:
+      error_server:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      server:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+    pod:
+      affinity:
+        anti:
+          type:
+            default: requiredDuringSchedulingIgnoredDuringExecution
+      replicas:
+        error_page: 2
+        ingress: 2
+  wait:
+    labels:
+      release_group: osh-openstack-ingress
+    timeout: 1800
+metadata:
+  name: openstack-ingress
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_group:
+  - openstack-horizon
+  description: Deploy horizon
+  sequenced: false
+metadata:
+  name: openstack-horizon
+  schema: metadata/Document/v1
+schema: armada/ChartGroup/v1
+---
+data:
+  chart_name: memcached
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-memcached
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/memcached-0.1.0.tgz
+    reference: master
+    subpath: memcached
+    type: tar
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-memcached
+        type: job
+  values:
+    labels:
+      prometheus_memcached_exporter:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      server:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+    monitoring:
+      prometheus:
+        enabled: false
+  wait:
+    labels:
+      release_group: osh-openstack-memcached
+    timeout: 1800
+metadata:
+  name: openstack-memcached
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_name: aodh
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-aodh
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/aodh-0.1.0.tgz
+    reference: master
+    subpath: aodh
+    type: tar
+  test:
+    enabled: false
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-aodh
+        type: job
+      - labels:
+          component: test
+          release_group: osh-openstack-aodh
+        type: pod
+  values:
+    images:
+      tags:
+        aodh_alarms_cleaner: docker.io/starlingx/stx-aodh:rc-2.0-centos-stable-latest
+        aodh_api: docker.io/starlingx/stx-aodh:rc-2.0-centos-stable-latest
+        aodh_db_sync: docker.io/starlingx/stx-aodh:rc-2.0-centos-stable-latest
+        aodh_evaluator: docker.io/starlingx/stx-aodh:rc-2.0-centos-stable-latest
+        aodh_listener: docker.io/starlingx/stx-aodh:rc-2.0-centos-stable-latest
+        aodh_notifier: docker.io/starlingx/stx-aodh:rc-2.0-centos-stable-latest
+        bootstrap: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_drop: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_init: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_endpoints: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_service: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_user: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+    jobs:
+      alarms_cleaner:
+        cron: 35 */24 * * *
+    pod:
+      affinity:
+        anti:
+          type:
+            default: requiredDuringSchedulingIgnoredDuringExecution
+      user:
+        aodh:
+          uid: 0
+  wait:
+    labels:
+      release_group: osh-openstack-aodh
+    timeout: 1800
+metadata:
+  name: openstack-aodh
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_group:
+  - openstack-memcached
+  description: Memcached
+  sequenced: true
+metadata:
+  name: openstack-memcached
+  schema: metadata/Document/v1
+schema: armada/ChartGroup/v1
+---
+data:
+  chart_group:
+  - openstack-ceph-rgw
+  description: Deploy swift
+  sequenced: true
+metadata:
+  name: openstack-ceph-rgw
+  schema: metadata/Document/v1
+schema: armada/ChartGroup/v1
+---
+data:
+  chart_group:
+  - openstack-cinder
+  description: Deploy cinder
+  sequenced: true
+metadata:
+  name: openstack-cinder
+  schema: metadata/Document/v1
+schema: armada/ChartGroup/v1
+---
+data:
+  chart_name: glance
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-glance
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/glance-0.1.0.tgz
+    reference: master
+    subpath: glance
+    type: tar
+  test:
+    enabled: false
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-glance
+        type: job
+      - labels:
+          component: test
+          release_group: osh-openstack-glance
+        type: pod
+  values:
+    images:
+      tags:
+        bootstrap: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_drop: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_init: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        glance_api: docker.io/starlingx/stx-glance:rc-2.0-centos-stable-latest
+        glance_db_sync: docker.io/starlingx/stx-glance:rc-2.0-centos-stable-latest
+        glance_registry: docker.io/starlingx/stx-glance:rc-2.0-centos-stable-latest
+        ks_endpoints: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_service: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_user: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+    labels:
+      api:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      job:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      registry:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+    pod:
+      affinity:
+        anti:
+          type:
+            default: requiredDuringSchedulingIgnoredDuringExecution
+      replicas:
+        api: 2
+        registry: 2
+  wait:
+    labels:
+      release_group: osh-openstack-glance
+    timeout: 1800
+metadata:
+  name: openstack-glance
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_name: cinder
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-cinder
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/cinder-0.1.0.tgz
+    reference: master
+    subpath: cinder
+    type: tar
+  test:
+    enabled: false
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-cinder
+        type: job
+      - labels:
+          component: test
+          release_group: osh-openstack-cinder
+        type: pod
+  values:
+    conf:
+      cinder:
+        DEFAULT:
+          backup_driver: cinder.backup.drivers.ceph.CephBackupDriver
+    images:
+      tags:
+        bootstrap: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        cinder_api: docker.io/starlingx/stx-cinder:rc-2.0-centos-stable-latest
+        cinder_backup: docker.io/starlingx/stx-cinder:rc-2.0-centos-stable-latest
+        cinder_db_sync: docker.io/starlingx/stx-cinder:rc-2.0-centos-stable-latest
+        cinder_scheduler: docker.io/starlingx/stx-cinder:rc-2.0-centos-stable-latest
+        cinder_volume: docker.io/starlingx/stx-cinder:rc-2.0-centos-stable-latest
+        cinder_volume_usage_audit: docker.io/starlingx/stx-cinder:rc-2.0-centos-stable-latest
+        db_drop: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_init: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_endpoints: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_service: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_user: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+    labels:
+      api:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      backup:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      job:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      scheduler:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      volume:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+    pod:
+      affinity:
+        anti:
+          type:
+            default: requiredDuringSchedulingIgnoredDuringExecution
+      replicas:
+        api: 2
+        backup: 1
+        scheduler: 1
+        volume: 1
+    storage: rbd
+  wait:
+    labels:
+      release_group: osh-openstack-cinder
+    timeout: 1800
+metadata:
+  name: openstack-cinder
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_name: gnocchi
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-gnocchi
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/gnocchi-0.1.0.tgz
+    reference: master
+    subpath: gnocchi
+    type: tar
+  test:
+    enabled: false
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-gnocchi
+        type: job
+      - labels:
+          component: test
+          release_group: osh-openstack-gnocchi
+        type: pod
+  values:
+    conf:
+      apache: "Listen 0.0.0.0:{{ tuple \"metric\" \"internal\" \"api\" . | include\
+        \ \"helm-toolkit.endpoints.endpoint_port_lookup\" }}\n\nSetEnvIf X-Forwarded-For\
+        \ \"^.*\\..*\\..*\\..*\" forwarded\nCustomLog /dev/stdout combined env=!forwarded\n\
+        CustomLog /dev/stdout proxy env=forwarded\n\n<VirtualHost *:{{ tuple \"metric\"\
+        \ \"internal\" \"api\" . | include \"helm-toolkit.endpoints.endpoint_port_lookup\"\
+        \ }}>\n    WSGIDaemonProcess gnocchi processes=1 threads=2 user=gnocchi group=gnocchi\
+        \ display-name=%{GROUP}\n    WSGIProcessGroup gnocchi\n    WSGIScriptAlias\
+        \ / \"/var/lib/openstack/bin/gnocchi-api\"\n    WSGIApplicationGroup %{GLOBAL}\n\
+        \n    ErrorLog /dev/stdout\n    SetEnvIf X-Forwarded-For \"^.*\\..*\\..*\\\
+        ..*\" forwarded\n    CustomLog /dev/stdout combined env=!forwarded\n    CustomLog\
+        \ /dev/stdout proxy env=forwarded\n\n    <Directory \"/var/lib/openstack/bin\"\
+        >\n          Require all granted\n    </Directory>\n</VirtualHost>\n"
+      gnocchi:
+        indexer:
+          driver: mariadb
+        keystone_authtoken:
+          interface: internal
+      paste:
+        app:gnocchiv1:
+          paste.app_factory: gnocchi.rest.app:app_factory
+          root: gnocchi.rest.api.V1Controller
+        app:gnocchiversions:
+          paste.app_factory: gnocchi.rest.app:app_factory
+          root: gnocchi.rest.api.VersionsController
+        app:healthcheck:
+          oslo_config_project: gnocchi
+          use: egg:oslo.middleware#healthcheck
+        composite:gnocchi+basic:
+          /: gnocchiversions_pipeline
+          /healthcheck: healthcheck
+          /v1: gnocchiv1+noauth
+          use: egg:Paste#urlmap
+        composite:gnocchi+keystone:
+          /: gnocchiversions_pipeline
+          /healthcheck: healthcheck
+          /v1: gnocchiv1+keystone
+          use: egg:Paste#urlmap
+        composite:gnocchi+remoteuser:
+          /: gnocchiversions_pipeline
+          /healthcheck: healthcheck
+          /v1: gnocchiv1+noauth
+          use: egg:Paste#urlmap
+        filter:keystone_authtoken:
+          oslo_config_project: gnocchi
+          use: egg:keystonemiddleware#auth_token
+        pipeline:gnocchiv1+keystone:
+          pipeline: keystone_authtoken gnocchiv1
+        pipeline:gnocchiv1+noauth:
+          pipeline: gnocchiv1
+        pipeline:gnocchiversions_pipeline:
+          pipeline: gnocchiversions
+    dependencies:
+      static:
+        db_sync:
+          jobs:
+          - gnocchi-storage-init
+          - gnocchi-db-init
+          services:
+          - endpoint: internal
+            service: oslo_db
+        metricd:
+          services:
+          - endpoint: internal
+            service: oslo_db
+          - endpoint: internal
+            service: oslo_cache
+          - endpoint: internal
+            service: metric
+        tests:
+          services:
+          - endpoint: internal
+            service: identity
+          - endpoint: internal
+            service: oslo_db
+          - endpoint: internal
+            service: metric
+    endpoints:
+      oslo_cache:
+        hosts:
+          default: memcached
+    images:
+      tags:
+        db_init: docker.io/starlingx/stx-gnocchi:rc-2.0-centos-stable-latest
+        db_init_indexer: docker.io/starlingx/stx-gnocchi:rc-2.0-centos-stable-latest
+        db_sync: docker.io/starlingx/stx-gnocchi:rc-2.0-centos-stable-latest
+        gnocchi_api: docker.io/starlingx/stx-gnocchi:rc-2.0-centos-stable-latest
+        gnocchi_metricd: docker.io/starlingx/stx-gnocchi:rc-2.0-centos-stable-latest
+        gnocchi_resources_cleaner: docker.io/starlingx/stx-gnocchi:rc-2.0-centos-stable-latest
+        gnocchi_statsd: docker.io/starlingx/stx-gnocchi:rc-2.0-centos-stable-latest
+        ks_endpoints: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_service: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_user: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+    manifests:
+      daemonset_statsd: false
+      job_db_init_indexer: false
+      secret_db_indexer: false
+      service_statsd: false
+    pod:
+      affinity:
+        anti:
+          type:
+            default: requiredDuringSchedulingIgnoredDuringExecution
+  wait:
+    labels:
+      release_group: osh-openstack-gnocchi
+    timeout: 1800
+metadata:
+  name: openstack-gnocchi
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_name: neutron
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-neutron
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/neutron-0.1.0.tgz
+    reference: master
+    subpath: neutron
+    type: tar
+  test:
+    enabled: false
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-neutron
+        type: job
+  values:
+    conf:
+      dhcp_agent:
+        DEFAULT:
+          enable_isolated_metadata: true
+          enable_metadata_network: false
+          interface_driver: openvswitch
+          resync_interval: 30
+      l3_agent:
+        DEFAULT:
+          agent_mode: dvr_snat
+          interface_driver: openvswitch
+          metadata_port: 80
+      neutron:
+        DEFAULT:
+          agent_down_time: 180
+          allow_automatic_dhcp_failover: true
+          allow_automatic_l3agent_failover: true
+          control_exchange: neutron
+          core_plugin: neutron.plugins.ml2.plugin.Ml2Plugin
+          dhcp_agents_per_network: 1
+          dns_domain: openstacklocal
+          driver: messagingv2
+          enable_new_agents: false
+          enable_proxy_headers_parsing: true
+          idle_timeout: 60
+          l3_ha: false
+          l3_ha_network_type: vxlan
+          lock_path: /var/run/neutron/lock
+          log_format: '[%(name)s] %(message)s'
+          max_l3_agents_per_router: 1
+          max_overflow: 64
+          max_pool_size: 1
+          min_l3_agents_per_router: 1
+          notify_nova_on_port_data_changes: true
+          notify_nova_on_port_status_changes: true
+          pnet_audit_enabled: false
+          policy_file: /etc/neutron/policy.json
+          router_status_managed: true
+          rpc_response_max_timeout: 60
+          service_plugins: router,network_segment_range
+          state_path: /var/run/neutron
+          syslog_log_facility: local2
+          use_syslog: true
+          vlan_transparent: true
+          wsgi_default_pool_size: 100
+        agent:
+          root_helper: sudo
+        vhost:
+          vhost_user_enabled: true
+      plugins:
+        ml2_conf:
+          ml2:
+            mechanism_drivers: openvswitch,sriovnicswitch,l2population
+            path_mtu: 0
+            tenant_network_types: vlan,vxlan
+            type_drivers: flat,vlan,vxlan
+          ml2_type_vxlan:
+            vni_ranges: ''
+            vxlan_group: ''
+          ovs_driver:
+            vhost_user_enabled: true
+          securitygroup:
+            firewall_driver: openvswitch
+        openvswitch_agent:
+          agent:
+            tunnel_types: vxlan
+          ovs:
+            bridge_mappings: public:br-ex
+          securitygroup:
+            firewall_driver: openvswitch
+    images:
+      tags:
+        bootstrap: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_drop: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_init: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_endpoints: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_service: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_user: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        neutron_db_sync: docker.io/starlingx/stx-neutron:rc-2.0-centos-stable-latest
+        neutron_dhcp: docker.io/starlingx/stx-neutron:rc-2.0-centos-stable-latest
+        neutron_l3: docker.io/starlingx/stx-neutron:rc-2.0-centos-stable-latest
+        neutron_linuxbridge_agent: docker.io/starlingx/stx-neutron:rc-2.0-centos-stable-latest
+        neutron_metadata: docker.io/starlingx/stx-neutron:rc-2.0-centos-stable-latest
+        neutron_openvswitch_agent: docker.io/starlingx/stx-neutron:rc-2.0-centos-stable-latest
+        neutron_server: docker.io/starlingx/stx-neutron:rc-2.0-centos-stable-latest
+        neutron_sriov_agent: docker.io/starlingx/stx-neutron:rc-2.0-centos-stable-latest
+        neutron_sriov_agent_init: docker.io/starlingx/stx-neutron:rc-2.0-centos-stable-latest
+    labels:
+      agent:
+        dhcp:
+          node_selector_key: openstack-compute-node
+          node_selector_value: enabled
+        l3:
+          node_selector_key: openstack-compute-node
+          node_selector_value: enabled
+        metadata:
+          node_selector_key: openstack-compute-node
+          node_selector_value: enabled
+      job:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      lb:
+        node_selector_key: linuxbridge
+        node_selector_value: enabled
+      ovs:
+        node_selector_key: openvswitch
+        node_selector_value: enabled
+      server:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      test:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+    network:
+      backend:
+      - openvswitch
+      - sriov
+      interface:
+        tunnel: docker0
+    pod:
+      affinity:
+        anti:
+          type:
+            default: requiredDuringSchedulingIgnoredDuringExecution
+      probes:
+        liveness:
+          dhcp_agent:
+            enabled: false
+          l3_agent:
+            enabled: false
+          metadata_agent:
+            enabled: false
+          sriov_agent:
+            enabled: false
+        readiness:
+          dhcp_agent:
+            enabled: false
+          l3_agent:
+            enabled: false
+          metadata_agent:
+            enabled: false
+          sriov_agent:
+            enabled: false
+      replicas:
+        server: 2
+      user:
+        neutron:
+          uid: 0
+  wait:
+    labels:
+      release_group: osh-openstack-neutron
+    timeout: 1800
+metadata:
+  name: openstack-neutron
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_name: nginx-ports-control
+  dependencies: []
+  namespace: openstack
+  release: openstack-nginx-ports-control
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/nginx-ports-control-0.1.0.tgz
+    subpath: nginx-ports-control
+    type: tar
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-nginx-ports-control
+        type: job
+  values: {}
+  wait:
+    labels:
+      release_group: osh-openstack-nginx-ports-control
+    resources: []
+    timeout: 1800
+metadata:
+  name: openstack-nginx-ports-control
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_name: helm-toolkit
+  dependencies: []
+  namespace: helm-toolkit
+  release: helm-toolkit
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/helm-toolkit-0.1.0.tgz
+    reference: master
+    subpath: helm-toolkit
+    type: tar
+  values: {}
+metadata:
+  name: helm-toolkit
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_group:
+  - openstack-libvirt
+  - openstack-nova
+  - openstack-nova-api-proxy
+  - openstack-neutron
+  - openstack-placement
+  description: Deploy nova and neutron, as well as supporting services
+  sequenced: false
+metadata:
+  name: openstack-compute-kit
+  schema: metadata/Document/v1
+schema: armada/ChartGroup/v1
+---
+data:
+  chart_name: ironic
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-ironic
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/ironic-0.1.0.tgz
+    reference: master
+    subpath: ironic
+    type: tar
+  test:
+    enabled: false
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-ironic
+        type: job
+  values:
+    bootstrap:
+      image:
+        enabled: false
+    conf:
+      ironic:
+        DEFAULT:
+          enabled_bios_interfaces: no-bios
+          enabled_boot_interfaces: pxe,ipxe
+          enabled_console_interfaces: ipmitool-socat
+          enabled_deploy_interfaces: iscsi,direct
+          enabled_drivers: ''
+          enabled_hardware_types: ipmi
+          enabled_inspect_interfaces: no-inspect
+          enabled_management_interfaces: ipmitool
+          enabled_network_interfaces: flat,noop
+          enabled_power_interfaces: ipmitool
+          enabled_raid_interfaces: no-raid
+          enabled_storage_interfaces: cinder,noop
+          enabled_vendor_interfaces: ipmitool,no-vendor
+        api:
+          port: 6385
+        dhcp:
+          dhcp_provider: neutron
+        pxe:
+          pxe_append_params: nofb nomodeset vga=normal console=ttyS0,115200n8
+    endpoints:
+      baremetal:
+        port:
+          pxe_http:
+            default: 28080
+    images:
+      tags:
+        bootstrap: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_drop: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_init: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ironic_api: docker.io/starlingx/stx-ironic:rc-2.0-centos-stable-latest
+        ironic_conductor: docker.io/starlingx/stx-ironic:rc-2.0-centos-stable-latest
+        ironic_db_sync: docker.io/starlingx/stx-ironic:rc-2.0-centos-stable-latest
+        ironic_manage_cleaning_network: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ironic_pxe: docker.io/starlingx/stx-ironic:rc-2.0-centos-stable-latest
+        ironic_pxe_http: docker.io/nginx:1.13.3
+        ironic_pxe_init: docker.io/starlingx/stx-ironic:rc-2.0-centos-stable-latest
+        ironic_retrive_cleaning_network: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ironic_retrive_swift_config: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_endpoints: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_service: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_user: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+    labels:
+      api:
+        node_selector_key: openstack-ironic
+        node_selector_value: enabled
+      conductor:
+        node_selector_key: openstack-ironic
+        node_selector_value: enabled
+      job:
+        node_selector_key: openstack-ironic
+        node_selector_value: enabled
+    pod:
+      affinity:
+        anti:
+          type:
+            default: requiredDuringSchedulingIgnoredDuringExecution
+      replicas:
+        api: 2
+        conductor: 2
+      user:
+        ironic:
+          uid: 0
+  wait:
+    labels:
+      release_group: osh-openstack-ironic
+    timeout: 1800
+metadata:
+  name: openstack-ironic
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_name: keystone-api-proxy
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-keystone-api-proxy
+  source:
+    location: http://172.17.0.1/helm_charts/keystone-api-proxy-0.1.0.tgz
+    reference: master
+    subpath: keystone-api-proxy
+    type: tar
+  test:
+    enabled: false
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-keystone-api-proxy
+        type: job
+      - labels:
+          component: test
+          release_group: osh-openstack-keystone-api-proxy
+        type: pod
+  values:
+    images:
+      tags:
+        keystone_api_proxy: docker.io/starlingx/stx-keystone-api-proxy:rc-2.0-centos-stable-latest
+        ks_endpoints: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+  wait:
+    labels:
+      release_group: osh-openstack-keystone-api-proxy
+    timeout: 1800
+metadata:
+  name: openstack-keystone-api-proxy
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_name: horizon
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-horizon
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/horizon-0.1.0.tgz
+    reference: master
+    subpath: horizon
+    type: tar
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-horizon
+        type: job
+  values:
+    conf:
+      horizon:
+        local_settings:
+          config:
+            dc_mode: 'False'
+            https_enabled: 'False'
+            keystone_multidomain_support: 'False'
+            lockout_period_sec: '300'
+            lockout_retries_num: '3'
+            ss_enabled: 'False'
+          template: "import os\n\nfrom django.utils.translation import ugettext_lazy\
+            \ as _\n\nfrom openstack_dashboard import exceptions\n\nDEBUG = {{ .Values.conf.horizon.local_settings.config.debug\
+            \ }}\nTEMPLATE_DEBUG = DEBUG\n\nCOMPRESS_OFFLINE = True\nCOMPRESS_CSS_HASHING_METHOD\
+            \ = \"hash\"\n\n# WEBROOT is the location relative to Webserver root\n\
+            # should end with a slash.\nWEBROOT = '/'\n# LOGIN_URL = WEBROOT + 'auth/login/'\n\
+            # LOGOUT_URL = WEBROOT + 'auth/logout/'\n#\n# LOGIN_REDIRECT_URL can be\
+            \ used as an alternative for\n# HORIZON_CONFIG.user_home, if user_home\
+            \ is not set.\n# Do not set it to '/home/', as this will cause circular\
+            \ redirect loop\n# LOGIN_REDIRECT_URL = WEBROOT\n\n# Required for Django\
+            \ 1.5.\n# If horizon is running in production (DEBUG is False), set this\n\
+            # with the list of host/domain names that the application can serve.\n\
+            # For more information see:\n# https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts\n\
+            ALLOWED_HOSTS = ['*']\n\n# Set SSL proxy settings:\n# For Django 1.4+\
+            \ pass this header from the proxy after terminating the SSL,\n# and don't\
+            \ forget to strip it from the client's request.\n# For more information\
+            \ see:\n# https://docs.djangoproject.com/en/1.4/ref/settings/#secure-proxy-ssl-header\n\
+            #SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL', 'https')\n# https://docs.djangoproject.com/en/1.5/ref/settings/#secure-proxy-ssl-header\n\
+            #SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')\n\n# If\
+            \ Horizon is being served through SSL, then uncomment the following two\n\
+            # settings to better secure the cookies from security exploits\n#CSRF_COOKIE_SECURE\
+            \ = True\n#SESSION_COOKIE_SECURE = True\n\n# Overrides for OpenStack API\
+            \ versions. Use this setting to force the\n# OpenStack dashboard to use\
+            \ a specific API version for a given service API.\n# Versions specified\
+            \ here should be integers or floats, not strings.\n# NOTE: The version\
+            \ should be formatted as it appears in the URL for the\n# service API.\
+            \ For example, The identity service APIs have inconsistent\n# use of the\
+            \ decimal point, so valid options would be 2.0 or 3.\n#OPENSTACK_API_VERSIONS\
+            \ = {\n#    \"data-processing\": 1.1,\n#    \"identity\": 3,\n#    \"\
+            volume\": 2,\n#}\n\nOPENSTACK_API_VERSIONS = {\n    \"identity\": 3,\n\
+            }\n\n# Set this to True if running on multi-domain model. When this is\
+            \ enabled, it\n# will require user to enter the Domain name in addition\
+            \ to username for login.\nOPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = {{\
+            \ .Values.conf.horizon.local_settings.config.keystone_multidomain_support\
+            \ }}\n\n# Overrides the default domain used when running on single-domain\
+            \ model\n# with Keystone V3. All entities will be created in the default\
+            \ domain.\nOPENSTACK_KEYSTONE_DEFAULT_DOMAIN = '{{ .Values.conf.horizon.local_settings.config.keystone_default_domain\
+            \ }}'\n\n# Set Console type:\n# valid options are \"AUTO\"(default), \"\
+            VNC\", \"SPICE\", \"RDP\", \"SERIAL\" or None\n# Set to None explicitly\
+            \ if you want to deactivate the console.\n#CONSOLE_TYPE = \"AUTO\"\n\n\
+            # Default OpenStack Dashboard configuration.\nHORIZON_CONFIG = {\n   \
+            \ 'user_home': 'openstack_dashboard.views.get_user_home',\n    'ajax_queue_limit':\
+            \ 10,\n    'auto_fade_alerts': {\n        'delay': 3000,\n        'fade_duration':\
+            \ 1500,\n        'types': ['alert-success', 'alert-info']\n    },\n  \
+            \  'help_url': \"http://docs.openstack.org\",\n    'exceptions': {'recoverable':\
+            \ exceptions.RECOVERABLE,\n                   'not_found': exceptions.NOT_FOUND,\n\
+            \                   'unauthorized': exceptions.UNAUTHORIZED},\n    'modal_backdrop':\
+            \ 'static',\n    'angular_modules': [],\n    'js_files': [],\n    'js_spec_files':\
+            \ [],\n}\n\n# Specify a regular expression to validate user passwords.\n\
+            #HORIZON_CONFIG[\"password_validator\"] = {\n#    \"regex\": '.*',\n#\
+            \    \"help_text\": _(\"Your password does not meet the requirements.\"\
+            ),\n#}\n\n# Disable simplified floating IP address management for deployments\
+            \ with\n# multiple floating IP pools or complex network requirements.\n\
+            #HORIZON_CONFIG[\"simple_ip_management\"] = False\n\n# Turn off browser\
+            \ autocompletion for forms including the login form and\n# the database\
+            \ creation workflow if so desired.\n#HORIZON_CONFIG[\"password_autocomplete\"\
+            ] = \"off\"\n\n# Setting this to True will disable the reveal button for\
+            \ password fields,\n# including on the login form.\n#HORIZON_CONFIG[\"\
+            disable_password_reveal\"] = False\n\nLOCAL_PATH = '/tmp'\n\n# Set custom\
+            \ secret key:\n# You can either set it to a specific value or you can\
+            \ let horizon generate a\n# default secret key that is unique on this\
+            \ machine, e.i. regardless of the\n# amount of Python WSGI workers (if\
+            \ used behind Apache+mod_wsgi): However,\n# there may be situations where\
+            \ you would want to set this explicitly, e.g.\n# when multiple dashboard\
+            \ instances are distributed on different machines\n# (usually behind a\
+            \ load-balancer). Either you have to make sure that a session\n# gets\
+            \ all requests routed to the same dashboard instance or you set the same\n\
+            # SECRET_KEY for all of them.\nSECRET_KEY='{{ .Values.conf.horizon.local_settings.config.horizon_secret_key\
+            \ }}'\n\nCACHES = {\n    'default': {\n        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',\n\
+            \        'LOCATION': '{{ tuple \"oslo_cache\" \"internal\" \"memcache\"\
+            \ . | include \"helm-toolkit.endpoints.host_and_port_endpoint_uri_lookup\"\
+            \ }}',\n    }\n}\nDATABASES = {\n    'default': {\n        # Database\
+            \ configuration here\n        'ENGINE': 'django.db.backends.mysql',\n\
+            \        'NAME': '{{ .Values.endpoints.oslo_db.path | base }}',\n    \
+            \    'USER': '{{ .Values.endpoints.oslo_db.auth.horizon.username }}',\n\
+            \        'PASSWORD': '{{ .Values.endpoints.oslo_db.auth.horizon.password\
+            \ }}',\n        'HOST': '{{ tuple \"oslo_db\" \"internal\" . | include\
+            \ \"helm-toolkit.endpoints.hostname_fqdn_endpoint_lookup\" }}',\n    \
+            \    'default-character-set': 'utf8',\n        'PORT': '{{ tuple \"oslo_db\"\
+            \ \"internal\" \"mysql\" . | include \"helm-toolkit.endpoints.endpoint_port_lookup\"\
+            \ }}'\n    }\n}\nSESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'\n\
+            \n# Send email to the console by default\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'\n\
+            # Or send them to /dev/null\n#EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'\n\
+            \n# Configure these for your outgoing email host\n#EMAIL_HOST = 'smtp.my-company.com'\n\
+            #EMAIL_PORT = 25\\\\\n#EMAIL_HOST_USER = 'djangomail'\n#EMAIL_HOST_PASSWORD\
+            \ = 'top-secret!'\n\n# For multiple regions uncomment this configuration,\
+            \ and add (endpoint, title).\n#AVAILABLE_REGIONS = [\n#    ('http://cluster1.example.com:5000/v2.0',\
+            \ 'cluster1'),\n#    ('http://cluster2.example.com:5000/v2.0', 'cluster2'),\n\
+            #]\n\nOPENSTACK_KEYSTONE_URL = \"{{ tuple \"identity\" \"internal\" \"\
+            api\" . | include \"helm-toolkit.endpoints.keystone_endpoint_uri_lookup\"\
+            \ }}\"\nOPENSTACK_KEYSTONE_DEFAULT_ROLE = \"member\"\n\n{{- if .Values.conf.horizon.local_settings.config.auth.sso.enabled\
+            \ }}\n# Enables keystone web single-sign-on if set to True.\nWEBSSO_ENABLED\
+            \ = True\n\n# Determines which authentication choice to show as default.\n\
+            WEBSSO_INITIAL_CHOICE = \"{{ .Values.conf.horizon.local_settings.config.auth.sso.initial_choice\
+            \ }}\"\n\n# The list of authentication mechanisms\n# which include keystone\
+            \ federation protocols.\n# Current supported protocol IDs are 'saml2'\
+            \ and 'oidc'\n# which represent SAML 2.0, OpenID Connect respectively.\n\
+            # Do not remove the mandatory credentials mechanism.\nWEBSSO_CHOICES =\
+            \ (\n    (\"credentials\", _(\"Keystone Credentials\")),\n  {{- range\
+            \ $i, $sso := .Values.conf.horizon.local_settings.config.auth.idp_mapping\
+            \ }}\n    ({{ $sso.name | quote }}, {{ $sso.label | quote }}),\n  {{-\
+            \ end }}\n)\n\nWEBSSO_IDP_MAPPING = {\n  {{- range $i, $sso := .Values.conf.horizon.local_settings.config.auth.idp_mapping\
+            \ }}\n    {{ $sso.name | quote}}: ({{ $sso.idp | quote }}, {{ $sso.protocol\
+            \ | quote }}),\n  {{- end }}\n}\n\n{{- end }}\n\n# Disable SSL certificate\
+            \ checks (useful for self-signed certificates):\n#OPENSTACK_SSL_NO_VERIFY\
+            \ = True\n\n# The CA certificate to use to verify SSL connections\n#OPENSTACK_SSL_CACERT\
+            \ = '/path/to/cacert.pem'\n\n# The OPENSTACK_KEYSTONE_BACKEND settings\
+            \ can be used to identify the\n# capabilities of the auth backend for\
+            \ Keystone.\n# If Keystone has been configured to use LDAP as the auth\
+            \ backend then set\n# can_edit_user to False and name to 'ldap'.\n#\n\
+            # TODO(tres): Remove these once Keystone has an API to identify auth backend.\n\
+            OPENSTACK_KEYSTONE_BACKEND = {\n    'name': 'native',\n    'can_edit_user':\
+            \ True,\n    'can_edit_group': True,\n    'can_edit_project': True,\n\
+            \    'can_edit_domain': True,\n    'can_edit_role': True,\n}\n\n# Setting\
+            \ this to True, will add a new \"Retrieve Password\" action on instance,\n\
+            # allowing Admin session password retrieval/decryption.\n#OPENSTACK_ENABLE_PASSWORD_RETRIEVE\
+            \ = False\n\n# The Launch Instance user experience has been significantly\
+            \ enhanced.\n# You can choose whether to enable the new launch instance\
+            \ experience,\n# the legacy experience, or both. The legacy experience\
+            \ will be removed\n# in a future release, but is available as a temporary\
+            \ backup setting to ensure\n# compatibility with existing deployments.\
+            \ Further development will not be\n# done on the legacy experience. Please\
+            \ report any problems with the new\n# experience via the Launchpad tracking\
+            \ system.\n#\n# Toggle LAUNCH_INSTANCE_LEGACY_ENABLED and LAUNCH_INSTANCE_NG_ENABLED\
+            \ to\n# determine the experience to enable.  Set them both to true to\
+            \ enable\n# both.\n#LAUNCH_INSTANCE_LEGACY_ENABLED = True\n#LAUNCH_INSTANCE_NG_ENABLED\
+            \ = False\n\n# The Xen Hypervisor has the ability to set the mount point\
+            \ for volumes\n# attached to instances (other Hypervisors currently do\
+            \ not). Setting\n# can_set_mount_point to True will add the option to\
+            \ set the mount point\n# from the UI.\nOPENSTACK_HYPERVISOR_FEATURES =\
+            \ {\n    'can_set_mount_point': False,\n    'can_set_password': False,\n\
+            }\n\n# The OPENSTACK_CINDER_FEATURES settings can be used to enable optional\n\
+            # services provided by cinder that is not exposed by its extension API.\n\
+            OPENSTACK_CINDER_FEATURES = {\n    'enable_backup': {{ .Values.conf.horizon.local_settings.config.openstack_cinder_features.enable_backup\
+            \ }},\n}\n\n# The OPENSTACK_NEUTRON_NETWORK settings can be used to enable\
+            \ optional\n# services provided by neutron. Options currently available\
+            \ are load\n# balancer service, security groups, quotas, VPN service.\n\
+            OPENSTACK_NEUTRON_NETWORK = {\n    'enable_router': {{ .Values.conf.horizon.local_settings.config.openstack_neutron_network.enable_router\
+            \ }},\n    'enable_quotas': {{ .Values.conf.horizon.local_settings.config.openstack_neutron_network.enable_quotas\
+            \ }},\n    'enable_ipv6': {{ .Values.conf.horizon.local_settings.config.openstack_neutron_network.enable_ipv6\
+            \ }},\n    'enable_distributed_router': {{ .Values.conf.horizon.local_settings.config.openstack_neutron_network.enable_distributed_router\
+            \ }},\n    'enable_ha_router': {{ .Values.conf.horizon.local_settings.config.openstack_neutron_network.enable_ha_router\
+            \ }},\n    'enable_lb': {{ .Values.conf.horizon.local_settings.config.openstack_neutron_network.enable_lb\
+            \ }},\n    'enable_firewall': {{ .Values.conf.horizon.local_settings.config.openstack_neutron_network.enable_firewall\
+            \ }},\n    'enable_vpn': {{ .Values.conf.horizon.local_settings.config.openstack_neutron_network.enable_vpn\
+            \ }},\n    'enable_fip_topology_check': {{ .Values.conf.horizon.local_settings.config.openstack_neutron_network.enable_fip_topology_check\
+            \ }},\n\n    # The profile_support option is used to detect if an external\
+            \ router can be\n    # configured via the dashboard. When using specific\
+            \ plugins the\n    # profile_support can be turned on if needed.\n   \
+            \ 'profile_support': None,\n    #'profile_support': 'cisco',\n\n    #\
+            \ Set which provider network types are supported. Only the network types\n\
+            \    # in this list will be available to choose from when creating a network.\n\
+            \    # Network types include local, flat, vlan, gre, and vxlan.\n    'supported_provider_types':\
+            \ ['*'],\n\n    # Set which VNIC types are supported for port binding.\
+            \ Only the VNIC\n    # types in this list will be available to choose\
+            \ from when creating a\n    # port.\n    # VNIC types include 'normal',\
+            \ 'macvtap' and 'direct'.\n    'supported_vnic_types': ['*']\n}\n\n# The\
+            \ OPENSTACK_IMAGE_BACKEND settings can be used to customize features\n\
+            # in the OpenStack Dashboard related to the Image service, such as the\
+            \ list\n# of supported image formats.\n#OPENSTACK_IMAGE_BACKEND = {\n\
+            #    'image_formats': [\n#        ('', _('Select format')),\n#       \
+            \ ('aki', _('AKI - Amazon Kernel Image')),\n#        ('ami', _('AMI -\
+            \ Amazon Machine Image')),\n#        ('ari', _('ARI - Amazon Ramdisk Image')),\n\
+            #        ('docker', _('Docker')),\n#        ('iso', _('ISO - Optical Disk\
+            \ Image')),\n#        ('ova', _('OVA - Open Virtual Appliance')),\n# \
+            \       ('qcow2', _('QCOW2 - QEMU Emulator')),\n#        ('raw', _('Raw')),\n\
+            #        ('vdi', _('VDI - Virtual Disk Image')),\n#        ('vhd', ('VHD\
+            \ - Virtual Hard Disk')),\n#        ('vmdk', _('VMDK - Virtual Machine\
+            \ Disk')),\n#    ]\n#}\n\n# The IMAGE_CUSTOM_PROPERTY_TITLES settings\
+            \ is used to customize the titles for\n# image custom property attributes\
+            \ that appear on image detail pages.\nIMAGE_CUSTOM_PROPERTY_TITLES = {\n\
+            \    \"architecture\": _(\"Architecture\"),\n    \"kernel_id\": _(\"Kernel\
+            \ ID\"),\n    \"ramdisk_id\": _(\"Ramdisk ID\"),\n    \"image_state\"\
+            : _(\"Euca2ools state\"),\n    \"project_id\": _(\"Project ID\"),\n  \
+            \  \"image_type\": _(\"Image Type\"),\n}\n\n# The IMAGE_RESERVED_CUSTOM_PROPERTIES\
+            \ setting is used to specify which image\n# custom properties should not\
+            \ be displayed in the Image Custom Properties\n# table.\nIMAGE_RESERVED_CUSTOM_PROPERTIES\
+            \ = []\n\n# OPENSTACK_ENDPOINT_TYPE specifies the endpoint type to use\
+            \ for the endpoints\n# in the Keystone service catalog. Use this setting\
+            \ when Horizon is running\n# external to the OpenStack environment. The\
+            \ default is 'publicURL'.\nOPENSTACK_ENDPOINT_TYPE = \"internalURL\"\n\
+            \n# SECONDARY_ENDPOINT_TYPE specifies the fallback endpoint type to use\
+            \ in the\n# case that OPENSTACK_ENDPOINT_TYPE is not present in the endpoints\n\
+            # in the Keystone service catalog. Use this setting when Horizon is running\n\
+            # external to the OpenStack environment. The default is None.  This\n\
+            # value should differ from OPENSTACK_ENDPOINT_TYPE if used.\nSECONDARY_ENDPOINT_TYPE\
+            \ = \"publicURL\"\n\n# The number of objects (Swift containers/objects\
+            \ or images) to display\n# on a single page before providing a paging\
+            \ element (a \"more\" link)\n# to paginate results.\nAPI_RESULT_LIMIT\
+            \ = 1000\nAPI_RESULT_PAGE_SIZE = 20\n\n# The size of chunk in bytes for\
+            \ downloading objects from Swift\nSWIFT_FILE_TRANSFER_CHUNK_SIZE = 512\
+            \ * 1024\n\n# Specify a maximum number of items to display in a dropdown.\n\
+            DROPDOWN_MAX_ITEMS = 30\n\n# The timezone of the server. This should correspond\
+            \ with the timezone\n# of your entire OpenStack installation, and hopefully\
+            \ be in UTC.\nTIME_ZONE = \"UTC\"\n\n# When launching an instance, the\
+            \ menu of available flavors is\n# sorted by RAM usage, ascending. If you\
+            \ would like a different sort order,\n# you can provide another flavor\
+            \ attribute as sorting key. Alternatively, you\n# can provide a custom\
+            \ callback method to use for sorting. You can also provide\n# a flag for\
+            \ reverse sort. For more info, see\n# http://docs.python.org/2/library/functions.html#sorted\n\
+            #CREATE_INSTANCE_FLAVOR_SORT = {\n#    'key': 'name',\n#     # or\n# \
+            \   'key': my_awesome_callback_method,\n#    'reverse': False,\n#}\n\n\
+            # Set this to True to display an 'Admin Password' field on the Change\
+            \ Password\n# form to verify that it is indeed the admin logged-in who\
+            \ wants to change\n# the password.\n# ENFORCE_PASSWORD_CHECK = False\n\
+            \n# Modules that provide /auth routes that can be used to handle different\
+            \ types\n# of user authentication. Add auth plugins that require extra\
+            \ route handling to\n# this list.\n#AUTHENTICATION_URLS = [\n#    'openstack_auth.urls',\n\
+            #]\n\n# The Horizon Policy Enforcement engine uses these values to load\
+            \ per service\n# policy rule files. The content of these files should\
+            \ match the files the\n# OpenStack services are using to determine role\
+            \ based access control in the\n# target installation.\n\n# Path to directory\
+            \ containing policy.json files\nPOLICY_FILES_PATH = '/etc/openstack-dashboard'\n\
+            # Map of local copy of service policy files\n#POLICY_FILES = {\n#    'identity':\
+            \ 'keystone_policy.json',\n#    'compute': 'nova_policy.json',\n#    'volume':\
+            \ 'cinder_policy.json',\n#    'image': 'glance_policy.json',\n#    'orchestration':\
+            \ 'heat_policy.json',\n#    'network': 'neutron_policy.json',\n#    'telemetry':\
+            \ 'ceilometer_policy.json',\n#}\n\n# Trove user and database extension\
+            \ support. By default support for\n# creating users and databases on database\
+            \ instances is turned on.\n# To disable these extensions set the permission\
+            \ here to something\n# unusable such as [\"!\"].\n# TROVE_ADD_USER_PERMS\
+            \ = []\n# TROVE_ADD_DATABASE_PERMS = []\n\n# Change this patch to the\
+            \ appropriate static directory containing\n# two files: _variables.scss\
+            \ and _styles.scss\n#CUSTOM_THEME_PATH = 'static/themes/default'\n\nLOGGING\
+            \ = {\n    'version': 1,\n    # When set to True this will disable all\
+            \ logging except\n    # for loggers specified in this configuration dictionary.\
+            \ Note that\n    # if nothing is specified here and disable_existing_loggers\
+            \ is True,\n    # django.db.backends will still log unless it is disabled\
+            \ explicitly.\n    'disable_existing_loggers': False,\n    'handlers':\
+            \ {\n        'null': {\n            'level': 'DEBUG',\n            'class':\
+            \ 'logging.NullHandler',\n        },\n        'console': {\n         \
+            \   # Set the level to \"DEBUG\" for verbose output logging.\n       \
+            \     'level': 'INFO',\n            'class': 'logging.StreamHandler',\n\
+            \        },\n    },\n    'loggers': {\n        # Logging from django.db.backends\
+            \ is VERY verbose, send to null\n        # by default.\n        'django.db.backends':\
+            \ {\n            'handlers': ['null'],\n            'propagate': False,\n\
+            \        },\n        'requests': {\n            'handlers': ['null'],\n\
+            \            'propagate': False,\n        },\n        'horizon': {\n \
+            \           'handlers': ['console'],\n            'level': 'DEBUG',\n\
+            \            'propagate': False,\n        },\n        'openstack_dashboard':\
+            \ {\n            'handlers': ['console'],\n            'level': 'DEBUG',\n\
+            \            'propagate': False,\n        },\n        'novaclient': {\n\
+            \            'handlers': ['console'],\n            'level': 'DEBUG',\n\
+            \            'propagate': False,\n        },\n        'cinderclient':\
+            \ {\n            'handlers': ['console'],\n            'level': 'DEBUG',\n\
+            \            'propagate': False,\n        },\n        'glanceclient':\
+            \ {\n            'handlers': ['console'],\n            'level': 'DEBUG',\n\
+            \            'propagate': False,\n        },\n        'glanceclient':\
+            \ {\n            'handlers': ['console'],\n            'level': 'DEBUG',\n\
+            \            'propagate': False,\n        },\n        'neutronclient':\
+            \ {\n            'handlers': ['console'],\n            'level': 'DEBUG',\n\
+            \            'propagate': False,\n        },\n        'heatclient': {\n\
+            \            'handlers': ['console'],\n            'level': 'DEBUG',\n\
+            \            'propagate': False,\n        },\n        'ceilometerclient':\
+            \ {\n            'handlers': ['console'],\n            'level': 'DEBUG',\n\
+            \            'propagate': False,\n        },\n        'troveclient': {\n\
+            \            'handlers': ['console'],\n            'level': 'DEBUG',\n\
+            \            'propagate': False,\n        },\n        'swiftclient': {\n\
+            \            'handlers': ['console'],\n            'level': 'DEBUG',\n\
+            \            'propagate': False,\n        },\n        'openstack_auth':\
+            \ {\n            'handlers': ['console'],\n            'level': 'DEBUG',\n\
+            \            'propagate': False,\n        },\n        'nose.plugins.manager':\
+            \ {\n            'handlers': ['console'],\n            'level': 'DEBUG',\n\
+            \            'propagate': False,\n        },\n        'django': {\n  \
+            \          'handlers': ['console'],\n            'level': 'DEBUG',\n \
+            \           'propagate': False,\n        },\n        'iso8601': {\n  \
+            \          'handlers': ['null'],\n            'propagate': False,\n  \
+            \      },\n        'scss': {\n            'handlers': ['null'],\n    \
+            \        'propagate': False,\n        },\n    }\n}\n\n# 'direction' should\
+            \ not be specified for all_tcp/udp/icmp.\n# It is specified in the form.\n\
+            SECURITY_GROUP_RULES = {\n    'all_tcp': {\n        'name': _('All TCP'),\n\
+            \        'ip_protocol': 'tcp',\n        'from_port': '1',\n        'to_port':\
+            \ '65535',\n    },\n    'all_udp': {\n        'name': _('All UDP'),\n\
+            \        'ip_protocol': 'udp',\n        'from_port': '1',\n        'to_port':\
+            \ '65535',\n    },\n    'all_icmp': {\n        'name': _('All ICMP'),\n\
+            \        'ip_protocol': 'icmp',\n        'from_port': '-1',\n        'to_port':\
+            \ '-1',\n    },\n    'ssh': {\n        'name': 'SSH',\n        'ip_protocol':\
+            \ 'tcp',\n        'from_port': '22',\n        'to_port': '22',\n    },\n\
+            \    'smtp': {\n        'name': 'SMTP',\n        'ip_protocol': 'tcp',\n\
+            \        'from_port': '25',\n        'to_port': '25',\n    },\n    'dns':\
+            \ {\n        'name': 'DNS',\n        'ip_protocol': 'tcp',\n        'from_port':\
+            \ '53',\n        'to_port': '53',\n    },\n    'http': {\n        'name':\
+            \ 'HTTP',\n        'ip_protocol': 'tcp',\n        'from_port': '80',\n\
+            \        'to_port': '80',\n    },\n    'pop3': {\n        'name': 'POP3',\n\
+            \        'ip_protocol': 'tcp',\n        'from_port': '110',\n        'to_port':\
+            \ '110',\n    },\n    'imap': {\n        'name': 'IMAP',\n        'ip_protocol':\
+            \ 'tcp',\n        'from_port': '143',\n        'to_port': '143',\n   \
+            \ },\n    'ldap': {\n        'name': 'LDAP',\n        'ip_protocol': 'tcp',\n\
+            \        'from_port': '389',\n        'to_port': '389',\n    },\n    'https':\
+            \ {\n        'name': 'HTTPS',\n        'ip_protocol': 'tcp',\n       \
+            \ 'from_port': '443',\n        'to_port': '443',\n    },\n    'smtps':\
+            \ {\n        'name': 'SMTPS',\n        'ip_protocol': 'tcp',\n       \
+            \ 'from_port': '465',\n        'to_port': '465',\n    },\n    'imaps':\
+            \ {\n        'name': 'IMAPS',\n        'ip_protocol': 'tcp',\n       \
+            \ 'from_port': '993',\n        'to_port': '993',\n    },\n    'pop3s':\
+            \ {\n        'name': 'POP3S',\n        'ip_protocol': 'tcp',\n       \
+            \ 'from_port': '995',\n        'to_port': '995',\n    },\n    'ms_sql':\
+            \ {\n        'name': 'MS SQL',\n        'ip_protocol': 'tcp',\n      \
+            \  'from_port': '1433',\n        'to_port': '1433',\n    },\n    'mysql':\
+            \ {\n        'name': 'MYSQL',\n        'ip_protocol': 'tcp',\n       \
+            \ 'from_port': '3306',\n        'to_port': '3306',\n    },\n    'rdp':\
+            \ {\n        'name': 'RDP',\n        'ip_protocol': 'tcp',\n        'from_port':\
+            \ '3389',\n        'to_port': '3389',\n    },\n}\n\n# Deprecation Notice:\n\
+            #\n# The setting FLAVOR_EXTRA_KEYS has been deprecated.\n# Please load\
+            \ extra spec metadata into the Glance Metadata Definition Catalog.\n#\n\
+            # The sample quota definitions can be found in:\n# <glance_source>/etc/metadefs/compute-quota.json\n\
+            #\n# The metadata definition catalog supports CLI and API:\n#  $glance\
+            \ --os-image-api-version 2 help md-namespace-import\n#  $glance-manage\
+            \ db_load_metadefs <directory_with_definition_files>\n#\n# See Metadata\
+            \ Definitions on: http://docs.openstack.org/developer/glance/\n\n# Indicate\
+            \ to the Sahara data processing service whether or not\n# automatic floating\
+            \ IP allocation is in effect.  If it is not\n# in effect, the user will\
+            \ be prompted to choose a floating IP\n# pool for use in their cluster.\
+            \  False by default.  You would want\n# to set this to True if you were\
+            \ running Nova Networking with\n# auto_assign_floating_ip = True.\n#SAHARA_AUTO_IP_ALLOCATION_ENABLED\
+            \ = False\n\n# The hash algorithm to use for authentication tokens. This\
+            \ must\n# match the hash algorithm that the identity server and the\n\
+            # auth_token middleware are using. Allowed values are the\n# algorithms\
+            \ supported by Python's hashlib library.\n#OPENSTACK_TOKEN_HASH_ALGORITHM\
+            \ = 'md5'\n\n# AngularJS requires some settings to be made available to\n\
+            # the client side. Some settings are required by in-tree / built-in horizon\n\
+            # features. These settings must be added to REST_API_REQUIRED_SETTINGS\
+            \ in the\n# form of ['SETTING_1','SETTING_2'], etc.\n#\n# You may remove\
+            \ settings from this list for security purposes, but do so at\n# the risk\
+            \ of breaking a built-in horizon feature. These settings are required\n\
+            # for horizon to function properly. Only remove them if you know what\
+            \ you\n# are doing. These settings may in the future be moved to be defined\
+            \ within\n# the enabled panel configuration.\n# You should not add settings\
+            \ to this list for out of tree extensions.\n# See: https://wiki.openstack.org/wiki/Horizon/RESTAPI\n\
+            REST_API_REQUIRED_SETTINGS = ['OPENSTACK_HYPERVISOR_FEATURES',\n     \
+            \                         'LAUNCH_INSTANCE_DEFAULTS',\n              \
+            \                'OPENSTACK_IMAGE_FORMATS']\n\n# Additional settings can\
+            \ be made available to the client side for\n# extensibility by specifying\
+            \ them in REST_API_ADDITIONAL_SETTINGS\n# !! Please use extreme caution\
+            \ as the settings are transferred via HTTP/S\n# and are not encrypted\
+            \ on the browser. This is an experimental API and\n# may be deprecated\
+            \ in the future without notice.\n#REST_API_ADDITIONAL_SETTINGS = []\n\n\
+            # DISALLOW_IFRAME_EMBED can be used to prevent Horizon from being embedded\n\
+            # within an iframe. Legacy browsers are still vulnerable to a Cross-Frame\n\
+            # Scripting (XFS) vulnerability, so this option allows extra security\
+            \ hardening\n# where iframes are not used in deployment. Default setting\
+            \ is True.\n# For more information see:\n# http://tinyurl.com/anticlickjack\n\
+            # DISALLOW_IFRAME_EMBED = True\n\nSTATIC_ROOT = '/var/www/html/horizon'\n\
+            \n#OPENSTACK_KEYSTONE_URL = \"http://%s:5000/v3\" % OPENSTACK_HOST\n#present\
+            \ OPENSTACK_API_VERSIONS={\"identity\":3}\n\n# Use reigon configuration\
+            \ to access platform depoloyment and containerized\n# deployment from\
+            \ a single horizon deployment\nOPENSTACK_KEYSTONE_URL = \"{{ tuple \"\
+            identity\" \"internal\" \"api\" . | include \"helm-toolkit.endpoints.keystone_endpoint_uri_lookup\"\
+            \ }}\"\n\nOPENSTACK_NEUTRON_NETWORK['enable_distributed_router'] = True\n\
+            \n# TODO(tsmith) remove this, only for HP custom, this isnt being used\n\
+            # Load Region Config params, if present\n# Config OPENSTACK_HOST is still\
+            \ required in region mode since StarlingX\n# does not use the local_settings\
+            \ populated via packstack\n{{- if eq .Values.conf.horizon.local_settings.config.ss_enabled\
+            \ \"True\"}}\nSS_ENABLED = \"True\"\nOPENSTACK_KEYSTONE_URL = {{ .Values.conf.horizon.local_settings.config.openstack_keystone_url\
+            \ }}\nAVAILABLE_REGIONS = [(OPENSTACK_KEYSTONE_URL, {{ .Values.conf.horizon.local_settings.config.region_name\
+            \ }}),]\nREGION_NAME = {{ .Values.conf.horizon.local_settings.config.region_name\
+            \ }}\n{{- else }}\nSS_ENABLED = \"False\"\n{{- end }}\n\nDC_MODE = {{\
+            \ .Values.conf.horizon.local_settings.config.dc_mode }}\n\n# Override\
+            \ openstack-dashboard NG_CACHE_TEMPLATE_AGE\nNG_TEMPLATE_CACHE_AGE = 300\n\
+            \n# OperationLogMiddleware Configuration\nOPERATION_LOG_ENABLED = True\n\
+            OPERATION_LOG_OPTIONS = {\n   'mask_fields': ['password', 'bm_password',\
+            \ 'bm_confirm_password',\n                   'current_password', 'confirm_password',\
+            \ 'new_password'],\n   'target_methods': ['POST', 'PUT', 'DELETE'],\n\
+            \   'format': (\"[%(project_name)s %(project_id)s] [%(user_name)s %(user_id)s]\"\
+            \n              \" [%(method)s %(request_url)s %(http_status)s]\"\n  \
+            \            \" parameters:[%(param)s] message:[%(message)s]\"),\n}\n\n\
+            # Custom Theme Override\nfor root, dirs, files in os.walk('/opt/branding/applied'):\n\
+            \    if 'manifest.py' in files:\n        execfile(os.path.join(root, 'manifest.py'))\n\
+            \        AVAILABLE_THEMES = [\n            ('default', 'Default', 'themes/default'),\n\
+            \            ('material', 'Material', 'themes/material'),\n          \
+            \  ('starlingx', 'StarlingX', 'themes/starlingx'),\n            ('custom',\
+            \ 'Custom', '/opt/branding/applied'),\n        ]\n        DEFAULT_THEME\
+            \ = 'custom'\n\n# Secure site configuration\nSESSION_COOKIE_HTTPONLY =\
+            \ True\n\n{{- if eq .Values.conf.horizon.local_settings.config.https_enabled\
+            \ \"True\"}}\nCSRF_COOKIE_SECURE = True\nSESSION_COOKIE_SECURE = True\n\
+            {{- end }}\n\n# The OPENSTACK_HEAT_STACK settings can be used to disable\
+            \ password\n# field required while launching the stack.\nOPENSTACK_HEAT_STACK\
+            \ = {\n    'enable_user_pass': False,\n}\nHORIZON_CONFIG[\"password_autocomplete\"\
+            ] = \"off\"\n"
+    images:
+      tags:
+        db_drop: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_init: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        horizon: docker.io/starlingx/stx-horizon:rc-2.0-centos-stable-latest
+        horizon_db_sync: docker.io/starlingx/stx-horizon:rc-2.0-centos-stable-latest
+    network:
+      node_port:
+        enabled: 'true'
+        port: 31000
+    pod:
+      mounts:
+        horizon:
+          horizon:
+            volumeMounts:
+            - mountPath: /opt/branding
+              name: horizon-branding
+            volumes:
+            - hostPath:
+                path: /opt/branding
+                type: Directory
+              name: horizon-branding
+  wait:
+    labels:
+      release_group: osh-openstack-horizon
+    timeout: 1800
+metadata:
+  name: openstack-horizon
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_groups:
+  - kube-system-ingress
+  - openstack-ingress
+  - openstack-mariadb
+  - openstack-memcached
+  - openstack-rabbitmq
+  - openstack-keystone
+  - openstack-barbican
+  - openstack-glance
+  - openstack-cinder
+  - openstack-ceph-rgw
+  - openstack-compute-kit
+  - openstack-heat
+  - openstack-horizon
+  - openstack-telemetry
+  release_prefix: osh
+metadata:
+  name: armada-manifest
+  schema: metadata/Document/v1
+schema: armada/Manifest/v1
+---
+data:
+  chart_group:
+  - openstack-keystone-api-proxy
+  description: Deploy keystone api proxy
+  sequenced: true
+metadata:
+  name: openstack-keystone-api-proxy
+  schema: metadata/Document/v1
+schema: armada/ChartGroup/v1
+---
+data:
+  chart_name: heat
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-heat
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/heat-0.1.0.tgz
+    reference: master
+    subpath: heat
+    type: tar
+  test:
+    enabled: false
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-heat
+        type: job
+      - labels:
+          component: test
+          release_group: osh-openstack-heat
+        type: pod
+  values:
+    conf:
+      policy:
+        software_configs:global_index: rule:context_is_admin
+        stacks:global_index: rule:context_is_admin
+    endpoints:
+      oslo_cache:
+        hosts:
+          default: heat-memcached
+    images:
+      tags:
+        bootstrap: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_drop: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        db_init: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        heat_api: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        heat_cfn: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        heat_cloudwatch: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        heat_db_sync: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        heat_engine: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        heat_engine_cleaner: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        heat_purge_deleted: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_endpoints: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_service: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+        ks_user: docker.io/starlingx/stx-heat:rc-2.0-centos-stable-latest
+    labels:
+      api:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      cfn:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      cloudwatch:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      engine:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+      job:
+        node_selector_key: openstack-control-plane
+        node_selector_value: enabled
+    pod:
+      affinity:
+        anti:
+          type:
+            default: requiredDuringSchedulingIgnoredDuringExecution
+      replicas:
+        api: 2
+        cfn: 2
+        cloudwatch: 2
+        engine: 2
+  wait:
+    labels:
+      release_group: osh-openstack-heat
+    timeout: 1800
+metadata:
+  name: openstack-heat
+  schema: metadata/Document/v1
+schema: armada/Chart/v1
+---
+data:
+  chart_name: openvswitch
+  dependencies:
+  - helm-toolkit
+  install:
+    no_hooks: false
+  namespace: openstack
+  release: openstack-openvswitch
+  source:
+    location: http://172.17.0.1/helm_charts/starlingx/openvswitch-0.1.0.tgz
+    reference: master
+    subpath: openvswitch
+    type: tar
+  upgrade:
+    no_hooks: false
+    pre:
+      delete:
+      - labels:
+          release_group: osh-openstack-openvswitch
+        type: job
+  values:
+    images:
+      tags:
+        openvswitch_db_server: docker.io/starlingx/stx-ovs:rc-2.0-centos-stable-latest
+        openvswitch_vswitchd: docker.io/starlingx/stx-ovs:rc-2.0-centos-stable-latest
+    labels:
+      ovs:
+        node_selector_key: openvswitch
+        node_selector_value: enabled
+  wait:
+    labels:
+      release_group: osh-openstack-openvswitch
+    timeout: 1800
+metadata:
+  name: openstack-openvswitch
+  schema: metadata/Document/v1
+schema: armada/Chart/v1

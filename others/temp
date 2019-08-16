@@ -1,0 +1,51 @@
+
+echo "create subcloud1"
+dcmanager subcloud add --name=subcloud2 \
+    --description="99cloud" \
+    --location="Shanghai-99cloud" \
+    --management-subnet=192.168.206.0/24 \
+    --management-start-ip=192.168.206.2 \
+    --management-end-ip=192.168.206.50 \
+    --management-gateway-ip=192.168.206.1 \
+    --systemcontroller-gateway-ip=192.168.204.1
+
+echo "generate subcloud1 config file"
+temp=$(dcmanager subcloud generate-config subcloud2 \
+    --management-interface-port=enp2s2 \
+    --management-interface-mtu=1500 \
+    --oam-subnet=10.10.10.0/24 \
+    --oam-gateway-ip=10.10.10.1 \
+    --oam-floating-ip=10.10.10.22 \
+    --oam-unit-0-ip=10.10.10.23 \
+    --oam-unit-1-ip=10.10.10.24 \
+    --oam-interface-port=enp2s1 \
+    --oam-interface-mtu=1500 \
+    --system-mode=simplex); \
+echo $temp > subcloud1_config.ini
+
+
+
+
+
+
+● 列出kubernetes的namespace，其中应该包含openstack
+controller-0:/home/wrsroot# kubectl get ns
+ 
+● 列出在openstack namespace下的service
+controller-0:/home/wrsroot# kubectl get svc -n openstack | head
+
+
+在默认命名空间内部署nginx
+controller-0:/home/wrsroot# kubectl create deployment nginx --image=nginx
+
+
+使部署的nginx对外提供访问
+controller-0:/home/wrsroot# kubectl expose deployment nginx --port=80 --type=NodePort
+
+查看NodePort的端口
+controller-0:/home/wrsroot# kubectl get svc
+
+
+访问 nginx 
+注意：需要填写查询的nginx端口
+controller-0:/home/wrsroot# curl -s localhost:31690 | grep "Welcome"

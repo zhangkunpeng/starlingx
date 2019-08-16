@@ -2,33 +2,30 @@
 
 starlingx:
   hosts:
-    controller-0:
-      ansible_ssh_host: 147.75.65.105
+    outside:
+      ansible_ssh_host: 147.75.42.167
       ansible_ssh_port: 22222
       ansible_ssh_user: sysadmin
-      #ansible_ssh_pass: St8rlingX*
-      ansible_become_pass: St8rlingX*
+      ansible_ssh_pass: 99cloud@SH
+      ansible_become_pass: 99cloud@SH
       #ansible_sudo_pass: St8rlingX*
 
-public_registry:
-  hosts:
-    docker_registry:
-      ansible_ssh_host: 47.100.127.100
-      ansible_ssh_port: 22
-      ansible_ssh_user: root
-
-  vars:
-    docker_registry_port: 5000
-    is_secure_registry: false
-
-remote_registry:
-  hosts:
-    remote_host:
+    inside:
       ansible_ssh_host: 172.16.130.131
       ansible_ssh_port: 22
       ansible_ssh_user: starlingx
+      ansible_ssh_pass: 99cloud
+      ansible_become_pass: 99cloud
+
+    local:
+      ansible_ssh_host: 172.16.130.131
+      ansible_ssh_port: 22
+      ansible_ssh_user: starlingx
+      ansible_ssh_pass: 99cloud
       ansible_become_pass: 99cloud
 
   vars:
-    docker_registry_port: 5000
-    is_secure_registry: false
+    public_registry: 147.75.42.167:5000
+    is_secure_public_registry: false
+    private_registry: 127.0.0.1:5000
+    image_list: []

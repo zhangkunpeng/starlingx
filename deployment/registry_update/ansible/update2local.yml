@@ -1,0 +1,44 @@
+---
+- name: upload images to private registry from public
+  hosts: local
+  gather_facts: no
+  vars_files:
+    - host_vars/images0718.yml
+
+  tasks:
+  - name: Install Docker Service
+    become: yes
+    apt: name=docker update_cache=yes
+
+  - name: install python-pip
+    become: yes
+    apt: name={{ item }}
+    with_items:
+      - python-pip
+  
+  - name: Upgrade pip
+    pip:
+      name: pip
+      extra_args: --upgrade
+
+  - name: Install Docker-py
+    pip: name=docker-py
+
+  - name: Generate Image list
+    set_fact:
+      image_list: "{{image_list + [item]}}"
+    with_items: "{{images}}"
+
+  - name: Tag and push to private regsitry
+    docker_image:
+      name: "{{ item | regex_replace('k8s.gcr.io/gcr.azk8s.cn\/google-containers') | regex_replace('gcr.io/gcr.azk8s.cn')}}"
+      repository: "127.0.0.1:5000/{{ item | regex_replace('(docker.io|quay.io|k8s.gcr.io|gcr.io)/') }}"
+      push: yes
+      source: pull
+    with_items: "{{ images }}"
+  
+  handlers:
+    - name: restart docker
+      become: yes
+      service: name=docker state=restarted
+      listen: restart docker

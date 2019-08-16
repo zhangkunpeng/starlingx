@@ -1,0 +1,51 @@
+---
+
+- name: setup haproxy
+  hosts: starlingx
+  gather_facts: no
+  tasks:
+  - name: Install Docker Service
+    apt: name=docker.io update_cache=yes
+
+  - name: install python-pip
+    apt: name={{ item }}
+    with_items:
+      - python-pip
+  
+  - name: Upgrade pip
+    pip:
+      name: pip
+      extra_args: --upgrade
+
+  - name: Install Docker-py
+    pip: name=docker-py
+
+  - name: copy haproxy 
+    copy: 
+      src: files/haproxy
+      dest: /root/
+      owner: root
+      group: root
+      mode: 0755
+  
+  - name: Build haproxy
+    docker_image:
+      name: haproxy
+      build:
+        path: /root/haproxy
+        pull: yes
+      source: build
+
+  - name: ensure haproxy is running to proxy to virutal machine's horizon
+    docker_container:
+      name: haproxy
+      image: haproxy:latest
+      state: started
+      # Always pull the latest
+      pull: true
+      # If the container stops, say because some of the ports on the stx
+      # node aren't listening yet, then restart.
+      restart_policy: "always"
+      ports:
+      - "31000:31000"
+      - "8080:8080"

@@ -1,0 +1,10 @@
+clouds:
+  central:
+    region_name: RegionOne
+    auth:
+      username: 'admin'
+      password: '99cloud@SH'
+      project_name: 'admin'
+      project_domain_name: 'Default'
+      user_domain_name: 'Default'
+      auth_url: 'http://172.16.130.182:5000/v3'

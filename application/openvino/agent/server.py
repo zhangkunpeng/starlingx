@@ -24,4 +24,6 @@ def update_image(name):
         time.sleep(3)
 
 if __name__ == '__main__':
-    app.run(debug=True,port=8305,host='0.0.0.0')
+    #app.run(debug=True,port=8305,host='0.0.0.0')
+    t = time.strftime('%Y-%m-%d',time.localtime(time.time()))
+    update_image(str(t))

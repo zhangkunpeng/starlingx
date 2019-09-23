@@ -1,0 +1,1104 @@
+找不到  ： stx: CUnit-2.1.3-8.el7.x86_64.rpm 
+找不到  ： stx: CUnit-devel-2.1.3-8.el7.x86_64.rpm 
+版本一致：stx: GConf2-3.2.6-8.el7.x86_64.rpm                       ---  centos: GConf2-3.2.6-8.el7.aarch64.rpm
+版本一致：stx: GeoIP-1.5.0-13.el7.x86_64.rpm                       ---  centos: GeoIP-1.5.0-13.el7.aarch64.rpm
+版本一致：stx: GeoIP-devel-1.5.0-13.el7.x86_64.rpm                 ---  centos: GeoIP-devel-1.5.0-13.el7.aarch64.rpm
+版本一致：stx: MySQL-python-1.2.5-1.el7.x86_64.rpm                 ---  centos: MySQL-python-1.2.5-1.el7.aarch64.rpm
+名称一致：stx: NetworkManager-glib-1.12.0-8.el7_6.x86_64.rpm       ---  centos: NetworkManager-glib-1.12.0-6.el7.aarch64.rpm
+名称一致：stx: NetworkManager-glib-devel-1.12.0-8.el7_6.x86_64..&gt;  ---  centos: NetworkManager-glib-devel-1.12.0-6.el7.aarch64.rpm
+版本一致：stx: OpenIPMI-modalias-2.0.23-2.el7.x86_64.rpm           ---  centos: OpenIPMI-modalias-2.0.23-2.el7.aarch64.rpm
+名称一致：stx: PyQt4-4.12-1.el7.x86_64.rpm                         ---  centos: PyQt4-4.10.1-13.el7.aarch64.rpm
+版本一致：stx: PyYAML-3.10-11.el7.x86_64.rpm                       ---  centos: PyYAML-3.10-11.el7.aarch64.rpm
+版本一致：stx: SDL-1.2.15-14.el7.x86_64.rpm                        ---  centos: SDL-1.2.15-14.el7.aarch64.rpm
+版本一致：stx: SDL-devel-1.2.15-14.el7.x86_64.rpm                  ---  centos: SDL-devel-1.2.15-14.el7.aarch64.rpm
+版本一致：stx: acl-2.2.51-14.el7.x86_64.rpm                        ---  centos: acl-2.2.51-14.el7.aarch64.rpm
+版本一致：stx: acpica-tools-20160527-3.el7.x86_64.rpm              ---  centos: acpica-tools-20160527-3.el7.aarch64.rpm
+版本一致：stx: acpid-2.0.19-9.el7.x86_64.rpm                       ---  centos: acpid-2.0.19-9.el7.aarch64.rpm
+版本一致：stx: alsa-lib-1.1.6-2.el7.x86_64.rpm                     ---  centos: alsa-lib-1.1.6-2.el7.aarch64.rpm
+版本一致：stx: alsa-lib-devel-1.1.6-2.el7.x86_64.rpm               ---  centos: alsa-lib-devel-1.1.6-2.el7.aarch64.rpm
+版本一致：stx: apr-1.4.8-3.el7_4.1.x86_64.rpm                      ---  centos: apr-1.4.8-3.el7_4.1.aarch64.rpm
+版本一致：stx: apr-util-1.5.2-6.el7.x86_64.rpm                     ---  centos: apr-util-1.5.2-6.el7.aarch64.rpm
+版本一致：stx: at-3.1.13-24.el7.x86_64.rpm                         ---  centos: at-3.1.13-24.el7.aarch64.rpm
+版本一致：stx: at-spi2-atk-2.26.2-1.el7.x86_64.rpm                 ---  centos: at-spi2-atk-2.26.2-1.el7.aarch64.rpm
+版本一致：stx: at-spi2-atk-devel-2.26.2-1.el7.x86_64.rpm           ---  centos: at-spi2-atk-devel-2.26.2-1.el7.aarch64.rpm
+版本一致：stx: at-spi2-core-2.28.0-1.el7.x86_64.rpm                ---  centos: at-spi2-core-2.28.0-1.el7.aarch64.rpm
+版本一致：stx: at-spi2-core-devel-2.28.0-1.el7.x86_64.rpm          ---  centos: at-spi2-core-devel-2.28.0-1.el7.aarch64.rpm
+版本一致：stx: atk-2.28.1-1.el7.x86_64.rpm                         ---  centos: atk-2.28.1-1.el7.aarch64.rpm
+版本一致：stx: atk-devel-2.28.1-1.el7.x86_64.rpm                   ---  centos: atk-devel-2.28.1-1.el7.aarch64.rpm
+版本一致：stx: atlas-3.10.1-12.el7.x86_64.rpm                      ---  centos: atlas-3.10.1-12.el7.aarch64.rpm
+版本一致：stx: attr-2.4.46-13.el7.x86_64.rpm                       ---  centos: attr-2.4.46-13.el7.aarch64.rpm
+版本一致：stx: audit-2.8.4-4.el7.x86_64.rpm                        ---  centos: audit-2.8.4-4.el7.aarch64.rpm
+版本一致：stx: audit-libs-2.8.4-4.el7.x86_64.rpm                   ---  centos: audit-libs-2.8.4-4.el7.aarch64.rpm
+版本一致：stx: audit-libs-devel-2.8.4-4.el7.x86_64.rpm             ---  centos: audit-libs-devel-2.8.4-4.el7.aarch64.rpm
+版本一致：stx: audit-libs-python-2.8.4-4.el7.x86_64.rpm            ---  centos: audit-libs-python-2.8.4-4.el7.aarch64.rpm
+版本一致：stx: augeas-1.4.0-6.el7.x86_64.rpm                       ---  centos: augeas-1.4.0-6.el7.aarch64.rpm
+版本一致：stx: augeas-libs-1.4.0-6.el7.x86_64.rpm                  ---  centos: augeas-libs-1.4.0-6.el7.aarch64.rpm
+版本一致：stx: authconfig-6.2.8-30.el7.x86_64.rpm                  ---  centos: authconfig-6.2.8-30.el7.aarch64.rpm
+版本一致：stx: autogen-5.18-5.el7.x86_64.rpm                       ---  centos: autogen-5.18-5.el7.aarch64.rpm
+版本一致：stx: autogen-libopts-5.18-5.el7.x86_64.rpm               ---  centos: autogen-libopts-5.18-5.el7.aarch64.rpm
+版本一致：stx: autogen-libopts-devel-5.18-5.el7.x86_64.rpm         ---  centos: autogen-libopts-devel-5.18-5.el7.aarch64.rpm
+版本一致：stx: avahi-0.6.31-19.el7.x86_64.rpm                      ---  centos: avahi-0.6.31-19.el7.aarch64.rpm
+版本一致：stx: avahi-devel-0.6.31-19.el7.x86_64.rpm                ---  centos: avahi-devel-0.6.31-19.el7.aarch64.rpm
+版本一致：stx: avahi-libs-0.6.31-19.el7.x86_64.rpm                 ---  centos: avahi-libs-0.6.31-19.el7.aarch64.rpm
+版本一致：stx: bash-4.2.46-31.el7.x86_64.rpm                       ---  centos: bash-4.2.46-31.el7.aarch64.rpm
+版本一致：stx: bc-1.06.95-13.el7.x86_64.rpm                        ---  centos: bc-1.06.95-13.el7.aarch64.rpm
+版本一致：stx: bind-libs-9.9.4-72.el7.x86_64.rpm                   ---  centos: bind-libs-9.9.4-72.el7.aarch64.rpm
+版本一致：stx: bind-libs-lite-9.9.4-72.el7.x86_64.rpm              ---  centos: bind-libs-lite-9.9.4-72.el7.aarch64.rpm
+版本一致：stx: bind-lite-devel-9.9.4-72.el7.x86_64.rpm             ---  centos: bind-lite-devel-9.9.4-72.el7.aarch64.rpm
+版本一致：stx: bind-utils-9.9.4-72.el7.x86_64.rpm                  ---  centos: bind-utils-9.9.4-72.el7.aarch64.rpm
+版本一致：stx: binutils-2.27-34.base.el7.x86_64.rpm                ---  centos: binutils-2.27-34.base.el7.aarch64.rpm
+版本一致：stx: binutils-devel-2.27-34.base.el7.x86_64.rpm          ---  centos: binutils-devel-2.27-34.base.el7.aarch64.rpm
+找不到  ： stx: biosdevname-0.7.3-1.el7.x86_64.rpm 
+版本一致：stx: bison-3.0.4-2.el7.x86_64.rpm                        ---  centos: bison-3.0.4-2.el7.aarch64.rpm
+版本一致：stx: blas-3.4.2-8.el7.x86_64.rpm                         ---  centos: blas-3.4.2-8.el7.aarch64.rpm
+找不到  ： stx: blosc-1.11.3-1.el7.x86_64.rpm 
+版本一致：stx: bluez-libs-5.44-4.el7_4.x86_64.rpm                  ---  centos: bluez-libs-5.44-4.el7_4.aarch64.rpm
+版本一致：stx: bluez-libs-devel-5.44-4.el7_4.x86_64.rpm            ---  centos: bluez-libs-devel-5.44-4.el7_4.aarch64.rpm
+版本一致：stx: boost-1.53.0-27.el7.x86_64.rpm                      ---  centos: boost-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: boost-atomic-1.53.0-27.el7.x86_64.rpm               ---  centos: boost-atomic-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: boost-chrono-1.53.0-27.el7.x86_64.rpm               ---  centos: boost-chrono-1.53.0-27.el7.aarch64.rpm
+找不到  ： stx: boost-context-1.53.0-27.el7.x86_64.rpm 
+版本一致：stx: boost-date-time-1.53.0-27.el7.x86_64.rpm            ---  centos: boost-date-time-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: boost-devel-1.53.0-27.el7.x86_64.rpm                ---  centos: boost-devel-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: boost-filesystem-1.53.0-27.el7.x86_64.rpm           ---  centos: boost-filesystem-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: boost-graph-1.53.0-27.el7.x86_64.rpm                ---  centos: boost-graph-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: boost-iostreams-1.53.0-27.el7.x86_64.rpm            ---  centos: boost-iostreams-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: boost-locale-1.53.0-27.el7.x86_64.rpm               ---  centos: boost-locale-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: boost-math-1.53.0-27.el7.x86_64.rpm                 ---  centos: boost-math-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: boost-program-options-1.53.0-27.el7.x86_64.rpm      ---  centos: boost-program-options-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: boost-python-1.53.0-27.el7.x86_64.rpm               ---  centos: boost-python-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: boost-random-1.53.0-27.el7.x86_64.rpm               ---  centos: boost-random-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: boost-regex-1.53.0-27.el7.x86_64.rpm                ---  centos: boost-regex-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: boost-serialization-1.53.0-27.el7.x86_64.rpm        ---  centos: boost-serialization-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: boost-signals-1.53.0-27.el7.x86_64.rpm              ---  centos: boost-signals-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: boost-system-1.53.0-27.el7.x86_64.rpm               ---  centos: boost-system-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: boost-test-1.53.0-27.el7.x86_64.rpm                 ---  centos: boost-test-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: boost-thread-1.53.0-27.el7.x86_64.rpm               ---  centos: boost-thread-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: boost-timer-1.53.0-27.el7.x86_64.rpm                ---  centos: boost-timer-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: boost-wave-1.53.0-27.el7.x86_64.rpm                 ---  centos: boost-wave-1.53.0-27.el7.aarch64.rpm
+版本一致：stx: bridge-utils-1.5-9.el7.x86_64.rpm                   ---  centos: bridge-utils-1.5-9.el7.aarch64.rpm
+版本一致：stx: brlapi-0.6.0-16.el7.x86_64.rpm                      ---  centos: brlapi-0.6.0-16.el7.aarch64.rpm
+版本一致：stx: brlapi-devel-0.6.0-16.el7.x86_64.rpm                ---  centos: brlapi-devel-0.6.0-16.el7.aarch64.rpm
+版本一致：stx: brltty-4.5-16.el7.x86_64.rpm                        ---  centos: brltty-4.5-16.el7.aarch64.rpm
+版本一致：stx: btrfs-progs-4.9.1-1.el7.x86_64.rpm                  ---  centos: btrfs-progs-4.9.1-1.el7.aarch64.rpm
+版本一致：stx: bzip2-1.0.6-13.el7.x86_64.rpm                       ---  centos: bzip2-1.0.6-13.el7.aarch64.rpm
+版本一致：stx: bzip2-devel-1.0.6-13.el7.x86_64.rpm                 ---  centos: bzip2-devel-1.0.6-13.el7.aarch64.rpm
+版本一致：stx: bzip2-libs-1.0.6-13.el7.x86_64.rpm                  ---  centos: bzip2-libs-1.0.6-13.el7.aarch64.rpm
+版本一致：stx: c-ares-1.10.0-3.el7.x86_64.rpm                      ---  centos: c-ares-1.10.0-3.el7.aarch64.rpm
+版本一致：stx: cairo-1.15.12-3.el7.x86_64.rpm                      ---  centos: cairo-1.15.12-3.el7.aarch64.rpm
+版本一致：stx: cairo-devel-1.15.12-3.el7.x86_64.rpm                ---  centos: cairo-devel-1.15.12-3.el7.aarch64.rpm
+版本一致：stx: cairo-gobject-1.15.12-3.el7.x86_64.rpm              ---  centos: cairo-gobject-1.15.12-3.el7.aarch64.rpm
+版本一致：stx: cairo-gobject-devel-1.15.12-3.el7.x86_64.rpm        ---  centos: cairo-gobject-devel-1.15.12-3.el7.aarch64.rpm
+版本一致：stx: cdparanoia-libs-10.2-17.el7.x86_64.rpm              ---  centos: cdparanoia-libs-10.2-17.el7.aarch64.rpm
+版本一致：stx: celt051-0.5.1.3-8.el7.x86_64.rpm                    ---  centos: celt051-0.5.1.3-8.el7.aarch64.rpm
+版本一致：stx: celt051-devel-0.5.1.3-8.el7.x86_64.rpm              ---  centos: celt051-devel-0.5.1.3-8.el7.aarch64.rpm
+版本一致：stx: centos-release-7-6.1810.2.el7.centos.x86_64.rpm     ---  centos: centos-release-7-6.1810.2.el7.centos.a.aarch64.rpm
+版本一致：stx: check-0.9.9-5.el7.x86_64.rpm                        ---  centos: check-0.9.9-5.el7.aarch64.rpm
+版本一致：stx: check-devel-0.9.9-5.el7.x86_64.rpm                  ---  centos: check-devel-0.9.9-5.el7.aarch64.rpm
+版本一致：stx: checkpolicy-2.5-8.el7.x86_64.rpm                    ---  centos: checkpolicy-2.5-8.el7.aarch64.rpm
+版本一致：stx: chkconfig-1.7.4-1.el7.x86_64.rpm                    ---  centos: chkconfig-1.7.4-1.el7.aarch64.rpm
+版本一致：stx: chrpath-0.16-0.el7.x86_64.rpm                       ---  centos: chrpath-0.16-0.el7.aarch64.rpm
+版本一致：stx: cifs-utils-6.2-10.el7.x86_64.rpm                    ---  centos: cifs-utils-6.2-10.el7.aarch64.rpm
+版本一致：stx: cmake-2.8.12.2-2.el7.x86_64.rpm                     ---  centos: cmake-2.8.12.2-2.el7.aarch64.rpm
+找不到  ： stx: collectd-5.8.0-4.el7.x86_64.rpm 
+版本一致：stx: colord-libs-1.3.4-1.el7.x86_64.rpm                  ---  centos: colord-libs-1.3.4-1.el7.aarch64.rpm
+版本一致：stx: compat-openmpi16-1.6.4-10.7.el7.x86_64.rpm          ---  centos: compat-openmpi16-1.6.4-10.7.el7.aarch64.rpm
+版本一致：stx: conntrack-tools-1.4.4-4.el7.x86_64.rpm              ---  centos: conntrack-tools-1.4.4-4.el7.aarch64.rpm
+找不到  ： stx: containerd.io-1.2.5-3.1.el7.x86_64.rpm 
+找不到  ： stx: containernetworking-cni-0.5.1-1.el7.x86_64.rpm 
+版本一致：stx: coolkey-1.1.0-40.el7.x86_64.rpm                     ---  centos: coolkey-1.1.0-40.el7.aarch64.rpm
+版本一致：stx: coreutils-8.22-23.el7.x86_64.rpm                    ---  centos: coreutils-8.22-23.el7.aarch64.rpm
+版本一致：stx: cpio-2.11-27.el7.x86_64.rpm                         ---  centos: cpio-2.11-27.el7.aarch64.rpm
+版本一致：stx: cpp-4.8.5-36.el7.x86_64.rpm                         ---  centos: cpp-4.8.5-36.el7.aarch64.rpm
+找不到  ： stx: cppcheck-1.84-1.el7.x86_64.rpm 
+版本一致：stx: cpptest-1.1.1-9.el7.x86_64.rpm                      ---  centos: cpptest-1.1.1-9.el7.aarch64.rpm
+版本一致：stx: cracklib-2.9.0-11.el7.x86_64.rpm                    ---  centos: cracklib-2.9.0-11.el7.aarch64.rpm
+版本一致：stx: cracklib-devel-2.9.0-11.el7.x86_64.rpm              ---  centos: cracklib-devel-2.9.0-11.el7.aarch64.rpm
+版本一致：stx: cracklib-dicts-2.9.0-11.el7.x86_64.rpm              ---  centos: cracklib-dicts-2.9.0-11.el7.aarch64.rpm
+名称一致：stx: cronie-1.4.11-20.el7_6.x86_64.rpm                   ---  centos: cronie-1.4.11-19.el7.aarch64.rpm
+名称一致：stx: cronie-anacron-1.4.11-20.el7_6.x86_64.rpm           ---  centos: cronie-anacron-1.4.11-19.el7.aarch64.rpm
+版本一致：stx: cryptsetup-2.0.3-3.el7.x86_64.rpm                   ---  centos: cryptsetup-2.0.3-3.el7.aarch64.rpm
+版本一致：stx: cryptsetup-devel-2.0.3-3.el7.x86_64.rpm             ---  centos: cryptsetup-devel-2.0.3-3.el7.aarch64.rpm
+版本一致：stx: cryptsetup-libs-2.0.3-3.el7.x86_64.rpm              ---  centos: cryptsetup-libs-2.0.3-3.el7.aarch64.rpm
+版本一致：stx: ctags-5.8-13.el7.x86_64.rpm                         ---  centos: ctags-5.8-13.el7.aarch64.rpm
+版本一致：stx: cups-client-1.6.3-35.el7.x86_64.rpm                 ---  centos: cups-client-1.6.3-35.el7.aarch64.rpm
+版本一致：stx: cups-libs-1.6.3-35.el7.x86_64.rpm                   ---  centos: cups-libs-1.6.3-35.el7.aarch64.rpm
+版本一致：stx: curl-7.29.0-51.el7.x86_64.rpm                       ---  centos: curl-7.29.0-51.el7.aarch64.rpm
+版本一致：stx: cyrus-sasl-2.1.26-23.el7.x86_64.rpm                 ---  centos: cyrus-sasl-2.1.26-23.el7.aarch64.rpm
+版本一致：stx: cyrus-sasl-devel-2.1.26-23.el7.x86_64.rpm           ---  centos: cyrus-sasl-devel-2.1.26-23.el7.aarch64.rpm
+版本一致：stx: cyrus-sasl-gssapi-2.1.26-23.el7.x86_64.rpm          ---  centos: cyrus-sasl-gssapi-2.1.26-23.el7.aarch64.rpm
+版本一致：stx: cyrus-sasl-lib-2.1.26-23.el7.x86_64.rpm             ---  centos: cyrus-sasl-lib-2.1.26-23.el7.aarch64.rpm
+版本一致：stx: dbus-1.10.24-12.el7.x86_64.rpm                      ---  centos: dbus-1.10.24-12.el7.aarch64.rpm
+版本一致：stx: dbus-devel-1.10.24-12.el7.x86_64.rpm                ---  centos: dbus-devel-1.10.24-12.el7.aarch64.rpm
+版本一致：stx: dbus-glib-0.100-7.el7.x86_64.rpm                    ---  centos: dbus-glib-0.100-7.el7.aarch64.rpm
+版本一致：stx: dbus-glib-devel-0.100-7.el7.x86_64.rpm              ---  centos: dbus-glib-devel-0.100-7.el7.aarch64.rpm
+版本一致：stx: dbus-libs-1.10.24-12.el7.x86_64.rpm                 ---  centos: dbus-libs-1.10.24-12.el7.aarch64.rpm
+版本一致：stx: dbus-python-1.1.1-9.el7.x86_64.rpm                  ---  centos: dbus-python-1.1.1-9.el7.aarch64.rpm
+版本一致：stx: dconf-0.28.0-4.el7.x86_64.rpm                       ---  centos: dconf-0.28.0-4.el7.aarch64.rpm
+版本一致：stx: deltarpm-3.6-3.el7.x86_64.rpm                       ---  centos: deltarpm-3.6-3.el7.aarch64.rpm
+版本一致：stx: desktop-file-utils-0.23-1.el7.x86_64.rpm            ---  centos: desktop-file-utils-0.23-1.el7.aarch64.rpm
+名称一致：stx: device-mapper-1.02.146-4.el7.x86_64.rpm             ---  centos: device-mapper-1.02.149-8.el7.aarch64.rpm
+名称一致：stx: device-mapper-devel-1.02.146-4.el7.x86_64.rpm       ---  centos: device-mapper-devel-1.02.149-8.el7.aarch64.rpm
+名称一致：stx: device-mapper-event-1.02.146-4.el7.x86_64.rpm       ---  centos: device-mapper-event-1.02.149-8.el7.aarch64.rpm
+名称一致：stx: device-mapper-event-libs-1.02.146-4.el7.x86_64.rpm  ---  centos: device-mapper-event-libs-1.02.149-8.el7.aarch64.rpm
+名称一致：stx: device-mapper-libs-1.02.146-4.el7.x86_64.rpm        ---  centos: device-mapper-libs-1.02.149-8.el7.aarch64.rpm
+名称一致：stx: device-mapper-multipath-0.4.9-119.el7.x86_64.rpm    ---  centos: device-mapper-multipath-0.4.9-123.el7.aarch64.rpm
+名称一致：stx: device-mapper-multipath-libs-0.4.9-119.el7.x86_..&gt;  ---  centos: device-mapper-multipath-libs-0.4.9-123.el7.aarch64.rpm
+版本一致：stx: device-mapper-persistent-data-0.7.3-3.el7.x86_6..&gt;  ---  centos: device-mapper-persistent-data-0.7.3-3.el7.aarch64.rpm
+找不到  ： stx: devtoolset-7-binutils-2.28-11.el7.x86_64.rpm 
+找不到  ： stx: devtoolset-7-gcc-7.3.1-5.10.el7.x86_64.rpm 
+找不到  ： stx: devtoolset-7-gcc-c++-7.3.1-5.10.el7.x86_64.rpm 
+找不到  ： stx: devtoolset-7-libstdc++-devel-7.3.1-5.10.el7.x86..&gt; 
+找不到  ： stx: devtoolset-7-runtime-7.1-4.el7.x86_64.rpm 
+找不到  ： stx: dibbler-client-1.0.1-0.RC1.2.el7.x86_64.rpm 
+版本一致：stx: diffutils-3.3-4.el7.x86_64.rpm                      ---  centos: diffutils-3.3-4.el7.aarch64.rpm
+版本一致：stx: dmidecode-3.1-2.el7.x86_64.rpm                      ---  centos: dmidecode-3.1-2.el7.aarch64.rpm
+找不到  ： stx: docker-ce-18.09.6-3.el7.x86_64.rpm 
+找不到  ： stx: docker-ce-cli-18.09.6-3.el7.x86_64.rpm 
+找不到  ： stx: docker-forward-journald-1.10.3-44.el7.centos.x8..&gt; 
+版本一致：stx: dosfstools-3.0.20-10.el7.x86_64.rpm                 ---  centos: dosfstools-3.0.20-10.el7.aarch64.rpm
+版本一致：stx: doxygen-1.8.5-3.el7.x86_64.rpm                      ---  centos: doxygen-1.8.5-3.el7.aarch64.rpm
+版本一致：stx: dracut-033-554.el7.x86_64.rpm                       ---  centos: dracut-033-554.el7.aarch64.rpm
+版本一致：stx: dracut-config-rescue-033-554.el7.x86_64.rpm         ---  centos: dracut-config-rescue-033-554.el7.aarch64.rpm
+版本一致：stx: dracut-network-033-554.el7.x86_64.rpm               ---  centos: dracut-network-033-554.el7.aarch64.rpm
+找不到  ： stx: dulwich-core-0.18.4-1.el7.x86_64.rpm 
+版本一致：stx: dwz-0.11-3.el7.x86_64.rpm                           ---  centos: dwz-0.11-3.el7.aarch64.rpm
+版本一致：stx: dyninst-9.3.1-2.el7.x86_64.rpm                      ---  centos: dyninst-9.3.1-2.el7.aarch64.rpm
+版本一致：stx: e2fsprogs-1.42.9-13.el7.x86_64.rpm                  ---  centos: e2fsprogs-1.42.9-13.el7.aarch64.rpm
+版本一致：stx: e2fsprogs-devel-1.42.9-13.el7.x86_64.rpm            ---  centos: e2fsprogs-devel-1.42.9-13.el7.aarch64.rpm
+版本一致：stx: e2fsprogs-libs-1.42.9-13.el7.x86_64.rpm             ---  centos: e2fsprogs-libs-1.42.9-13.el7.aarch64.rpm
+版本一致：stx: ebtables-2.0.10-16.el7.x86_64.rpm                   ---  centos: ebtables-2.0.10-16.el7.aarch64.rpm
+版本一致：stx: ed-1.9-4.el7.x86_64.rpm                             ---  centos: ed-1.9-4.el7.aarch64.rpm
+版本一致：stx: efibootmgr-17-2.el7.x86_64.rpm                      ---  centos: efibootmgr-17-2.el7.aarch64.rpm
+版本一致：stx: efivar-devel-36-11.el7.x86_64.rpm                   ---  centos: efivar-devel-36-11.el7.aarch64.rpm
+版本一致：stx: efivar-libs-36-11.el7.x86_64.rpm                    ---  centos: efivar-libs-36-11.el7.aarch64.rpm
+版本一致：stx: elfutils-0.172-2.el7.x86_64.rpm                     ---  centos: elfutils-0.172-2.el7.aarch64.rpm
+版本一致：stx: elfutils-devel-0.172-2.el7.x86_64.rpm               ---  centos: elfutils-devel-0.172-2.el7.aarch64.rpm
+版本一致：stx: elfutils-libelf-0.172-2.el7.x86_64.rpm              ---  centos: elfutils-libelf-0.172-2.el7.aarch64.rpm
+版本一致：stx: elfutils-libelf-devel-0.172-2.el7.x86_64.rpm        ---  centos: elfutils-libelf-devel-0.172-2.el7.aarch64.rpm
+版本一致：stx: elfutils-libs-0.172-2.el7.x86_64.rpm                ---  centos: elfutils-libs-0.172-2.el7.aarch64.rpm
+版本一致：stx: elinks-0.12-0.37.pre6.el7.x86_64.rpm                ---  centos: elinks-0.12-0.37.pre6.el7.aarch64.rpm
+版本一致：stx: environment-modules-3.2.10-10.el7.x86_64.rpm        ---  centos: environment-modules-3.2.10-10.el7.aarch64.rpm
+找不到  ： stx: erlang-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-asn1-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-compiler-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-cosEvent-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-cosEventDomain-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-cosFileTransfer-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-cosNotification-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-cosProperty-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-cosTime-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-cosTransactions-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-crypto-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-diameter-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-edoc-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-eldap-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-erl_docgen-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-erl_interface-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-erts-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-eunit-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-gs-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-hipe-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-ic-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-inets-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-jinterface-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-kernel-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-mnesia-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-odbc-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-orber-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-os_mon-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-ose-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-otp_mibs-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-parsetools-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-percept-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-public_key-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-runtime_tools-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-sasl-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-sd_notify-0.1-9.el7.x86_64.rpm 
+找不到  ： stx: erlang-snmp-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-ssh-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-ssl-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-stdlib-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-syntax_tools-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-tools-18.3.4.4-2.el7.x86_64.rpm 
+找不到  ： stx: erlang-xmerl-18.3.4.4-2.el7.x86_64.rpm 
+版本一致：stx: ethtool-4.8-9.el7.x86_64.rpm                        ---  centos: ethtool-4.8-9.el7.aarch64.rpm
+找不到  ： stx: eventlog-0.2.13-4.el7.x86_64.rpm 
+找不到  ： stx: eventlog-devel-0.2.13-4.el7.x86_64.rpm 
+版本一致：stx: expat-2.1.0-10.el7_3.x86_64.rpm                     ---  centos: expat-2.1.0-10.el7_3.aarch64.rpm
+版本一致：stx: expat-devel-2.1.0-10.el7_3.x86_64.rpm               ---  centos: expat-devel-2.1.0-10.el7_3.aarch64.rpm
+版本一致：stx: expect-5.45-14.el7_1.x86_64.rpm                     ---  centos: expect-5.45-14.el7.aarch64.rpm
+找不到  ： stx: fcgi-2.4.0-25.el7.x86_64.rpm 
+找不到  ： stx: fcgi-devel-2.4.0-25.el7.x86_64.rpm 
+版本一致：stx: fedfs-utils-devel-0.10.5-0.el7.x86_64.rpm           ---  centos: fedfs-utils-devel-0.10.5-0.el7.aarch64.rpm
+版本一致：stx: fedfs-utils-lib-0.10.5-0.el7.x86_64.rpm             ---  centos: fedfs-utils-lib-0.10.5-0.el7.aarch64.rpm
+版本一致：stx: fedfs-utils-nsdbparams-0.10.5-0.el7.x86_64.rpm      ---  centos: fedfs-utils-nsdbparams-0.10.5-0.el7.aarch64.rpm
+版本一致：stx: file-5.11-35.el7.x86_64.rpm                         ---  centos: file-5.11-35.el7.aarch64.rpm
+版本一致：stx: file-devel-5.11-35.el7.x86_64.rpm                   ---  centos: file-devel-5.11-35.el7.aarch64.rpm
+版本一致：stx: file-libs-5.11-35.el7.x86_64.rpm                    ---  centos: file-libs-5.11-35.el7.aarch64.rpm
+版本一致：stx: filesystem-3.2-25.el7.x86_64.rpm                    ---  centos: filesystem-3.2-25.el7.aarch64.rpm
+版本一致：stx: findutils-4.5.11-6.el7.x86_64.rpm                   ---  centos: findutils-4.5.11-6.el7.aarch64.rpm
+版本一致：stx: fipscheck-1.4.1-6.el7.x86_64.rpm                    ---  centos: fipscheck-1.4.1-6.el7.aarch64.rpm
+版本一致：stx: fipscheck-devel-1.4.1-6.el7.x86_64.rpm              ---  centos: fipscheck-devel-1.4.1-6.el7.aarch64.rpm
+版本一致：stx: fipscheck-lib-1.4.1-6.el7.x86_64.rpm                ---  centos: fipscheck-lib-1.4.1-6.el7.aarch64.rpm
+版本一致：stx: flac-libs-1.3.0-5.el7_1.x86_64.rpm                  ---  centos: flac-libs-1.3.0-5.el7.centos.aarch64.rpm
+版本一致：stx: flex-2.5.37-6.el7.x86_64.rpm                        ---  centos: flex-2.5.37-6.el7.aarch64.rpm
+版本一致：stx: fontconfig-2.13.0-4.3.el7.x86_64.rpm                ---  centos: fontconfig-2.13.0-4.3.el7.aarch64.rpm
+版本一致：stx: fontconfig-devel-2.13.0-4.3.el7.x86_64.rpm          ---  centos: fontconfig-devel-2.13.0-4.3.el7.aarch64.rpm
+版本一致：stx: freetype-2.8-12.el7.x86_64.rpm                      ---  centos: freetype-2.8-12.el7.aarch64.rpm
+版本一致：stx: freetype-devel-2.8-12.el7.x86_64.rpm                ---  centos: freetype-devel-2.8-12.el7.aarch64.rpm
+版本一致：stx: fribidi-1.0.2-1.el7.x86_64.rpm                      ---  centos: fribidi-1.0.2-1.el7.aarch64.rpm
+版本一致：stx: fribidi-devel-1.0.2-1.el7.x86_64.rpm                ---  centos: fribidi-devel-1.0.2-1.el7.aarch64.rpm
+版本一致：stx: fuse-2.9.2-11.el7.x86_64.rpm                        ---  centos: fuse-2.9.2-11.el7.aarch64.rpm
+版本一致：stx: fuse-devel-2.9.2-11.el7.x86_64.rpm                  ---  centos: fuse-devel-2.9.2-11.el7.aarch64.rpm
+版本一致：stx: fuse-libs-2.9.2-11.el7.x86_64.rpm                   ---  centos: fuse-libs-2.9.2-11.el7.aarch64.rpm
+版本一致：stx: gamin-0.1.10-16.el7.x86_64.rpm                      ---  centos: gamin-0.1.10-16.el7.aarch64.rpm
+版本一致：stx: gamin-devel-0.1.10-16.el7.x86_64.rpm                ---  centos: gamin-devel-0.1.10-16.el7.aarch64.rpm
+版本一致：stx: gawk-4.0.2-4.el7_3.1.x86_64.rpm                     ---  centos: gawk-4.0.2-4.el7_3.1.aarch64.rpm
+版本一致：stx: gc-7.2d-7.el7.x86_64.rpm                            ---  centos: gc-7.2d-7.el7.aarch64.rpm
+版本一致：stx: gcc-4.8.5-36.el7.x86_64.rpm                         ---  centos: gcc-4.8.5-36.el7.aarch64.rpm
+版本一致：stx: gcc-c++-4.8.5-36.el7.x86_64.rpm                     ---  centos: gcc-c++-4.8.5-36.el7.aarch64.rpm
+版本一致：stx: gd-2.0.35-26.el7.x86_64.rpm                         ---  centos: gd-2.0.35-26.el7.aarch64.rpm
+版本一致：stx: gdb-7.6.1-114.el7.x86_64.rpm                        ---  centos: gdb-7.6.1-114.el7.aarch64.rpm
+版本一致：stx: gdbm-1.10-8.el7.x86_64.rpm                          ---  centos: gdbm-1.10-8.el7.aarch64.rpm
+版本一致：stx: gdbm-devel-1.10-8.el7.x86_64.rpm                    ---  centos: gdbm-devel-1.10-8.el7.aarch64.rpm
+版本一致：stx: gdisk-0.8.10-2.el7.x86_64.rpm                       ---  centos: gdisk-0.8.10-2.el7.aarch64.rpm
+版本一致：stx: gdk-pixbuf2-2.36.12-3.el7.x86_64.rpm                ---  centos: gdk-pixbuf2-2.36.12-3.el7.aarch64.rpm
+版本一致：stx: gdk-pixbuf2-devel-2.36.12-3.el7.x86_64.rpm          ---  centos: gdk-pixbuf2-devel-2.36.12-3.el7.aarch64.rpm
+版本一致：stx: genisoimage-1.1.11-25.el7.x86_64.rpm                ---  centos: genisoimage-1.1.11-25.el7.aarch64.rpm
+版本一致：stx: gettext-0.19.8.1-2.el7.x86_64.rpm                   ---  centos: emacs-gettext-0.19.8.1-2.el7.noarch.rpm
+版本一致：stx: gettext-devel-0.19.8.1-2.el7.x86_64.rpm             ---  centos: gettext-devel-0.19.8.1-2.el7.aarch64.rpm
+版本一致：stx: gettext-libs-0.19.8.1-2.el7.x86_64.rpm              ---  centos: gettext-libs-0.19.8.1-2.el7.aarch64.rpm
+版本一致：stx: ghostscript-9.07-31.el7_6.3.x86_64.rpm              ---  centos: ghostscript-9.07-31.el7.aarch64.rpm
+版本一致：stx: giflib-4.1.6-9.el7.x86_64.rpm                       ---  centos: giflib-4.1.6-9.el7.aarch64.rpm
+名称一致：stx: git-1.8.3.1-20.el7.x86_64.rpm                       ---  centos: git-1.8.3.1-19.el7.aarch64.rpm
+名称一致：stx: glade-devel-3.20.0-1.el7.x86_64.rpm                 ---  centos: glade-devel-3.22.1-1.el7.aarch64.rpm
+名称一致：stx: glade-libs-3.20.0-1.el7.x86_64.rpm                  ---  centos: glade-libs-3.22.1-1.el7.aarch64.rpm
+版本一致：stx: glib-networking-2.56.1-1.el7.x86_64.rpm             ---  centos: glib-networking-2.56.1-1.el7.aarch64.rpm
+版本一致：stx: glib2-2.56.1-2.el7.x86_64.rpm                       ---  centos: glib2-2.56.1-2.el7.aarch64.rpm
+版本一致：stx: glib2-devel-2.56.1-2.el7.x86_64.rpm                 ---  centos: glib2-devel-2.56.1-2.el7.aarch64.rpm
+版本一致：stx: glibc-2.17-260.el7.x86_64.rpm                       ---  centos: glibc-2.17-260.el7.aarch64.rpm
+版本一致：stx: glibc-common-2.17-260.el7.x86_64.rpm                ---  centos: glibc-common-2.17-260.el7.aarch64.rpm
+版本一致：stx: glibc-devel-2.17-260.el7.x86_64.rpm                 ---  centos: glibc-devel-2.17-260.el7.aarch64.rpm
+版本一致：stx: glibc-headers-2.17-260.el7.x86_64.rpm               ---  centos: glibc-headers-2.17-260.el7.aarch64.rpm
+版本一致：stx: glibc-static-2.17-260.el7.x86_64.rpm                ---  centos: glibc-static-2.17-260.el7.aarch64.rpm
+名称一致：stx: glusterfs-5.2-1.el7.x86_64.rpm                      ---  centos: glusterfs-3.12.2-18.el7.aarch64.rpm
+名称一致：stx: glusterfs-api-5.2-1.el7.x86_64.rpm                  ---  centos: glusterfs-api-3.12.2-18.el7.aarch64.rpm
+名称一致：stx: glusterfs-api-devel-5.2-1.el7.x86_64.rpm            ---  centos: glusterfs-api-devel-3.12.2-18.el7.aarch64.rpm
+名称一致：stx: glusterfs-cli-5.2-1.el7.x86_64.rpm                  ---  centos: glusterfs-cli-3.12.2-18.el7.aarch64.rpm
+名称一致：stx: glusterfs-client-xlators-5.2-1.el7.x86_64.rpm       ---  centos: glusterfs-client-xlators-3.12.2-18.el7.aarch64.rpm
+名称一致：stx: glusterfs-devel-5.2-1.el7.x86_64.rpm                ---  centos: glusterfs-devel-3.12.2-18.el7.aarch64.rpm
+找不到  ： stx: glusterfs-extra-xlators-5.2-1.el7.x86_64.rpm 
+名称一致：stx: glusterfs-fuse-5.2-1.el7.x86_64.rpm                 ---  centos: glusterfs-fuse-3.12.2-18.el7.aarch64.rpm
+名称一致：stx: glusterfs-libs-5.2-1.el7.x86_64.rpm                 ---  centos: glusterfs-libs-3.12.2-18.el7.aarch64.rpm
+找不到  ： stx: glusterfs-server-5.2-1.el7.x86_64.rpm 
+版本一致：stx: gmp-6.0.0-15.el7.x86_64.rpm                         ---  centos: gmp-6.0.0-15.el7.aarch64.rpm
+版本一致：stx: gmp-devel-6.0.0-15.el7.x86_64.rpm                   ---  centos: gmp-devel-6.0.0-15.el7.aarch64.rpm
+版本一致：stx: gnu-efi-3.0.8-2.el7.x86_64.rpm                      ---  centos: gnu-efi-3.0.8-2.el7.aarch64.rpm
+版本一致：stx: gnu-efi-devel-3.0.8-2.el7.x86_64.rpm                ---  centos: gnu-efi-devel-3.0.8-2.el7.aarch64.rpm
+版本一致：stx: gnupg2-2.0.22-5.el7_5.x86_64.rpm                    ---  centos: gnupg2-2.0.22-5.el7_5.aarch64.rpm
+版本一致：stx: gnutls-3.3.29-8.el7.x86_64.rpm                      ---  centos: gnutls-3.3.29-8.el7.aarch64.rpm
+版本一致：stx: gnutls-c++-3.3.29-8.el7.x86_64.rpm                  ---  centos: gnutls-c++-3.3.29-8.el7.aarch64.rpm
+版本一致：stx: gnutls-dane-3.3.29-8.el7.x86_64.rpm                 ---  centos: gnutls-dane-3.3.29-8.el7.aarch64.rpm
+版本一致：stx: gnutls-devel-3.3.29-8.el7.x86_64.rpm                ---  centos: gnutls-devel-3.3.29-8.el7.aarch64.rpm
+版本一致：stx: gnutls-utils-3.3.29-8.el7.x86_64.rpm                ---  centos: gnutls-utils-3.3.29-8.el7.aarch64.rpm
+找不到  ： stx: go-bindata-3.0.7-9.gita0ff256.el7.x86_64.rpm 
+版本一致：stx: gobject-introspection-1.56.1-1.el7.x86_64.rpm       ---  centos: gobject-introspection-1.56.1-1.el7.aarch64.rpm
+版本一致：stx: gobject-introspection-devel-1.56.1-1.el7.x86_64..&gt;  ---  centos: gobject-introspection-devel-1.56.1-1.el7.aarch64.rpm
+找不到  ： stx: golang-1.11.2-3.el7.x86_64.rpm 
+找不到  ： stx: golang-bin-1.11.2-3.el7.x86_64.rpm 
+找不到  ： stx: golang-github-cpuguy83-go-md2man-1.0.4-4.el7.x8..&gt; 
+找不到  ： stx: golang-race-1.11.2-3.el7.x86_64.rpm 
+找不到  ： stx: golang-shared-1.11.2-3.el7.x86_64.rpm 
+版本一致：stx: gperf-3.0.4-8.el7.x86_64.rpm                        ---  centos: gperf-3.0.4-8.el7.aarch64.rpm
+版本一致：stx: gperftools-devel-2.6.1-1.el7.x86_64.rpm             ---  centos: gperftools-devel-2.6.1-1.el7.aarch64.rpm
+版本一致：stx: gperftools-libs-2.6.1-1.el7.x86_64.rpm              ---  centos: gperftools-libs-2.6.1-1.el7.aarch64.rpm
+版本一致：stx: gpgme-1.3.2-5.el7.x86_64.rpm                        ---  centos: gpgme-1.3.2-5.el7.aarch64.rpm
+版本一致：stx: gpm-1.20.7-5.el7.x86_64.rpm                         ---  centos: gpm-1.20.7-5.el7.aarch64.rpm
+版本一致：stx: gpm-devel-1.20.7-5.el7.x86_64.rpm                   ---  centos: gpm-devel-1.20.7-5.el7.aarch64.rpm
+版本一致：stx: gpm-libs-1.20.7-5.el7.x86_64.rpm                    ---  centos: gpm-libs-1.20.7-5.el7.aarch64.rpm
+版本一致：stx: graphite2-1.3.10-1.el7_3.x86_64.rpm                 ---  centos: graphite2-1.3.10-1.el7_3.aarch64.rpm
+版本一致：stx: graphite2-devel-1.3.10-1.el7_3.x86_64.rpm           ---  centos: graphite2-devel-1.3.10-1.el7_3.aarch64.rpm
+版本一致：stx: graphviz-2.30.1-21.el7.x86_64.rpm                   ---  centos: graphviz-2.30.1-21.el7.aarch64.rpm
+版本一致：stx: grep-2.20-3.el7.x86_64.rpm                          ---  centos: grep-2.20-3.el7.aarch64.rpm
+版本一致：stx: groff-1.22.2-8.el7.x86_64.rpm                       ---  centos: groff-1.22.2-8.el7.aarch64.rpm
+版本一致：stx: groff-base-1.22.2-8.el7.x86_64.rpm                  ---  centos: groff-base-1.22.2-8.el7.aarch64.rpm
+版本一致：stx: gsettings-desktop-schemas-3.28.0-2.el7.x86_64.rpm   ---  centos: gsettings-desktop-schemas-3.28.0-2.el7.aarch64.rpm
+版本一致：stx: gsm-1.0.13-11.el7.x86_64.rpm                        ---  centos: gsm-1.0.13-11.el7.aarch64.rpm
+版本一致：stx: gssproxy-0.7.0-21.el7.x86_64.rpm                    ---  centos: gssproxy-0.7.0-21.el7.aarch64.rpm
+版本一致：stx: gstreamer-0.10.36-7.el7.x86_64.rpm                  ---  centos: gstreamer-0.10.36-7.el7.aarch64.rpm
+版本一致：stx: gstreamer-plugins-base-0.10.36-10.el7.x86_64.rpm    ---  centos: gstreamer-plugins-base-0.10.36-10.el7.aarch64.rpm
+版本一致：stx: gstreamer-plugins-good-0.10.31-13.el7.x86_64.rpm    ---  centos: gstreamer-plugins-good-0.10.31-13.el7.aarch64.rpm
+版本一致：stx: gstreamer-tools-0.10.36-7.el7.x86_64.rpm            ---  centos: gstreamer-tools-0.10.36-7.el7.aarch64.rpm
+版本一致：stx: gtk-doc-1.28-2.el7.x86_64.rpm                       ---  centos: gtk-doc-1.28-2.el7.aarch64.rpm
+版本一致：stx: gtk-update-icon-cache-3.22.30-3.el7.x86_64.rpm      ---  centos: gtk-update-icon-cache-3.22.30-3.el7.aarch64.rpm
+版本一致：stx: gtk2-2.24.31-1.el7.x86_64.rpm                       ---  centos: gtk2-2.24.31-1.el7.aarch64.rpm
+版本一致：stx: gtk2-devel-2.24.31-1.el7.x86_64.rpm                 ---  centos: gtk2-devel-2.24.31-1.el7.aarch64.rpm
+版本一致：stx: gtk3-3.22.30-3.el7.x86_64.rpm                       ---  centos: gtk3-3.22.30-3.el7.aarch64.rpm
+版本一致：stx: gtk3-devel-3.22.30-3.el7.x86_64.rpm                 ---  centos: gtk3-devel-3.22.30-3.el7.aarch64.rpm
+版本一致：stx: gtk3-devel-docs-3.22.30-3.el7.x86_64.rpm            ---  centos: gtk3-devel-docs-3.22.30-3.el7.aarch64.rpm
+版本一致：stx: guile-2.0.9-5.el7.x86_64.rpm                        ---  centos: guile-2.0.9-5.el7.aarch64.rpm
+版本一致：stx: gzip-1.5-10.el7.x86_64.rpm                          ---  centos: gzip-1.5-10.el7.aarch64.rpm
+版本一致：stx: hardlink-1.0-19.el7.x86_64.rpm                      ---  centos: hardlink-1.0-19.el7.aarch64.rpm
+版本一致：stx: harfbuzz-1.7.5-2.el7.x86_64.rpm                     ---  centos: harfbuzz-1.7.5-2.el7.aarch64.rpm
+版本一致：stx: harfbuzz-devel-1.7.5-2.el7.x86_64.rpm               ---  centos: harfbuzz-devel-1.7.5-2.el7.aarch64.rpm
+版本一致：stx: harfbuzz-icu-1.7.5-2.el7.x86_64.rpm                 ---  centos: harfbuzz-icu-1.7.5-2.el7.aarch64.rpm
+找不到  ： stx: hdf5-1.8.13-7.el7.x86_64.rpm 
+找不到  ： stx: hdf5-mpich-1.8.13-7.el7.x86_64.rpm 
+找不到  ： stx: hdf5-openmpi-1.8.13-7.el7.x86_64.rpm 
+版本一致：stx: hdparm-9.43-5.el7.x86_64.rpm                        ---  centos: hdparm-9.43-5.el7.aarch64.rpm
+找不到  ： stx: hiredis-0.12.1-1.el7.x86_64.rpm 
+找不到  ： stx: hiredis-devel-0.12.1-1.el7.x86_64.rpm 
+版本一致：stx: hivex-1.3.10-6.9.el7.x86_64.rpm                     ---  centos: hivex-1.3.10-6.9.el7.aarch64.rpm
+版本一致：stx: hmaccalc-0.9.13-4.el7.x86_64.rpm                    ---  centos: hmaccalc-0.9.13-4.el7.aarch64.rpm
+版本一致：stx: hostname-3.13-3.el7.x86_64.rpm                      ---  centos: hostname-3.13-3.el7.aarch64.rpm
+版本一致：stx: httpd-2.4.6-88.el7.centos.x86_64.rpm                ---  centos: httpd-2.4.6-88.el7.centos.aarch64.rpm
+版本一致：stx: httpd-tools-2.4.6-88.el7.centos.x86_64.rpm          ---  centos: httpd-tools-2.4.6-88.el7.centos.aarch64.rpm
+版本一致：stx: hwdata-0.252-9.1.el7.x86_64.rpm                     ---  centos: hwdata-0.252-9.1.el7.aarch64.rpm
+版本一致：stx: hwloc-libs-1.11.8-4.el7.x86_64.rpm                  ---  centos: hwloc-libs-1.11.8-4.el7.aarch64.rpm
+版本一致：stx: ima-evm-utils-1.1-2.el7.x86_64.rpm                  ---  centos: ima-evm-utils-1.1-2.el7.aarch64.rpm
+版本一致：stx: ima-evm-utils-devel-1.1-2.el7.x86_64.rpm            ---  centos: ima-evm-utils-devel-1.1-2.el7.aarch64.rpm
+版本一致：stx: infiniband-diags-2.0.0-2.el7.x86_64.rpm             ---  centos: infiniband-diags-2.0.0-2.el7.aarch64.rpm
+找不到  ： stx: infinipath-psm-3.3-26_g604758e_open.2.el7.x86_6..&gt; 
+找不到  ： stx: influxdb-0.9.5.1-1.x86_64.rpm 
+版本一致：stx: info-5.1-5.el7.x86_64.rpm                           ---  centos: info-5.1-5.el7.aarch64.rpm
+版本一致：stx: iperf3-3.1.7-2.el7.x86_64.rpm                       ---  centos: iperf3-3.1.7-2.el7.aarch64.rpm
+版本一致：stx: ipmitool-1.8.18-7.el7.x86_64.rpm                    ---  centos: ipmitool-1.8.18-7.el7.aarch64.rpm
+版本一致：stx: iproute-4.11.0-14.el7.x86_64.rpm                    ---  centos: iproute-4.11.0-14.el7.aarch64.rpm
+版本一致：stx: iprutils-2.4.16.1-1.el7.x86_64.rpm                  ---  centos: iprutils-2.4.16.1-1.el7.aarch64.rpm
+名称一致：stx: ipset-6.38-3.el7_6.x86_64.rpm                       ---  centos: ipset-6.38-2.el7.aarch64.rpm
+名称一致：stx: ipset-libs-6.38-3.el7_6.x86_64.rpm                  ---  centos: ipset-libs-6.38-2.el7.aarch64.rpm
+版本一致：stx: iptables-1.4.21-28.el7.x86_64.rpm                   ---  centos: iptables-1.4.21-28.el7.aarch64.rpm
+版本一致：stx: iptables-services-1.4.21-28.el7.x86_64.rpm          ---  centos: iptables-services-1.4.21-28.el7.aarch64.rpm
+版本一致：stx: iptables-utils-1.4.21-28.el7.x86_64.rpm             ---  centos: iptables-utils-1.4.21-28.el7.aarch64.rpm
+版本一致：stx: iputils-20160308-10.el7.x86_64.rpm                  ---  centos: iputils-20160308-10.el7.aarch64.rpm
+版本一致：stx: iscsi-initiator-utils-6.2.0.874-10.el7.x86_64.rpm   ---  centos: iscsi-initiator-utils-6.2.0.874-10.el7.aarch64.rpm
+版本一致：stx: iscsi-initiator-utils-iscsiuio-6.2.0.874-10.el7..&gt;  ---  centos: iscsi-initiator-utils-iscsiuio-6.2.0.874-10.el7.aarch64.rpm
+版本一致：stx: isomd5sum-1.0.10-5.el7.x86_64.rpm                   ---  centos: isomd5sum-1.0.10-5.el7.aarch64.rpm
+找不到  ： stx: ivykis-0.36.3-1.el7.x86_64.rpm 
+找不到  ： stx: ivykis-devel-0.36.3-1.el7.x86_64.rpm 
+版本一致：stx: jansson-2.10-1.el7.x86_64.rpm                       ---  centos: jansson-2.10-1.el7.aarch64.rpm
+版本一致：stx: jasper-devel-1.900.1-33.el7.x86_64.rpm              ---  centos: jasper-devel-1.900.1-33.el7.aarch64.rpm
+版本一致：stx: jasper-libs-1.900.1-33.el7.x86_64.rpm               ---  centos: jasper-libs-1.900.1-33.el7.aarch64.rpm
+名称一致：stx: java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64..&gt;  ---  centos: java-1.8.0-openjdk-1.8.0.181-7.b13.el7.aarch64.rpm
+名称一致：stx: java-1.8.0-openjdk-devel-1.8.0.191.b12-1.el7_6...&gt;  ---  centos: java-1.8.0-openjdk-devel-1.8.0.181-7.b13.el7.aarch64.rpm
+名称一致：stx: java-1.8.0-openjdk-headless-1.8.0.191.b12-1.el7..&gt;  ---  centos: java-1.8.0-openjdk-headless-1.8.0.181-7.b13.el7.aarch64.rpm
+版本一致：stx: jbigkit-libs-2.0-11.el7.x86_64.rpm                  ---  centos: jbigkit-libs-2.0-11.el7.aarch64.rpm
+找不到  ： stx: jq-1.5-1.el7.x86_64.rpm 
+版本一致：stx: js-1.8.5-20.el7.x86_64.rpm                          ---  centos: js-1.8.5-20.el7.aarch64.rpm
+版本一致：stx: json-c-0.11-4.el7_0.x86_64.rpm                      ---  centos: json-c-0.11-4.el7_0.aarch64.rpm
+版本一致：stx: json-c-devel-0.11-4.el7_0.x86_64.rpm                ---  centos: json-c-devel-0.11-4.el7_0.aarch64.rpm
+版本一致：stx: json-glib-1.4.2-2.el7.x86_64.rpm                    ---  centos: json-glib-1.4.2-2.el7.aarch64.rpm
+版本一致：stx: json-glib-devel-1.4.2-2.el7.x86_64.rpm              ---  centos: json-glib-devel-1.4.2-2.el7.aarch64.rpm
+版本一致：stx: kbd-1.15.5-15.el7.x86_64.rpm                        ---  centos: kbd-1.15.5-15.el7.aarch64.rpm
+版本一致：stx: kde-filesystem-4-47.el7.x86_64.rpm                  ---  centos: kde-filesystem-4-47.el7.aarch64.rpm
+名称一致：stx: kernel-headers-3.10.0-957.12.2.el7.x86_64.rpm       ---  centos: kernel-headers-4.14.0-115.el7a.0.1.aarch64.rpm
+版本一致：stx: kexec-tools-2.0.15-21.el7.x86_64.rpm                ---  centos: kexec-tools-2.0.15-21.el7.aarch64.rpm
+版本一致：stx: keyutils-1.5.8-3.el7.x86_64.rpm                     ---  centos: keyutils-1.5.8-3.el7.aarch64.rpm
+版本一致：stx: keyutils-libs-1.5.8-3.el7.x86_64.rpm                ---  centos: keyutils-libs-1.5.8-3.el7.aarch64.rpm
+版本一致：stx: keyutils-libs-devel-1.5.8-3.el7.x86_64.rpm          ---  centos: keyutils-libs-devel-1.5.8-3.el7.aarch64.rpm
+版本一致：stx: kmod-20-23.el7.x86_64.rpm                           ---  centos: kmod-20-23.el7.aarch64.rpm
+版本一致：stx: kmod-devel-20-23.el7.x86_64.rpm                     ---  centos: kmod-devel-20-23.el7.aarch64.rpm
+版本一致：stx: kmod-libs-20-23.el7.x86_64.rpm                      ---  centos: kmod-libs-20-23.el7.aarch64.rpm
+名称一致：stx: kpartx-0.4.9-119.el7.x86_64.rpm                     ---  centos: kpartx-0.4.9-123.el7.aarch64.rpm
+版本一致：stx: krb5-devel-1.15.1-34.el7.x86_64.rpm                 ---  centos: krb5-devel-1.15.1-34.el7.aarch64.rpm
+版本一致：stx: krb5-libs-1.15.1-34.el7.x86_64.rpm                  ---  centos: krb5-libs-1.15.1-34.el7.aarch64.rpm
+版本一致：stx: lapack-3.4.2-8.el7.x86_64.rpm                       ---  centos: lapack-3.4.2-8.el7.aarch64.rpm
+找不到  ： stx: lbzip2-2.5-1.el7.x86_64.rpm 
+版本一致：stx: lcms2-2.6-3.el7.x86_64.rpm                          ---  centos: lcms2-2.6-3.el7.aarch64.rpm
+版本一致：stx: ldns-1.6.16-10.el7.x86_64.rpm                       ---  centos: ldns-1.6.16-10.el7.aarch64.rpm
+版本一致：stx: less-458-9.el7.x86_64.rpm                           ---  centos: less-458-9.el7.aarch64.rpm
+找不到  ： stx: leveldb-1.12.0-11.el7.x86_64.rpm 
+找不到  ： stx: leveldb-devel-1.12.0-11.el7.x86_64.rpm 
+版本一致：stx: libICE-1.0.9-9.el7.x86_64.rpm                       ---  centos: libICE-1.0.9-9.el7.aarch64.rpm
+版本一致：stx: libICE-devel-1.0.9-9.el7.x86_64.rpm                 ---  centos: libICE-devel-1.0.9-9.el7.aarch64.rpm
+版本一致：stx: libSM-1.2.2-2.el7.x86_64.rpm                        ---  centos: libSM-1.2.2-2.el7.aarch64.rpm
+版本一致：stx: libSM-devel-1.2.2-2.el7.x86_64.rpm                  ---  centos: libSM-devel-1.2.2-2.el7.aarch64.rpm
+版本一致：stx: libX11-1.6.5-2.el7.x86_64.rpm                       ---  centos: libX11-1.6.5-2.el7.aarch64.rpm
+版本一致：stx: libX11-devel-1.6.5-2.el7.x86_64.rpm                 ---  centos: libX11-devel-1.6.5-2.el7.aarch64.rpm
+版本一致：stx: libXau-1.0.8-2.1.el7.x86_64.rpm                     ---  centos: libXau-1.0.8-2.1.el7.aarch64.rpm
+版本一致：stx: libXau-devel-1.0.8-2.1.el7.x86_64.rpm               ---  centos: libXau-devel-1.0.8-2.1.el7.aarch64.rpm
+版本一致：stx: libXaw-1.0.13-4.el7.x86_64.rpm                      ---  centos: libXaw-1.0.13-4.el7.aarch64.rpm
+版本一致：stx: libXcomposite-0.4.4-4.1.el7.x86_64.rpm              ---  centos: libXcomposite-0.4.4-4.1.el7.aarch64.rpm
+版本一致：stx: libXcomposite-devel-0.4.4-4.1.el7.x86_64.rpm        ---  centos: libXcomposite-devel-0.4.4-4.1.el7.aarch64.rpm
+版本一致：stx: libXcursor-1.1.15-1.el7.x86_64.rpm                  ---  centos: libXcursor-1.1.15-1.el7.aarch64.rpm
+版本一致：stx: libXcursor-devel-1.1.15-1.el7.x86_64.rpm            ---  centos: libXcursor-devel-1.1.15-1.el7.aarch64.rpm
+版本一致：stx: libXdamage-1.1.4-4.1.el7.x86_64.rpm                 ---  centos: libXdamage-1.1.4-4.1.el7.aarch64.rpm
+版本一致：stx: libXdamage-devel-1.1.4-4.1.el7.x86_64.rpm           ---  centos: libXdamage-devel-1.1.4-4.1.el7.aarch64.rpm
+版本一致：stx: libXext-1.3.3-3.el7.x86_64.rpm                      ---  centos: libXext-1.3.3-3.el7.aarch64.rpm
+版本一致：stx: libXext-devel-1.3.3-3.el7.x86_64.rpm                ---  centos: libXext-devel-1.3.3-3.el7.aarch64.rpm
+版本一致：stx: libXfixes-5.0.3-1.el7.x86_64.rpm                    ---  centos: libXfixes-5.0.3-1.el7.aarch64.rpm
+版本一致：stx: libXfixes-devel-5.0.3-1.el7.x86_64.rpm              ---  centos: libXfixes-devel-5.0.3-1.el7.aarch64.rpm
+版本一致：stx: libXfont-1.5.4-1.el7.x86_64.rpm                     ---  centos: libXfont-1.5.4-1.el7.aarch64.rpm
+版本一致：stx: libXft-2.3.2-2.el7.x86_64.rpm                       ---  centos: libXft-2.3.2-2.el7.aarch64.rpm
+版本一致：stx: libXft-devel-2.3.2-2.el7.x86_64.rpm                 ---  centos: libXft-devel-2.3.2-2.el7.aarch64.rpm
+版本一致：stx: libXi-1.7.9-1.el7.x86_64.rpm                        ---  centos: libXi-1.7.9-1.el7.aarch64.rpm
+版本一致：stx: libXi-devel-1.7.9-1.el7.x86_64.rpm                  ---  centos: libXi-devel-1.7.9-1.el7.aarch64.rpm
+版本一致：stx: libXinerama-1.1.3-2.1.el7.x86_64.rpm                ---  centos: libXinerama-1.1.3-2.1.el7.aarch64.rpm
+版本一致：stx: libXinerama-devel-1.1.3-2.1.el7.x86_64.rpm          ---  centos: libXinerama-devel-1.1.3-2.1.el7.aarch64.rpm
+版本一致：stx: libXmu-1.1.2-2.el7.x86_64.rpm                       ---  centos: libXmu-1.1.2-2.el7.aarch64.rpm
+版本一致：stx: libXpm-3.5.12-1.el7.x86_64.rpm                      ---  centos: libXpm-3.5.12-1.el7.aarch64.rpm
+版本一致：stx: libXpm-devel-3.5.12-1.el7.x86_64.rpm                ---  centos: libXpm-devel-3.5.12-1.el7.aarch64.rpm
+版本一致：stx: libXrandr-1.5.1-2.el7.x86_64.rpm                    ---  centos: libXrandr-1.5.1-2.el7.aarch64.rpm
+版本一致：stx: libXrandr-devel-1.5.1-2.el7.x86_64.rpm              ---  centos: libXrandr-devel-1.5.1-2.el7.aarch64.rpm
+版本一致：stx: libXrender-0.9.10-1.el7.x86_64.rpm                  ---  centos: libXrender-0.9.10-1.el7.aarch64.rpm
+版本一致：stx: libXrender-devel-0.9.10-1.el7.x86_64.rpm            ---  centos: libXrender-devel-0.9.10-1.el7.aarch64.rpm
+版本一致：stx: libXt-1.1.5-3.el7.x86_64.rpm                        ---  centos: libXt-1.1.5-3.el7.aarch64.rpm
+版本一致：stx: libXt-devel-1.1.5-3.el7.x86_64.rpm                  ---  centos: libXt-devel-1.1.5-3.el7.aarch64.rpm
+版本一致：stx: libXtst-1.2.3-1.el7.x86_64.rpm                      ---  centos: libXtst-1.2.3-1.el7.aarch64.rpm
+版本一致：stx: libXv-1.0.11-1.el7.x86_64.rpm                       ---  centos: libXv-1.0.11-1.el7.aarch64.rpm
+版本一致：stx: libXxf86vm-1.1.4-1.el7.x86_64.rpm                   ---  centos: libXxf86vm-1.1.4-1.el7.aarch64.rpm
+版本一致：stx: libXxf86vm-devel-1.1.4-1.el7.x86_64.rpm             ---  centos: libXxf86vm-devel-1.1.4-1.el7.aarch64.rpm
+版本一致：stx: libacl-2.2.51-14.el7.x86_64.rpm                     ---  centos: libacl-2.2.51-14.el7.aarch64.rpm
+版本一致：stx: libacl-devel-2.2.51-14.el7.x86_64.rpm               ---  centos: libacl-devel-2.2.51-14.el7.aarch64.rpm
+版本一致：stx: libaio-0.3.109-13.el7.x86_64.rpm                    ---  centos: libaio-0.3.109-13.el7.aarch64.rpm
+版本一致：stx: libaio-devel-0.3.109-13.el7.x86_64.rpm              ---  centos: libaio-devel-0.3.109-13.el7.aarch64.rpm
+版本一致：stx: libarchive-3.1.2-10.el7_2.x86_64.rpm                ---  centos: libarchive-3.1.2-10.el7_2.aarch64.rpm
+版本一致：stx: libarchive-devel-3.1.2-10.el7_2.x86_64.rpm          ---  centos: libarchive-devel-3.1.2-10.el7_2.aarch64.rpm
+版本一致：stx: libassuan-2.1.0-3.el7.x86_64.rpm                    ---  centos: libassuan-2.1.0-3.el7.aarch64.rpm
+版本一致：stx: libasyncns-0.8-7.el7.x86_64.rpm                     ---  centos: libasyncns-0.8-7.el7.aarch64.rpm
+版本一致：stx: libatomic_ops-devel-7.2d-7.el7.x86_64.rpm           ---  centos: libatomic_ops-devel-7.2d-7.el7.aarch64.rpm
+版本一致：stx: libattr-2.4.46-13.el7.x86_64.rpm                    ---  centos: libattr-2.4.46-13.el7.aarch64.rpm
+版本一致：stx: libattr-devel-2.4.46-13.el7.x86_64.rpm              ---  centos: libattr-devel-2.4.46-13.el7.aarch64.rpm
+版本一致：stx: libavc1394-0.5.3-14.el7.x86_64.rpm                  ---  centos: libavc1394-0.5.3-14.el7.aarch64.rpm
+找不到  ： stx: libbabeltrace-1.2.4-3.1.el7.x86_64.rpm 
+找不到  ： stx: libbabeltrace-devel-1.2.4-3.1.el7.x86_64.rpm 
+版本一致：stx: libbasicobjects-0.1.1-32.el7.x86_64.rpm             ---  centos: libbasicobjects-0.1.1-32.el7.aarch64.rpm
+版本一致：stx: libblkid-2.23.2-59.el7.x86_64.rpm                   ---  centos: libblkid-2.23.2-59.el7.aarch64.rpm
+版本一致：stx: libblkid-devel-2.23.2-59.el7.x86_64.rpm             ---  centos: libblkid-devel-2.23.2-59.el7.aarch64.rpm
+名称一致：stx: libcacard-2.5.2-2.1.el7.x86_64.rpm                  ---  centos: libcacard-2.5.2-2.el7.aarch64.rpm
+名称一致：stx: libcacard-devel-2.5.2-2.1.el7.x86_64.rpm            ---  centos: libcacard-devel-2.5.2-2.el7.aarch64.rpm
+版本一致：stx: libcap-2.22-9.el7.x86_64.rpm                        ---  centos: libcap-2.22-9.el7.aarch64.rpm
+版本一致：stx: libcap-devel-2.22-9.el7.x86_64.rpm                  ---  centos: libcap-devel-2.22-9.el7.aarch64.rpm
+版本一致：stx: libcap-ng-0.7.5-4.el7.x86_64.rpm                    ---  centos: libcap-ng-0.7.5-4.el7.aarch64.rpm
+版本一致：stx: libcap-ng-devel-0.7.5-4.el7.x86_64.rpm              ---  centos: libcap-ng-devel-0.7.5-4.el7.aarch64.rpm
+版本一致：stx: libcgroup-0.41-20.el7.x86_64.rpm                    ---  centos: libcgroup-0.41-20.el7.aarch64.rpm
+版本一致：stx: libcgroup-tools-0.41-20.el7.x86_64.rpm              ---  centos: libcgroup-tools-0.41-20.el7.aarch64.rpm
+找不到  ： stx: libcmocka-1.1.3-1.el7.x86_64.rpm 
+找不到  ： stx: libcmocka-devel-1.1.3-1.el7.x86_64.rpm 
+版本一致：stx: libcollection-0.7.0-32.el7.x86_64.rpm               ---  centos: libcollection-0.7.0-32.el7.aarch64.rpm
+版本一致：stx: libcom_err-1.42.9-13.el7.x86_64.rpm                 ---  centos: libcom_err-1.42.9-13.el7.aarch64.rpm
+版本一致：stx: libcom_err-devel-1.42.9-13.el7.x86_64.rpm           ---  centos: libcom_err-devel-1.42.9-13.el7.aarch64.rpm
+版本一致：stx: libconfig-1.4.9-5.el7.x86_64.rpm                    ---  centos: libconfig-1.4.9-5.el7.aarch64.rpm
+版本一致：stx: libcroco-0.6.12-4.el7.x86_64.rpm                    ---  centos: libcroco-0.6.12-4.el7.aarch64.rpm
+版本一致：stx: libcurl-7.29.0-51.el7.x86_64.rpm                    ---  centos: libcurl-7.29.0-51.el7.aarch64.rpm
+版本一致：stx: libcurl-devel-7.29.0-51.el7.x86_64.rpm              ---  centos: libcurl-devel-7.29.0-51.el7.aarch64.rpm
+版本一致：stx: libdaemon-0.14-7.el7.x86_64.rpm                     ---  centos: libdaemon-0.14-7.el7.aarch64.rpm
+版本一致：stx: libdb-5.3.21-24.el7.x86_64.rpm                      ---  centos: libdb-5.3.21-24.el7.aarch64.rpm
+版本一致：stx: libdb-devel-5.3.21-24.el7.x86_64.rpm                ---  centos: libdb-devel-5.3.21-24.el7.aarch64.rpm
+版本一致：stx: libdb-utils-5.3.21-24.el7.x86_64.rpm                ---  centos: libdb-utils-5.3.21-24.el7.aarch64.rpm
+版本一致：stx: libdbi-0.8.4-6.el7.x86_64.rpm                       ---  centos: libdbi-0.8.4-6.el7.aarch64.rpm
+版本一致：stx: libdbi-devel-0.8.4-6.el7.x86_64.rpm                 ---  centos: libdbi-devel-0.8.4-6.el7.aarch64.rpm
+版本一致：stx: libdrm-2.4.91-3.el7.x86_64.rpm                      ---  centos: libdrm-2.4.91-3.el7.aarch64.rpm
+版本一致：stx: libdrm-devel-2.4.91-3.el7.x86_64.rpm                ---  centos: libdrm-devel-2.4.91-3.el7.aarch64.rpm
+版本一致：stx: libdv-1.0.0-17.el7.x86_64.rpm                       ---  centos: libdv-1.0.0-17.el7.aarch64.rpm
+版本一致：stx: libdwarf-20130207-4.el7.x86_64.rpm                  ---  centos: libdwarf-20130207-4.el7.aarch64.rpm
+版本一致：stx: libedit-3.0-12.20121213cvs.el7.x86_64.rpm           ---  centos: libedit-3.0-12.20121213cvs.el7.aarch64.rpm
+版本一致：stx: libedit-devel-3.0-12.20121213cvs.el7.x86_64.rpm     ---  centos: libedit-devel-3.0-12.20121213cvs.el7.aarch64.rpm
+版本一致：stx: libepoxy-1.5.2-1.el7.x86_64.rpm                     ---  centos: libepoxy-1.5.2-1.el7.aarch64.rpm
+版本一致：stx: libepoxy-devel-1.5.2-1.el7.x86_64.rpm               ---  centos: libepoxy-devel-1.5.2-1.el7.aarch64.rpm
+找不到  ： stx: liberasurecode-1.5.0-1.el7.x86_64.rpm 
+版本一致：stx: libesmtp-1.0.6-7.el7.x86_64.rpm                     ---  centos: libesmtp-1.0.6-7.el7.aarch64.rpm
+版本一致：stx: libesmtp-devel-1.0.6-7.el7.x86_64.rpm               ---  centos: libesmtp-devel-1.0.6-7.el7.aarch64.rpm
+版本一致：stx: libestr-0.1.9-2.el7.x86_64.rpm                      ---  centos: libestr-0.1.9-2.el7.aarch64.rpm
+找不到  ： stx: libev-4.15-7.el7.x86_64.rpm 
+版本一致：stx: libfabric-1.6.1-2.el7.x86_64.rpm                    ---  centos: libfabric-1.6.1-2.el7.aarch64.rpm
+版本一致：stx: libffi-3.0.13-18.el7.x86_64.rpm                     ---  centos: libffi-3.0.13-18.el7.aarch64.rpm
+版本一致：stx: libffi-devel-3.0.13-18.el7.x86_64.rpm               ---  centos: libffi-devel-3.0.13-18.el7.aarch64.rpm
+版本一致：stx: libfontenc-1.1.3-3.el7.x86_64.rpm                   ---  centos: libfontenc-1.1.3-3.el7.aarch64.rpm
+版本一致：stx: libgcc-4.8.5-36.el7.x86_64.rpm                      ---  centos: libgcc-4.8.5-36.el7.aarch64.rpm
+版本一致：stx: libgcrypt-1.5.3-14.el7.x86_64.rpm                   ---  centos: libgcrypt-1.5.3-14.el7.aarch64.rpm
+版本一致：stx: libgcrypt-devel-1.5.3-14.el7.x86_64.rpm             ---  centos: libgcrypt-devel-1.5.3-14.el7.aarch64.rpm
+版本一致：stx: libgfortran-4.8.5-36.el7.x86_64.rpm                 ---  centos: libgfortran-4.8.5-36.el7.aarch64.rpm
+版本一致：stx: libglvnd-1.0.1-0.8.git5baa1e5.el7.x86_64.rpm        ---  centos: libglvnd-1.0.1-0.8.git5baa1e5.el7.aarch64.rpm
+版本一致：stx: libglvnd-core-devel-1.0.1-0.8.git5baa1e5.el7.x8..&gt;  ---  centos: libglvnd-core-devel-1.0.1-0.8.git5baa1e5.el7.aarch64.rpm
+版本一致：stx: libglvnd-devel-1.0.1-0.8.git5baa1e5.el7.x86_64.rpm  ---  centos: libglvnd-devel-1.0.1-0.8.git5baa1e5.el7.aarch64.rpm
+版本一致：stx: libglvnd-egl-1.0.1-0.8.git5baa1e5.el7.x86_64.rpm    ---  centos: libglvnd-egl-1.0.1-0.8.git5baa1e5.el7.aarch64.rpm
+版本一致：stx: libglvnd-gles-1.0.1-0.8.git5baa1e5.el7.x86_64.rpm   ---  centos: libglvnd-gles-1.0.1-0.8.git5baa1e5.el7.aarch64.rpm
+版本一致：stx: libglvnd-glx-1.0.1-0.8.git5baa1e5.el7.x86_64.rpm    ---  centos: libglvnd-glx-1.0.1-0.8.git5baa1e5.el7.aarch64.rpm
+版本一致：stx: libglvnd-opengl-1.0.1-0.8.git5baa1e5.el7.x86_64..&gt;  ---  centos: libglvnd-opengl-1.0.1-0.8.git5baa1e5.el7.aarch64.rpm
+版本一致：stx: libgnome-keyring-3.12.0-1.el7.x86_64.rpm            ---  centos: libgnome-keyring-3.12.0-1.el7.aarch64.rpm
+版本一致：stx: libgnomekbd-3.26.0-1.el7.x86_64.rpm                 ---  centos: libgnomekbd-3.26.0-1.el7.aarch64.rpm
+版本一致：stx: libgnomekbd-devel-3.26.0-1.el7.x86_64.rpm           ---  centos: libgnomekbd-devel-3.26.0-1.el7.aarch64.rpm
+版本一致：stx: libgomp-4.8.5-36.el7.x86_64.rpm                     ---  centos: libgomp-4.8.5-36.el7.aarch64.rpm
+版本一致：stx: libgpg-error-1.12-3.el7.x86_64.rpm                  ---  centos: libgpg-error-1.12-3.el7.aarch64.rpm
+版本一致：stx: libgpg-error-devel-1.12-3.el7.x86_64.rpm            ---  centos: libgpg-error-devel-1.12-3.el7.aarch64.rpm
+版本一致：stx: libguestfs-1.38.2-12.el7_6.1.x86_64.rpm             ---  centos: libguestfs-1.38.2-12.el7.aarch64.rpm
+版本一致：stx: libgusb-0.2.9-1.el7.x86_64.rpm                      ---  centos: libgusb-0.2.9-1.el7.aarch64.rpm
+版本一致：stx: libibmad-1.3.13-1.el7.x86_64.rpm                    ---  centos: libibmad-1.3.13-1.el7.aarch64.rpm
+版本一致：stx: libicu-50.1.2-17.el7.x86_64.rpm                     ---  centos: libicu-50.1.2-17.el7.aarch64.rpm
+版本一致：stx: libicu-devel-50.1.2-17.el7.x86_64.rpm               ---  centos: libicu-devel-50.1.2-17.el7.aarch64.rpm
+版本一致：stx: libidn-1.28-4.el7.x86_64.rpm                        ---  centos: emacs-libidn-1.28-4.el7.noarch.rpm
+版本一致：stx: libidn-devel-1.28-4.el7.x86_64.rpm                  ---  centos: libidn-devel-1.28-4.el7.aarch64.rpm
+版本一致：stx: libiec61883-1.2.0-10.el7.x86_64.rpm                 ---  centos: libiec61883-1.2.0-10.el7.aarch64.rpm
+找不到  ： stx: libimagequant-2.8.2-2.el7.x86_64.rpm 
+版本一致：stx: libini_config-1.3.1-32.el7.x86_64.rpm               ---  centos: libini_config-1.3.1-32.el7.aarch64.rpm
+版本一致：stx: libiscsi-1.9.0-7.el7.x86_64.rpm                     ---  centos: libiscsi-1.9.0-7.el7.aarch64.rpm
+版本一致：stx: libiscsi-devel-1.9.0-7.el7.x86_64.rpm               ---  centos: libiscsi-devel-1.9.0-7.el7.aarch64.rpm
+版本一致：stx: libjpeg-turbo-1.2.90-6.el7.x86_64.rpm               ---  centos: libjpeg-turbo-1.2.90-6.el7.aarch64.rpm
+版本一致：stx: libjpeg-turbo-devel-1.2.90-6.el7.x86_64.rpm         ---  centos: libjpeg-turbo-devel-1.2.90-6.el7.aarch64.rpm
+版本一致：stx: libkadm5-1.15.1-34.el7.x86_64.rpm                   ---  centos: libkadm5-1.15.1-34.el7.aarch64.rpm
+版本一致：stx: libldb-1.3.4-1.el7.x86_64.rpm                       ---  centos: libldb-1.3.4-1.el7.aarch64.rpm
+名称一致：stx: libmicrohttpd-0.9.59-2.el7.x86_64.rpm               ---  centos: libmicrohttpd-0.9.33-2.el7.aarch64.rpm
+名称一致：stx: libmicrohttpd-devel-0.9.59-2.el7.x86_64.rpm         ---  centos: libmicrohttpd-devel-0.9.33-2.el7.aarch64.rpm
+版本一致：stx: libmng-1.0.10-14.el7.x86_64.rpm                     ---  centos: libmng-1.0.10-14.el7.aarch64.rpm
+版本一致：stx: libmnl-1.0.3-7.el7.x86_64.rpm                       ---  centos: libmnl-1.0.3-7.el7.aarch64.rpm
+版本一致：stx: libmnl-devel-1.0.3-7.el7.x86_64.rpm                 ---  centos: libmnl-devel-1.0.3-7.el7.aarch64.rpm
+版本一致：stx: libmodman-2.0.1-8.el7.x86_64.rpm                    ---  centos: libmodman-2.0.1-8.el7.aarch64.rpm
+找不到  ： stx: libmongo-client-0.1.8-1.el7.x86_64.rpm 
+找不到  ： stx: libmongo-client-devel-0.1.8-1.el7.x86_64.rpm 
+版本一致：stx: libmount-2.23.2-59.el7.x86_64.rpm                   ---  centos: libmount-2.23.2-59.el7.aarch64.rpm
+版本一致：stx: libmount-devel-2.23.2-59.el7.x86_64.rpm             ---  centos: libmount-devel-2.23.2-59.el7.aarch64.rpm
+版本一致：stx: libmpc-1.0.1-3.el7.x86_64.rpm                       ---  centos: compat-libmpc-1.0.1-3.el7.aarch64.rpm
+版本一致：stx: libndp-1.2-7.el7.x86_64.rpm                         ---  centos: libndp-1.2-7.el7.aarch64.rpm
+版本一致：stx: libnet-1.1.6-7.el7.x86_64.rpm                       ---  centos: libnet-1.1.6-7.el7.aarch64.rpm
+版本一致：stx: libnet-devel-1.1.6-7.el7.x86_64.rpm                 ---  centos: libnet-devel-1.1.6-7.el7.aarch64.rpm
+版本一致：stx: libnetfilter_conntrack-1.0.6-1.el7_3.x86_64.rpm     ---  centos: libnetfilter_conntrack-1.0.6-1.el7_3.aarch64.rpm
+版本一致：stx: libnetfilter_conntrack-devel-1.0.6-1.el7_3.x86_..&gt;  ---  centos: libnetfilter_conntrack-devel-1.0.6-1.el7_3.aarch64.rpm
+版本一致：stx: libnetfilter_cthelper-1.0.0-9.el7.x86_64.rpm        ---  centos: libnetfilter_cthelper-1.0.0-9.el7.aarch64.rpm
+版本一致：stx: libnetfilter_cttimeout-1.0.0-6.el7.x86_64.rpm       ---  centos: libnetfilter_cttimeout-1.0.0-6.el7.aarch64.rpm
+版本一致：stx: libnetfilter_queue-1.0.2-2.el7_2.x86_64.rpm         ---  centos: libnetfilter_queue-1.0.2-2.el7.aarch64.rpm
+版本一致：stx: libnfnetlink-1.0.1-4.el7.x86_64.rpm                 ---  centos: libnfnetlink-1.0.1-4.el7.aarch64.rpm
+版本一致：stx: libnfnetlink-devel-1.0.1-4.el7.x86_64.rpm           ---  centos: libnfnetlink-devel-1.0.1-4.el7.aarch64.rpm
+版本一致：stx: libnfsidmap-0.25-19.el7.x86_64.rpm                  ---  centos: libnfsidmap-0.25-19.el7.aarch64.rpm
+版本一致：stx: libnfsidmap-devel-0.25-19.el7.x86_64.rpm            ---  centos: libnfsidmap-devel-0.25-19.el7.aarch64.rpm
+版本一致：stx: libnl-1.1.4-3.el7.x86_64.rpm                        ---  centos: libnl-1.1.4-3.el7.aarch64.rpm
+版本一致：stx: libnl-devel-1.1.4-3.el7.x86_64.rpm                  ---  centos: libnl-devel-1.1.4-3.el7.aarch64.rpm
+版本一致：stx: libnl3-3.2.28-4.el7.x86_64.rpm                      ---  centos: libnl3-3.2.28-4.el7.aarch64.rpm
+版本一致：stx: libnl3-cli-3.2.28-4.el7.x86_64.rpm                  ---  centos: libnl3-cli-3.2.28-4.el7.aarch64.rpm
+版本一致：stx: libnl3-devel-3.2.28-4.el7.x86_64.rpm                ---  centos: libnl3-devel-3.2.28-4.el7.aarch64.rpm
+找不到  ： stx: liboath-2.4.1-9.el7.x86_64.rpm 
+找不到  ： stx: liboath-devel-2.4.1-9.el7.x86_64.rpm 
+版本一致：stx: libogg-1.3.0-7.el7.x86_64.rpm                       ---  centos: libogg-1.3.0-7.el7.aarch64.rpm
+版本一致：stx: libogg-devel-1.3.0-7.el7.x86_64.rpm                 ---  centos: libogg-devel-1.3.0-7.el7.aarch64.rpm
+版本一致：stx: libosinfo-1.1.0-2.el7.x86_64.rpm                    ---  centos: libosinfo-1.1.0-2.el7.aarch64.rpm
+版本一致：stx: libpath_utils-0.2.1-32.el7.x86_64.rpm               ---  centos: libpath_utils-0.2.1-32.el7.aarch64.rpm
+版本一致：stx: libpcap-1.5.3-11.el7.x86_64.rpm                     ---  centos: libpcap-1.5.3-11.el7.aarch64.rpm
+版本一致：stx: libpcap-devel-1.5.3-11.el7.x86_64.rpm               ---  centos: libpcap-devel-1.5.3-11.el7.aarch64.rpm
+版本一致：stx: libpciaccess-0.14-1.el7.x86_64.rpm                  ---  centos: libpciaccess-0.14-1.el7.aarch64.rpm
+版本一致：stx: libpciaccess-devel-0.14-1.el7.x86_64.rpm            ---  centos: libpciaccess-devel-0.14-1.el7.aarch64.rpm
+版本一致：stx: libpipeline-1.2.3-3.el7.x86_64.rpm                  ---  centos: libpipeline-1.2.3-3.el7.aarch64.rpm
+版本一致：stx: libpng-1.5.13-7.el7_2.x86_64.rpm                    ---  centos: libpng-1.5.13-7.el7.aarch64.rpm
+版本一致：stx: libpng-devel-1.5.13-7.el7_2.x86_64.rpm              ---  centos: libpng-devel-1.5.13-7.el7.aarch64.rpm
+版本一致：stx: libproxy-0.4.11-11.el7.x86_64.rpm                   ---  centos: libproxy-0.4.11-11.el7.aarch64.rpm
+找不到  ： stx: libpsm2-10.3.58-1.el7.x86_64.rpm 
+找不到  ： stx: libpsm2-compat-10.3.58-1.el7.x86_64.rpm 
+版本一致：stx: libpwquality-1.2.3-5.el7.x86_64.rpm                 ---  centos: libpwquality-1.2.3-5.el7.aarch64.rpm
+找不到  ： stx: libqhull-2015.2-1.el7.x86_64.rpm 
+找不到  ： stx: libquadmath-4.8.5-36.el7.x86_64.rpm 
+版本一致：stx: libraw1394-2.1.0-2.el7.x86_64.rpm                   ---  centos: libraw1394-2.1.0-2.el7.aarch64.rpm
+版本一致：stx: librdmacm-17.2-3.el7.x86_64.rpm                     ---  centos: librdmacm-17.2-3.el7.aarch64.rpm
+找不到  ： stx: librdmacm-devel-1.1.0-2.el7.x86_64.rpm 
+版本一致：stx: libref_array-0.1.5-32.el7.x86_64.rpm                ---  centos: libref_array-0.1.5-32.el7.aarch64.rpm
+版本一致：stx: libreport-filesystem-2.1.11-42.el7.centos.x86_6..&gt;  ---  centos: libreport-filesystem-2.1.11-42.el7.centos.aarch64.rpm
+版本一致：stx: librsvg2-2.40.20-1.el7.x86_64.rpm                   ---  centos: librsvg2-2.40.20-1.el7.aarch64.rpm
+版本一致：stx: libseccomp-2.3.1-3.el7.x86_64.rpm                   ---  centos: libseccomp-2.3.1-3.el7.aarch64.rpm
+版本一致：stx: libseccomp-devel-2.3.1-3.el7.x86_64.rpm             ---  centos: libseccomp-devel-2.3.1-3.el7.aarch64.rpm
+版本一致：stx: libselinux-2.5-14.1.el7.x86_64.rpm                  ---  centos: libselinux-2.5-14.1.el7.aarch64.rpm
+版本一致：stx: libselinux-devel-2.5-14.1.el7.x86_64.rpm            ---  centos: libselinux-devel-2.5-14.1.el7.aarch64.rpm
+版本一致：stx: libselinux-python-2.5-14.1.el7.x86_64.rpm           ---  centos: libselinux-python-2.5-14.1.el7.aarch64.rpm
+版本一致：stx: libselinux-ruby-2.5-14.1.el7.x86_64.rpm             ---  centos: libselinux-ruby-2.5-14.1.el7.aarch64.rpm
+版本一致：stx: libselinux-utils-2.5-14.1.el7.x86_64.rpm            ---  centos: libselinux-utils-2.5-14.1.el7.aarch64.rpm
+版本一致：stx: libsemanage-2.5-14.el7.x86_64.rpm                   ---  centos: libsemanage-2.5-14.el7.aarch64.rpm
+版本一致：stx: libsemanage-devel-2.5-14.el7.x86_64.rpm             ---  centos: libsemanage-devel-2.5-14.el7.aarch64.rpm
+版本一致：stx: libsemanage-python-2.5-14.el7.x86_64.rpm            ---  centos: libsemanage-python-2.5-14.el7.aarch64.rpm
+版本一致：stx: libsepol-2.5-10.el7.x86_64.rpm                      ---  centos: libsepol-2.5-10.el7.aarch64.rpm
+版本一致：stx: libsepol-devel-2.5-10.el7.x86_64.rpm                ---  centos: libsepol-devel-2.5-10.el7.aarch64.rpm
+版本一致：stx: libshout-2.2.2-11.el7.x86_64.rpm                    ---  centos: libshout-2.2.2-11.el7.aarch64.rpm
+版本一致：stx: libsmartcols-2.23.2-59.el7.x86_64.rpm               ---  centos: libsmartcols-2.23.2-59.el7.aarch64.rpm
+版本一致：stx: libsndfile-1.0.25-10.el7.x86_64.rpm                 ---  centos: libsndfile-1.0.25-10.el7.aarch64.rpm
+版本一致：stx: libsoup-2.62.2-2.el7.x86_64.rpm                     ---  centos: libsoup-2.62.2-2.el7.aarch64.rpm
+版本一致：stx: libss-1.42.9-13.el7.x86_64.rpm                      ---  centos: libss-1.42.9-13.el7.aarch64.rpm
+版本一致：stx: libss-devel-1.42.9-13.el7.x86_64.rpm                ---  centos: libss-devel-1.42.9-13.el7.aarch64.rpm
+版本一致：stx: libssh2-1.4.3-12.el7.x86_64.rpm                     ---  centos: libssh2-1.4.3-12.el7.aarch64.rpm
+版本一致：stx: libssh2-devel-1.4.3-12.el7.x86_64.rpm               ---  centos: libssh2-devel-1.4.3-12.el7.aarch64.rpm
+版本一致：stx: libstdc++-4.8.5-36.el7.x86_64.rpm                   ---  centos: libstdc++-4.8.5-36.el7.aarch64.rpm
+版本一致：stx: libstdc++-devel-4.8.5-36.el7.x86_64.rpm             ---  centos: libstdc++-devel-4.8.5-36.el7.aarch64.rpm
+版本一致：stx: libsysfs-2.1.0-16.el7.x86_64.rpm                    ---  centos: libsysfs-2.1.0-16.el7.aarch64.rpm
+版本一致：stx: libtalloc-2.1.13-1.el7.x86_64.rpm                   ---  centos: libtalloc-2.1.13-1.el7.aarch64.rpm
+版本一致：stx: libtasn1-4.10-1.el7.x86_64.rpm                      ---  centos: libtasn1-4.10-1.el7.aarch64.rpm
+版本一致：stx: libtasn1-devel-4.10-1.el7.x86_64.rpm                ---  centos: libtasn1-devel-4.10-1.el7.aarch64.rpm
+版本一致：stx: libtdb-1.3.15-1.el7.x86_64.rpm                      ---  centos: libtdb-1.3.15-1.el7.aarch64.rpm
+版本一致：stx: libteam-1.27-5.el7.x86_64.rpm                       ---  centos: libteam-1.27-5.el7.aarch64.rpm
+版本一致：stx: libtevent-0.9.36-1.el7.x86_64.rpm                   ---  centos: libtevent-0.9.36-1.el7.aarch64.rpm
+版本一致：stx: libthai-0.1.14-9.el7.x86_64.rpm                     ---  centos: libthai-0.1.14-9.el7.aarch64.rpm
+版本一致：stx: libtheora-1.1.1-8.el7.x86_64.rpm                    ---  centos: libtheora-1.1.1-8.el7.aarch64.rpm
+版本一致：stx: libtiff-4.0.3-27.el7_3.x86_64.rpm                   ---  centos: libtiff-4.0.3-27.el7_3.aarch64.rpm
+版本一致：stx: libtiff-devel-4.0.3-27.el7_3.x86_64.rpm             ---  centos: libtiff-devel-4.0.3-27.el7_3.aarch64.rpm
+版本一致：stx: libtimezonemap-0.4.4-1.el7.x86_64.rpm               ---  centos: libtimezonemap-0.4.4-1.el7.aarch64.rpm
+版本一致：stx: libtimezonemap-devel-0.4.4-1.el7.x86_64.rpm         ---  centos: libtimezonemap-devel-0.4.4-1.el7.aarch64.rpm
+版本一致：stx: libtirpc-0.2.4-0.15.el7.x86_64.rpm                  ---  centos: libtirpc-0.2.4-0.15.el7.aarch64.rpm
+版本一致：stx: libtirpc-devel-0.2.4-0.15.el7.x86_64.rpm            ---  centos: libtirpc-devel-0.2.4-0.15.el7.aarch64.rpm
+找不到  ： stx: libtomcrypt-1.17-33.20170623gitcd6e602.el7.x86_..&gt; 
+找不到  ： stx: libtommath-1.0-8.el7.x86_64.rpm 
+版本一致：stx: libtool-2.4.2-22.el7_3.x86_64.rpm                   ---  centos: libtool-2.4.2-22.el7_3.aarch64.rpm
+版本一致：stx: libtool-ltdl-2.4.2-22.el7_3.x86_64.rpm              ---  centos: libtool-ltdl-2.4.2-22.el7_3.aarch64.rpm
+版本一致：stx: libtool-ltdl-devel-2.4.2-22.el7_3.x86_64.rpm        ---  centos: libtool-ltdl-devel-2.4.2-22.el7_3.aarch64.rpm
+版本一致：stx: libunistring-0.9.3-9.el7.x86_64.rpm                 ---  centos: libunistring-0.9.3-9.el7.aarch64.rpm
+版本一致：stx: libunwind-1.2-2.el7.x86_64.rpm                      ---  centos: libunwind-1.2-2.el7.aarch64.rpm
+版本一致：stx: libusal-1.1.11-25.el7.x86_64.rpm                    ---  centos: libusal-1.1.11-25.el7.aarch64.rpm
+版本一致：stx: libusb-0.1.4-3.el7.x86_64.rpm                       ---  centos: libusb-0.1.4-3.el7.aarch64.rpm
+版本一致：stx: libusb-devel-0.1.4-3.el7.x86_64.rpm                 ---  centos: libusb-devel-0.1.4-3.el7.aarch64.rpm
+版本一致：stx: libusbx-1.0.21-1.el7.x86_64.rpm                     ---  centos: libusbx-1.0.21-1.el7.aarch64.rpm
+版本一致：stx: libusbx-devel-1.0.21-1.el7.x86_64.rpm               ---  centos: libusbx-devel-1.0.21-1.el7.aarch64.rpm
+版本一致：stx: libuser-0.60-9.el7.x86_64.rpm                       ---  centos: libuser-0.60-9.el7.aarch64.rpm
+版本一致：stx: libuser-devel-0.60-9.el7.x86_64.rpm                 ---  centos: libuser-devel-0.60-9.el7.aarch64.rpm
+版本一致：stx: libutempter-1.1.6-4.el7.x86_64.rpm                  ---  centos: libutempter-1.1.6-4.el7.aarch64.rpm
+版本一致：stx: libutempter-devel-1.1.6-4.el7.x86_64.rpm            ---  centos: libutempter-devel-1.1.6-4.el7.aarch64.rpm
+版本一致：stx: libuuid-2.23.2-59.el7.x86_64.rpm                    ---  centos: libuuid-2.23.2-59.el7.aarch64.rpm
+版本一致：stx: libuuid-devel-2.23.2-59.el7.x86_64.rpm              ---  centos: libuuid-devel-2.23.2-59.el7.aarch64.rpm
+版本一致：stx: libv4l-0.9.5-4.el7.x86_64.rpm                       ---  centos: libv4l-0.9.5-4.el7.aarch64.rpm
+版本一致：stx: libverto-0.2.5-4.el7.x86_64.rpm                     ---  centos: libverto-0.2.5-4.el7.aarch64.rpm
+版本一致：stx: libverto-devel-0.2.5-4.el7.x86_64.rpm               ---  centos: libverto-devel-0.2.5-4.el7.aarch64.rpm
+版本一致：stx: libverto-libevent-0.2.5-4.el7.x86_64.rpm            ---  centos: libverto-libevent-0.2.5-4.el7.aarch64.rpm
+版本一致：stx: libverto-tevent-0.2.5-4.el7.x86_64.rpm              ---  centos: libverto-tevent-0.2.5-4.el7.aarch64.rpm
+版本一致：stx: libvisual-0.4.0-16.el7.x86_64.rpm                   ---  centos: libvisual-0.4.0-16.el7.aarch64.rpm
+版本一致：stx: libvorbis-1.3.3-8.el7.1.x86_64.rpm                  ---  centos: libvorbis-1.3.3-8.el7.1.aarch64.rpm
+版本一致：stx: libwayland-client-1.15.0-1.el7.x86_64.rpm           ---  centos: libwayland-client-1.15.0-1.el7.aarch64.rpm
+版本一致：stx: libwayland-cursor-1.15.0-1.el7.x86_64.rpm           ---  centos: libwayland-cursor-1.15.0-1.el7.aarch64.rpm
+版本一致：stx: libwayland-egl-1.15.0-1.el7.x86_64.rpm              ---  centos: libwayland-egl-1.15.0-1.el7.aarch64.rpm
+版本一致：stx: libwayland-server-1.15.0-1.el7.x86_64.rpm           ---  centos: libwayland-server-1.15.0-1.el7.aarch64.rpm
+版本一致：stx: libwbclient-4.8.3-4.el7.x86_64.rpm                  ---  centos: libwbclient-4.8.3-4.el7.aarch64.rpm
+版本一致：stx: libwebp-0.3.0-7.el7.x86_64.rpm                      ---  centos: libwebp-0.3.0-7.el7.aarch64.rpm
+版本一致：stx: libxcb-1.13-1.el7.x86_64.rpm                        ---  centos: libxcb-1.13-1.el7.aarch64.rpm
+版本一致：stx: libxcb-devel-1.13-1.el7.x86_64.rpm                  ---  centos: libxcb-devel-1.13-1.el7.aarch64.rpm
+版本一致：stx: libxkbcommon-0.7.1-1.el7.x86_64.rpm                 ---  centos: libxkbcommon-0.7.1-1.el7.aarch64.rpm
+版本一致：stx: libxkbcommon-devel-0.7.1-1.el7.x86_64.rpm           ---  centos: libxkbcommon-devel-0.7.1-1.el7.aarch64.rpm
+版本一致：stx: libxkbfile-1.0.9-3.el7.x86_64.rpm                   ---  centos: libxkbfile-1.0.9-3.el7.aarch64.rpm
+版本一致：stx: libxklavier-5.4-7.el7.x86_64.rpm                    ---  centos: libxklavier-5.4-7.el7.aarch64.rpm
+版本一致：stx: libxklavier-devel-5.4-7.el7.x86_64.rpm              ---  centos: libxklavier-devel-5.4-7.el7.aarch64.rpm
+版本一致：stx: libxml2-2.9.1-6.el7_2.3.x86_64.rpm                  ---  centos: libxml2-2.9.1-6.el7_2.3.aarch64.rpm
+版本一致：stx: libxml2-devel-2.9.1-6.el7_2.3.x86_64.rpm            ---  centos: libxml2-devel-2.9.1-6.el7_2.3.aarch64.rpm
+版本一致：stx: libxml2-python-2.9.1-6.el7_2.3.x86_64.rpm           ---  centos: libxml2-python-2.9.1-6.el7_2.3.aarch64.rpm
+版本一致：stx: libxshmfence-1.2-1.el7.x86_64.rpm                   ---  centos: libxshmfence-1.2-1.el7.aarch64.rpm
+版本一致：stx: libxslt-1.1.28-5.el7.x86_64.rpm                     ---  centos: libxslt-1.1.28-5.el7.aarch64.rpm
+版本一致：stx: libxslt-devel-1.1.28-5.el7.x86_64.rpm               ---  centos: libxslt-devel-1.1.28-5.el7.aarch64.rpm
+版本一致：stx: libxslt-python-1.1.28-5.el7.x86_64.rpm              ---  centos: libxslt-python-1.1.28-5.el7.aarch64.rpm
+版本一致：stx: libyaml-0.1.4-11.el7_0.x86_64.rpm                   ---  centos: libyaml-0.1.4-11.el7.aarch64.rpm
+找不到  ： stx: libzstd-1.3.8-1.el7.x86_64.rpm 
+版本一致：stx: linuxconsoletools-1.4.5-3.el7.x86_64.rpm            ---  centos: linuxconsoletools-1.4.5-3.el7.aarch64.rpm
+版本一致：stx: linuxdoc-tools-0.9.68-5.el7.x86_64.rpm              ---  centos: linuxdoc-tools-0.9.68-5.el7.aarch64.rpm
+版本一致：stx: linuxptp-1.8-6.el7.x86_64.rpm                       ---  centos: linuxptp-1.8-6.el7.aarch64.rpm
+版本一致：stx: lksctp-tools-1.0.17-2.el7.x86_64.rpm                ---  centos: lksctp-tools-1.0.17-2.el7.aarch64.rpm
+版本一致：stx: lldpad-1.0.1-3.git036e314.el7.x86_64.rpm            ---  centos: lldpad-1.0.1-3.git036e314.el7.aarch64.rpm
+版本一致：stx: lm_sensors-devel-3.4.0-6.20160601gitf9185e5.el7..&gt;  ---  centos: lm_sensors-devel-3.4.0-6.20160601gitf9185e5.el7.aarch64.rpm
+版本一致：stx: lm_sensors-libs-3.4.0-6.20160601gitf9185e5.el7...&gt;  ---  centos: lm_sensors-libs-3.4.0-6.20160601gitf9185e5.el7.aarch64.rpm
+版本一致：stx: lsof-4.87-6.el7.x86_64.rpm                          ---  centos: lsof-4.87-6.el7.aarch64.rpm
+版本一致：stx: lsscsi-0.27-6.el7.x86_64.rpm                        ---  centos: lsscsi-0.27-6.el7.aarch64.rpm
+找不到  ： stx: lttng-ust-2.10.0-1.el7.x86_64.rpm 
+找不到  ： stx: lttng-ust-devel-2.10.0-1.el7.x86_64.rpm 
+版本一致：stx: lua-5.1.4-15.el7.x86_64.rpm                         ---  centos: lua-5.1.4-15.el7.aarch64.rpm
+版本一致：stx: lua-devel-5.1.4-15.el7.x86_64.rpm                   ---  centos: lua-devel-5.1.4-15.el7.aarch64.rpm
+名称一致：stx: lvm2-2.02.177-4.el7.x86_64.rpm                      ---  centos: lvm2-2.02.180-8.el7.aarch64.rpm
+名称一致：stx: lvm2-libs-2.02.177-4.el7.x86_64.rpm                 ---  centos: lvm2-libs-2.02.180-8.el7.aarch64.rpm
+版本一致：stx: lynx-2.8.8-0.3.dev15.el7.x86_64.rpm                 ---  centos: lynx-2.8.8-0.3.dev15.el7.aarch64.rpm
+版本一致：stx: lz4-1.7.5-2.el7.x86_64.rpm                          ---  centos: lz4-1.7.5-2.el7.aarch64.rpm
+版本一致：stx: lz4-devel-1.7.5-2.el7.x86_64.rpm                    ---  centos: lz4-devel-1.7.5-2.el7.aarch64.rpm
+版本一致：stx: lzo-2.06-8.el7.x86_64.rpm                           ---  centos: lzo-2.06-8.el7.aarch64.rpm
+版本一致：stx: lzo-devel-2.06-8.el7.x86_64.rpm                     ---  centos: lzo-devel-2.06-8.el7.aarch64.rpm
+版本一致：stx: lzo-minilzo-2.06-8.el7.x86_64.rpm                   ---  centos: lzo-minilzo-2.06-8.el7.aarch64.rpm
+版本一致：stx: lzop-1.03-10.el7.x86_64.rpm                         ---  centos: lzop-1.03-10.el7.aarch64.rpm
+版本一致：stx: m2crypto-0.21.1-17.el7.x86_64.rpm                   ---  centos: m2crypto-0.21.1-17.el7.aarch64.rpm
+版本一致：stx: m4-1.4.16-10.el7.x86_64.rpm                         ---  centos: m4-1.4.16-10.el7.aarch64.rpm
+版本一致：stx: mailx-12.5-19.el7.x86_64.rpm                        ---  centos: mailx-12.5-19.el7.aarch64.rpm
+版本一致：stx: make-3.82-23.el7.x86_64.rpm                         ---  centos: make-3.82-23.el7.aarch64.rpm
+版本一致：stx: man-db-2.6.3-11.el7.x86_64.rpm                      ---  centos: man-db-2.6.3-11.el7.aarch64.rpm
+版本一致：stx: mcstrans-0.3.4-5.el7.x86_64.rpm                     ---  centos: mcstrans-0.3.4-5.el7.aarch64.rpm
+版本一致：stx: mdadm-4.1-rc1_2.el7.x86_64.rpm                      ---  centos: mdadm-4.1-rc1_2.el7.aarch64.rpm
+名称一致：stx: memcached-1.4.39-1.el7.x86_64.rpm                   ---  centos: memcached-1.4.15-10.el7_3.1.aarch64.rpm
+版本一致：stx: mercurial-2.6.2-8.el7_4.x86_64.rpm                  ---  centos: emacs-mercurial-2.6.2-8.el7_4.aarch64.rpm
+版本一致：stx: mesa-libEGL-18.0.5-3.el7.x86_64.rpm                 ---  centos: mesa-libEGL-18.0.5-3.el7.aarch64.rpm
+版本一致：stx: mesa-libEGL-devel-18.0.5-3.el7.x86_64.rpm           ---  centos: mesa-libEGL-devel-18.0.5-3.el7.aarch64.rpm
+版本一致：stx: mesa-libGL-18.0.5-3.el7.x86_64.rpm                  ---  centos: mesa-libGL-18.0.5-3.el7.aarch64.rpm
+版本一致：stx: mesa-libGL-devel-18.0.5-3.el7.x86_64.rpm            ---  centos: mesa-libGL-devel-18.0.5-3.el7.aarch64.rpm
+版本一致：stx: mesa-libGLU-9.0.0-4.el7.x86_64.rpm                  ---  centos: mesa-libGLU-9.0.0-4.el7.aarch64.rpm
+版本一致：stx: mesa-libGLU-devel-9.0.0-4.el7.x86_64.rpm            ---  centos: mesa-libGLU-devel-9.0.0-4.el7.aarch64.rpm
+版本一致：stx: mesa-libgbm-18.0.5-3.el7.x86_64.rpm                 ---  centos: mesa-libgbm-18.0.5-3.el7.aarch64.rpm
+版本一致：stx: mesa-libglapi-18.0.5-3.el7.x86_64.rpm               ---  centos: mesa-libglapi-18.0.5-3.el7.aarch64.rpm
+版本一致：stx: mesa-libwayland-egl-18.0.5-3.el7.x86_64.rpm         ---  centos: mesa-libwayland-egl-18.0.5-3.el7.aarch64.rpm
+版本一致：stx: mesa-libwayland-egl-devel-18.0.5-3.el7.x86_64.rpm   ---  centos: mesa-libwayland-egl-devel-18.0.5-3.el7.aarch64.rpm
+找不到  ： stx: microcode_ctl-2.1-47.2.el7_6.x86_64.rpm 
+版本一致：stx: mod_wsgi-3.4-18.el7.x86_64.rpm                      ---  centos: mod_wsgi-3.4-18.el7.aarch64.rpm
+版本一致：stx: mozjs17-17.0.0-20.el7.x86_64.rpm                    ---  centos: mozjs17-17.0.0-20.el7.aarch64.rpm
+版本一致：stx: mpfr-3.1.1-4.el7.x86_64.rpm                         ---  centos: mpfr-3.1.1-4.el7.aarch64.rpm
+版本一致：stx: mpich-3.0-3.0.4-10.el7.x86_64.rpm                   ---  centos: mpich-3.0-3.0.4-10.el7.aarch64.rpm
+名称一致：stx: mpich-3.0.4-8.el7.x86_64.rpm                        ---  centos: mpich-3.0-3.0.4-10.el7.aarch64.rpm
+版本一致：stx: mtools-4.0.18-5.el7.x86_64.rpm                      ---  centos: mtools-4.0.18-5.el7.aarch64.rpm
+版本一致：stx: mvapich2-2.0-2.0a-9.el7.x86_64.rpm                  ---  centos: mvapich2-2.0-2.0a-9.el7.aarch64.rpm
+找不到  ： stx: mvapich2-2.0-psm-2.0a-9.el7.x86_64.rpm 
+名称一致：stx: mvapich2-2.0a-3.el7.x86_64.rpm                      ---  centos: mvapich2-2.0-2.0a-9.el7.aarch64.rpm
+找不到  ： stx: mvapich2-psm-2.0a-3.el7.x86_64.rpm 
+版本一致：stx: ncurses-5.9-14.20130511.el7_4.x86_64.rpm            ---  centos: ncurses-5.9-14.20130511.el7_4.aarch64.rpm
+版本一致：stx: ncurses-devel-5.9-14.20130511.el7_4.x86_64.rpm      ---  centos: ncurses-devel-5.9-14.20130511.el7_4.aarch64.rpm
+版本一致：stx: ncurses-libs-5.9-14.20130511.el7_4.x86_64.rpm       ---  centos: ncurses-libs-5.9-14.20130511.el7_4.aarch64.rpm
+版本一致：stx: ncurses-static-5.9-14.20130511.el7_4.x86_64.rpm     ---  centos: ncurses-static-5.9-14.20130511.el7_4.aarch64.rpm
+版本一致：stx: neon-0.30.0-3.el7.x86_64.rpm                        ---  centos: neon-0.30.0-3.el7.aarch64.rpm
+版本一致：stx: net-tools-2.0-0.24.20131004git.el7.x86_64.rpm       ---  centos: net-tools-2.0-0.24.20131004git.el7.aarch64.rpm
+版本一致：stx: netcf-devel-0.2.8-4.el7.x86_64.rpm                  ---  centos: netcf-devel-0.2.8-4.el7.aarch64.rpm
+版本一致：stx: netcf-libs-0.2.8-4.el7.x86_64.rpm                   ---  centos: netcf-libs-0.2.8-4.el7.aarch64.rpm
+版本一致：stx: netpbm-10.79.00-7.el7.x86_64.rpm                    ---  centos: netpbm-10.79.00-7.el7.aarch64.rpm
+版本一致：stx: netpbm-progs-10.79.00-7.el7.x86_64.rpm              ---  centos: netpbm-progs-10.79.00-7.el7.aarch64.rpm
+版本一致：stx: nettle-2.7.1-8.el7.x86_64.rpm                       ---  centos: nettle-2.7.1-8.el7.aarch64.rpm
+版本一致：stx: nettle-devel-2.7.1-8.el7.x86_64.rpm                 ---  centos: nettle-devel-2.7.1-8.el7.aarch64.rpm
+版本一致：stx: newt-0.52.15-4.el7.x86_64.rpm                       ---  centos: newt-0.52.15-4.el7.aarch64.rpm
+版本一致：stx: newt-devel-0.52.15-4.el7.x86_64.rpm                 ---  centos: newt-devel-0.52.15-4.el7.aarch64.rpm
+版本一致：stx: newt-python-0.52.15-4.el7.x86_64.rpm                ---  centos: newt-python-0.52.15-4.el7.aarch64.rpm
+版本一致：stx: nfs-utils-1.3.0-0.61.el7.x86_64.rpm                 ---  centos: nfs-utils-1.3.0-0.61.el7.aarch64.rpm
+版本一致：stx: nmap-ncat-6.40-16.el7.x86_64.rpm                    ---  centos: nmap-ncat-6.40-16.el7.aarch64.rpm
+版本一致：stx: nscd-2.17-260.el7.x86_64.rpm                        ---  centos: nscd-2.17-260.el7.aarch64.rpm
+版本一致：stx: nspr-4.19.0-1.el7_5.x86_64.rpm                      ---  centos: nspr-4.19.0-1.el7_5.aarch64.rpm
+版本一致：stx: nspr-devel-4.19.0-1.el7_5.x86_64.rpm                ---  centos: nspr-devel-4.19.0-1.el7_5.aarch64.rpm
+版本一致：stx: nss-3.36.0-7.el7_5.x86_64.rpm                       ---  centos: nss-3.36.0-7.el7_5.aarch64.rpm
+版本一致：stx: nss-devel-3.36.0-7.el7_5.x86_64.rpm                 ---  centos: nss-devel-3.36.0-7.el7_5.aarch64.rpm
+版本一致：stx: nss-pam-ldapd-0.8.13-16.el7.x86_64.rpm              ---  centos: nss-pam-ldapd-0.8.13-16.el7.aarch64.rpm
+版本一致：stx: nss-pem-1.0.3-5.el7.x86_64.rpm                      ---  centos: nss-pem-1.0.3-5.el7.aarch64.rpm
+版本一致：stx: nss-softokn-3.36.0-5.el7_5.x86_64.rpm               ---  centos: nss-softokn-3.36.0-5.el7_5.aarch64.rpm
+版本一致：stx: nss-softokn-devel-3.36.0-5.el7_5.x86_64.rpm         ---  centos: nss-softokn-devel-3.36.0-5.el7_5.aarch64.rpm
+版本一致：stx: nss-softokn-freebl-3.36.0-5.el7_5.x86_64.rpm        ---  centos: nss-softokn-freebl-3.36.0-5.el7_5.aarch64.rpm
+版本一致：stx: nss-softokn-freebl-devel-3.36.0-5.el7_5.x86_64.rpm  ---  centos: nss-softokn-freebl-devel-3.36.0-5.el7_5.aarch64.rpm
+版本一致：stx: nss-sysinit-3.36.0-7.el7_5.x86_64.rpm               ---  centos: nss-sysinit-3.36.0-7.el7_5.aarch64.rpm
+版本一致：stx: nss-tools-3.36.0-7.el7_5.x86_64.rpm                 ---  centos: nss-tools-3.36.0-7.el7_5.aarch64.rpm
+版本一致：stx: nss-util-3.36.0-1.el7_5.x86_64.rpm                  ---  centos: nss-util-3.36.0-1.el7_5.aarch64.rpm
+版本一致：stx: nss-util-devel-3.36.0-1.el7_5.x86_64.rpm            ---  centos: nss-util-devel-3.36.0-1.el7_5.aarch64.rpm
+版本一致：stx: nss_compat_ossl-0.9.6-8.el7.x86_64.rpm              ---  centos: nss_compat_ossl-0.9.6-8.el7.aarch64.rpm
+找不到  ： stx: ntfs-3g-2017.3.23-6.el7.x86_64.rpm 
+找不到  ： stx: ntfs-3g-devel-2017.3.23-6.el7.x86_64.rpm 
+找不到  ： stx: ntfsprogs-2017.3.23-6.el7.x86_64.rpm 
+版本一致：stx: ntp-4.2.6p5-28.el7.centos.x86_64.rpm                ---  centos: ntp-4.2.6p5-28.el7.centos.aarch64.rpm
+版本一致：stx: ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm            ---  centos: ntpdate-4.2.6p5-28.el7.centos.aarch64.rpm
+版本一致：stx: numactl-devel-2.0.9-7.el7.x86_64.rpm                ---  centos: numactl-devel-2.0.9-7.el7.aarch64.rpm
+版本一致：stx: numactl-libs-2.0.9-7.el7.x86_64.rpm                 ---  centos: numactl-libs-2.0.9-7.el7.aarch64.rpm
+找不到  ： stx: oniguruma-5.9.5-3.el7.x86_64.rpm 
+版本一致：stx: openjade-1.3.2-45.el7.x86_64.rpm                    ---  centos: openjade-1.3.2-45.el7.aarch64.rpm
+版本一致：stx: openjpeg-libs-1.5.1-18.el7.x86_64.rpm               ---  centos: openjpeg-libs-1.5.1-18.el7.aarch64.rpm
+找不到  ： stx: openjpeg2-2.3.0-6.el7.x86_64.rpm 
+版本一致：stx: openldap-2.4.44-20.el7.x86_64.rpm                   ---  centos: openldap-2.4.44-20.el7.aarch64.rpm
+版本一致：stx: openmpi-1.10.7-2.el7.x86_64.rpm                     ---  centos: openmpi-1.10.7-2.el7.aarch64.rpm
+找不到  ： stx: openpgm-5.2.122-2.el7.x86_64.rpm 
+版本一致：stx: opensc-0.16.0-10.20170227git777e2a3.el7.x86_64.rpm  ---  centos: opensc-0.16.0-10.20170227git777e2a3.el7.aarch64.rpm
+版本一致：stx: openscap-1.2.17-2.el7.x86_64.rpm                    ---  centos: openscap-1.2.17-2.el7.aarch64.rpm
+版本一致：stx: openscap-scanner-1.2.17-2.el7.x86_64.rpm            ---  centos: openscap-scanner-1.2.17-2.el7.aarch64.rpm
+版本一致：stx: opensm-libs-3.3.20-3.el7.x86_64.rpm                 ---  centos: opensm-libs-3.3.20-3.el7.aarch64.rpm
+版本一致：stx: opensp-1.5.2-19.el7.x86_64.rpm                      ---  centos: opensp-1.5.2-19.el7.aarch64.rpm
+版本一致：stx: openssh-7.4p1-16.el7.x86_64.rpm                     ---  centos: openssh-7.4p1-16.el7.aarch64.rpm
+版本一致：stx: openssh-clients-7.4p1-16.el7.x86_64.rpm             ---  centos: openssh-clients-7.4p1-16.el7.aarch64.rpm
+版本一致：stx: openssl-1.0.2k-16.el7.x86_64.rpm                    ---  centos: openssl-1.0.2k-16.el7.aarch64.rpm
+版本一致：stx: openssl-devel-1.0.2k-16.el7.x86_64.rpm              ---  centos: openssl-devel-1.0.2k-16.el7.aarch64.rpm
+版本一致：stx: openssl-libs-1.0.2k-16.el7.x86_64.rpm               ---  centos: openssl-libs-1.0.2k-16.el7.aarch64.rpm
+版本一致：stx: opus-1.0.2-6.el7.x86_64.rpm                         ---  centos: opus-1.0.2-6.el7.aarch64.rpm
+版本一致：stx: orc-0.4.26-1.el7.x86_64.rpm                         ---  centos: orc-0.4.26-1.el7.aarch64.rpm
+版本一致：stx: os-prober-1.58-9.el7.x86_64.rpm                     ---  centos: os-prober-1.58-9.el7.aarch64.rpm
+版本一致：stx: osinfo-db-tools-1.1.0-1.el7.x86_64.rpm              ---  centos: osinfo-db-tools-1.1.0-1.el7.aarch64.rpm
+版本一致：stx: p11-kit-0.23.5-3.el7.x86_64.rpm                     ---  centos: p11-kit-0.23.5-3.el7.aarch64.rpm
+版本一致：stx: p11-kit-devel-0.23.5-3.el7.x86_64.rpm               ---  centos: p11-kit-devel-0.23.5-3.el7.aarch64.rpm
+版本一致：stx: p11-kit-trust-0.23.5-3.el7.x86_64.rpm               ---  centos: p11-kit-trust-0.23.5-3.el7.aarch64.rpm
+版本一致：stx: pakchois-0.4-10.el7.x86_64.rpm                      ---  centos: pakchois-0.4-10.el7.aarch64.rpm
+版本一致：stx: pam-1.1.8-22.el7.x86_64.rpm                         ---  centos: pam-1.1.8-22.el7.aarch64.rpm
+版本一致：stx: pam-devel-1.1.8-22.el7.x86_64.rpm                   ---  centos: pam-devel-1.1.8-22.el7.aarch64.rpm
+版本一致：stx: pango-1.42.4-1.el7.x86_64.rpm                       ---  centos: pango-1.42.4-1.el7.aarch64.rpm
+版本一致：stx: pango-devel-1.42.4-1.el7.x86_64.rpm                 ---  centos: pango-devel-1.42.4-1.el7.aarch64.rpm
+版本一致：stx: passwd-0.79-4.el7.x86_64.rpm                        ---  centos: passwd-0.79-4.el7.aarch64.rpm
+版本一致：stx: patch-2.7.1-10.el7_5.x86_64.rpm                     ---  centos: patch-2.7.1-10.el7_5.aarch64.rpm
+版本一致：stx: patchutils-0.3.3-4.el7.x86_64.rpm                   ---  centos: patchutils-0.3.3-4.el7.aarch64.rpm
+版本一致：stx: pciutils-3.5.1-3.el7.x86_64.rpm                     ---  centos: pciutils-3.5.1-3.el7.aarch64.rpm
+版本一致：stx: pciutils-devel-3.5.1-3.el7.x86_64.rpm               ---  centos: pciutils-devel-3.5.1-3.el7.aarch64.rpm
+版本一致：stx: pciutils-libs-3.5.1-3.el7.x86_64.rpm                ---  centos: pciutils-libs-3.5.1-3.el7.aarch64.rpm
+版本一致：stx: pcre-8.32-17.el7.x86_64.rpm                         ---  centos: pcre-8.32-17.el7.aarch64.rpm
+版本一致：stx: pcre-devel-8.32-17.el7.x86_64.rpm                   ---  centos: pcre-devel-8.32-17.el7.aarch64.rpm
+版本一致：stx: pcsc-lite-1.8.8-8.el7.x86_64.rpm                    ---  centos: pcsc-lite-1.8.8-8.el7.aarch64.rpm
+版本一致：stx: pcsc-lite-ccid-1.4.10-14.el7.x86_64.rpm             ---  centos: pcsc-lite-ccid-1.4.10-14.el7.aarch64.rpm
+版本一致：stx: pcsc-lite-libs-1.8.8-8.el7.x86_64.rpm               ---  centos: pcsc-lite-libs-1.8.8-8.el7.aarch64.rpm
+名称一致：stx: perl-5.16.3-294.el7_6.x86_64.rpm                    ---  centos: perl-5.16.3-293.el7.aarch64.rpm
+版本一致：stx: perl-Compress-Raw-Bzip2-2.061-3.el7.x86_64.rpm      ---  centos: perl-Compress-Raw-Bzip2-2.061-3.el7.aarch64.rpm
+版本一致：stx: perl-Compress-Raw-Zlib-2.061-4.el7.x86_64.rpm       ---  centos: perl-Compress-Raw-Zlib-2.061-4.el7.aarch64.rpm
+版本一致：stx: perl-Data-Dumper-2.145-3.el7.x86_64.rpm             ---  centos: perl-Data-Dumper-2.145-3.el7.aarch64.rpm
+版本一致：stx: perl-Digest-MD5-2.52-3.el7.x86_64.rpm               ---  centos: perl-Digest-MD5-2.52-3.el7.aarch64.rpm
+版本一致：stx: perl-Encode-2.51-7.el7.x86_64.rpm                   ---  centos: perl-Encode-2.51-7.el7.aarch64.rpm
+版本一致：stx: perl-Filter-1.49-3.el7.x86_64.rpm                   ---  centos: perl-Filter-1.49-3.el7.aarch64.rpm
+版本一致：stx: perl-HTML-Parser-3.71-4.el7.x86_64.rpm              ---  centos: perl-HTML-Parser-3.71-4.el7.aarch64.rpm
+版本一致：stx: perl-PathTools-3.40-5.el7.x86_64.rpm                ---  centos: perl-PathTools-3.40-5.el7.aarch64.rpm
+版本一致：stx: perl-Scalar-List-Utils-1.27-248.el7.x86_64.rpm      ---  centos: perl-Scalar-List-Utils-1.27-248.el7.aarch64.rpm
+版本一致：stx: perl-Socket-2.010-4.el7.x86_64.rpm                  ---  centos: perl-Socket-2.010-4.el7.aarch64.rpm
+版本一致：stx: perl-Storable-2.45-3.el7.x86_64.rpm                 ---  centos: perl-Storable-2.45-3.el7.aarch64.rpm
+版本一致：stx: perl-TermReadKey-2.30-20.el7.x86_64.rpm             ---  centos: perl-TermReadKey-2.30-20.el7.aarch64.rpm
+版本一致：stx: perl-Time-HiRes-1.9725-3.el7.x86_64.rpm             ---  centos: perl-Time-HiRes-1.9725-3.el7.aarch64.rpm
+版本一致：stx: perl-XML-Parser-2.41-10.el7.x86_64.rpm              ---  centos: perl-XML-Parser-2.41-10.el7.aarch64.rpm
+名称一致：stx: perl-devel-5.16.3-294.el7_6.x86_64.rpm              ---  centos: perl-devel-5.16.3-293.el7.aarch64.rpm
+版本一致：stx: perl-hivex-1.3.10-6.9.el7.x86_64.rpm                ---  centos: perl-hivex-1.3.10-6.9.el7.aarch64.rpm
+版本一致：stx: perl-libintl-1.20-12.el7.x86_64.rpm                 ---  centos: perl-libintl-1.20-12.el7.aarch64.rpm
+名称一致：stx: perl-libs-5.16.3-294.el7_6.x86_64.rpm               ---  centos: perl-libs-5.16.3-293.el7.aarch64.rpm
+名称一致：stx: perl-macros-5.16.3-294.el7_6.x86_64.rpm             ---  centos: perl-macros-5.16.3-293.el7.aarch64.rpm
+版本一致：stx: perl-threads-1.87-4.el7.x86_64.rpm                  ---  centos: perl-threads-1.87-4.el7.aarch64.rpm
+版本一致：stx: perl-threads-shared-1.43-6.el7.x86_64.rpm           ---  centos: perl-threads-shared-1.43-6.el7.aarch64.rpm
+版本一致：stx: perl-version-0.99.07-3.el7.x86_64.rpm               ---  centos: perl-version-0.99.07-3.el7.aarch64.rpm
+版本一致：stx: pesign-0.109-10.el7.x86_64.rpm                      ---  centos: pesign-0.109-10.el7.aarch64.rpm
+版本一致：stx: phonon-4.6.0-10.el7.x86_64.rpm                      ---  centos: phonon-4.6.0-10.el7.aarch64.rpm
+版本一致：stx: phonon-backend-gstreamer-4.6.3-3.el7.x86_64.rpm     ---  centos: phonon-backend-gstreamer-4.6.3-3.el7.aarch64.rpm
+找不到  ： stx: pigz-2.3.4-1.el7.x86_64.rpm 
+版本一致：stx: pinentry-0.8.1-17.el7.x86_64.rpm                    ---  centos: pinentry-0.8.1-17.el7.aarch64.rpm
+版本一致：stx: pixman-0.34.0-1.el7.x86_64.rpm                      ---  centos: pixman-0.34.0-1.el7.aarch64.rpm
+版本一致：stx: pixman-devel-0.34.0-1.el7.x86_64.rpm                ---  centos: pixman-devel-0.34.0-1.el7.aarch64.rpm
+版本一致：stx: pkgconfig-0.27.1-4.el7.x86_64.rpm                   ---  centos: pkgconfig-0.27.1-4.el7.aarch64.rpm
+版本一致：stx: pm-utils-1.4.1-27.el7.x86_64.rpm                    ---  centos: pm-utils-1.4.1-27.el7.aarch64.rpm
+版本一致：stx: policycoreutils-2.5-29.el7.x86_64.rpm               ---  centos: policycoreutils-2.5-29.el7.aarch64.rpm
+版本一致：stx: policycoreutils-devel-2.5-29.el7.x86_64.rpm         ---  centos: policycoreutils-devel-2.5-29.el7.aarch64.rpm
+版本一致：stx: policycoreutils-newrole-2.5-29.el7.x86_64.rpm       ---  centos: policycoreutils-newrole-2.5-29.el7.aarch64.rpm
+版本一致：stx: policycoreutils-python-2.5-29.el7.x86_64.rpm        ---  centos: policycoreutils-python-2.5-29.el7.aarch64.rpm
+版本一致：stx: polkit-0.112-18.el7.x86_64.rpm                      ---  centos: polkit-0.112-18.el7.aarch64.rpm
+版本一致：stx: polkit-devel-0.112-18.el7.x86_64.rpm                ---  centos: polkit-devel-0.112-18.el7.aarch64.rpm
+版本一致：stx: polkit-pkla-compat-0.1-4.el7.x86_64.rpm             ---  centos: polkit-pkla-compat-0.1-4.el7.aarch64.rpm
+版本一致：stx: poppler-0.26.5-20.el7.x86_64.rpm                    ---  centos: poppler-0.26.5-20.el7.aarch64.rpm
+版本一致：stx: popt-1.13-16.el7.x86_64.rpm                         ---  centos: popt-1.13-16.el7.aarch64.rpm
+版本一致：stx: popt-devel-1.13-16.el7.x86_64.rpm                   ---  centos: popt-devel-1.13-16.el7.aarch64.rpm
+版本一致：stx: postgresql-9.2.24-1.el7_5.x86_64.rpm                ---  centos: postgresql-9.2.24-1.el7_5.aarch64.rpm
+版本一致：stx: postgresql-contrib-9.2.24-1.el7_5.x86_64.rpm        ---  centos: postgresql-contrib-9.2.24-1.el7_5.aarch64.rpm
+版本一致：stx: postgresql-devel-9.2.24-1.el7_5.x86_64.rpm          ---  centos: postgresql-devel-9.2.24-1.el7_5.aarch64.rpm
+版本一致：stx: postgresql-libs-9.2.24-1.el7_5.x86_64.rpm           ---  centos: postgresql-libs-9.2.24-1.el7_5.aarch64.rpm
+版本一致：stx: postgresql-server-9.2.24-1.el7_5.x86_64.rpm         ---  centos: postgresql-server-9.2.24-1.el7_5.aarch64.rpm
+版本一致：stx: pps-tools-devel-0-0.9.20120407git0deb9c.el7.x86..&gt;  ---  centos: pps-tools-devel-0-0.9.20120407git0deb9c.el7.aarch64.rpm
+版本一致：stx: procps-ng-3.3.10-23.el7.x86_64.rpm                  ---  centos: procps-ng-3.3.10-23.el7.aarch64.rpm
+版本一致：stx: psmisc-22.20-15.el7.x86_64.rpm                      ---  centos: psmisc-22.20-15.el7.aarch64.rpm
+版本一致：stx: psutils-1.17-44.el7.x86_64.rpm                      ---  centos: psutils-1.17-44.el7.aarch64.rpm
+版本一致：stx: pth-2.0.7-23.el7.x86_64.rpm                         ---  centos: pth-2.0.7-23.el7.aarch64.rpm
+版本一致：stx: pulseaudio-libs-10.0-5.el7.x86_64.rpm               ---  centos: pulseaudio-libs-10.0-5.el7.aarch64.rpm
+版本一致：stx: pulseaudio-libs-devel-10.0-5.el7.x86_64.rpm         ---  centos: pulseaudio-libs-devel-10.0-5.el7.aarch64.rpm
+版本一致：stx: pulseaudio-libs-glib2-10.0-5.el7.x86_64.rpm         ---  centos: pulseaudio-libs-glib2-10.0-5.el7.aarch64.rpm
+版本一致：stx: pycairo-1.8.10-8.el7.x86_64.rpm                     ---  centos: pycairo-1.8.10-8.el7.aarch64.rpm
+版本一致：stx: pygpgme-0.3-9.el7.x86_64.rpm                        ---  centos: pygpgme-0.3-9.el7.aarch64.rpm
+版本一致：stx: pyliblzma-0.5.3-11.el7.x86_64.rpm                   ---  centos: pyliblzma-0.5.3-11.el7.aarch64.rpm
+版本一致：stx: pyparted-3.9-15.el7.x86_64.rpm                      ---  centos: pyparted-3.9-15.el7.aarch64.rpm
+找不到  ： stx: pysendfile-2.0.0-5.el7.x86_64.rpm 
+版本一致：stx: python-2.7.5-76.el7.x86_64.rpm                      ---  centos: python-2.7.5-76.el7.aarch64.rpm
+找不到  ： stx: python-Bottleneck-0.7.0-1.el7.x86_64.rpm 
+版本一致：stx: python-backports-1.0-8.el7.x86_64.rpm               ---  centos: python-backports-1.0-8.el7.aarch64.rpm
+找不到  ： stx: python-bson-3.0.3-1.el7.x86_64.rpm 
+版本一致：stx: python-deltarpm-3.6-3.el7.x86_64.rpm                ---  centos: python-deltarpm-3.6-3.el7.aarch64.rpm
+版本一致：stx: python-devel-2.7.5-76.el7.x86_64.rpm                ---  centos: python-devel-2.7.5-76.el7.aarch64.rpm
+版本一致：stx: python-ethtool-0.8-7.el7.x86_64.rpm                 ---  centos: python-ethtool-0.8-7.el7.aarch64.rpm
+版本一致：stx: python-gobject-3.22.0-1.el7_4.1.x86_64.rpm          ---  centos: python-gobject-3.22.0-1.el7_4.1.aarch64.rpm
+版本一致：stx: python-gobject-base-3.22.0-1.el7_4.1.x86_64.rpm     ---  centos: python-gobject-base-3.22.0-1.el7_4.1.aarch64.rpm
+版本一致：stx: python-kerberos-1.1-15.el7.x86_64.rpm               ---  centos: python-kerberos-1.1-15.el7.aarch64.rpm
+版本一致：stx: python-kmod-0.9-4.el7.x86_64.rpm                    ---  centos: python-kmod-0.9-4.el7.aarch64.rpm
+版本一致：stx: python-ldap-2.4.15-2.el7.x86_64.rpm                 ---  centos: python-ldap-2.4.15-2.el7.aarch64.rpm
+版本一致：stx: python-libguestfs-1.38.2-12.el7_6.1.x86_64.rpm      ---  centos: python-libguestfs-1.38.2-12.el7.aarch64.rpm
+版本一致：stx: python-libs-2.7.5-76.el7.x86_64.rpm                 ---  centos: python-libs-2.7.5-76.el7.aarch64.rpm
+版本一致：stx: python-lxml-3.2.1-4.el7.x86_64.rpm                  ---  centos: python-lxml-3.2.1-4.el7.aarch64.rpm
+版本一致：stx: python-netifaces-0.10.4-3.el7.x86_64.rpm            ---  centos: python-netifaces-0.10.4-3.el7.aarch64.rpm
+找不到  ： stx: python-posix_ipc-0.9.8-1.el7.x86_64.rpm 
+版本一致：stx: python-pycurl-7.19.0-19.el7.x86_64.rpm              ---  centos: python-pycurl-7.19.0-19.el7.aarch64.rpm
+找不到  ： stx: python-pyeclib-1.5.0-1.el7.x86_64.rpm 
+找不到  ： stx: python-pymongo-3.0.3-1.el7.x86_64.rpm 
+版本一致：stx: python-schedutils-0.4-6.el7.x86_64.rpm              ---  centos: python-schedutils-0.4-6.el7.aarch64.rpm
+名称一致：stx: python-setproctitle-1.1.9-4.el7.x86_64.rpm          ---  centos: python-setproctitle-1.1.6-5.el7.aarch64.rpm
+找不到  ： stx: python-simplejson-3.5.3-5.el7.x86_64.rpm 
+找不到  ： stx: python-subprocess32-3.2.6-4.el7.x86_64.rpm 
+找不到  ： stx: python-sysv_ipc-0.4.2-11.el7.x86_64.rpm 
+找不到  ： stx: python-tables-3.2.0-1.el7.x86_64.rpm 
+版本一致：stx: python-urwid-1.1.1-3.el7.x86_64.rpm                 ---  centos: python-urwid-1.1.1-3.el7.aarch64.rpm
+找不到  ： stx: python-wrapt-1.10.8-2.el7.x86_64.rpm 
+找不到  ： stx: python-zmq-14.7.0-2.el7.x86_64.rpm 
+版本一致：stx: python-zope-interface-4.0.5-4.el7.x86_64.rpm        ---  centos: python-zope-interface-4.0.5-4.el7.aarch64.rpm
+找不到  ： stx: python2-Cython-0.25.2-3.el7.x86_64.rpm 
+找不到  ： stx: python2-bcrypt-3.1.4-4.el7.x86_64.rpm 
+找不到  ： stx: python2-cffi-1.11.2-1.el7.x86_64.rpm 
+找不到  ： stx: python2-coverage-4.4.1-1.el7.x86_64.rpm 
+找不到  ： stx: python2-crypto-2.6.1-15.el7.x86_64.rpm 
+名称一致：stx: python2-cryptography-2.5-1.el7.x86_64.rpm           ---  centos: python2-cryptography-1.7.2-2.el7.aarch64.rpm
+找不到  ： stx: python2-dulwich-0.18.4-1.el7.x86_64.rpm 
+找不到  ： stx: python2-gevent-1.1.2-2.el7.x86_64.rpm 
+名称一致：stx: python2-gluster-5.2-1.el7.x86_64.rpm                ---  centos: python2-gluster-3.12.2-18.el7.aarch64.rpm
+找不到  ： stx: python2-greenlet-0.4.9-1.el7.x86_64.rpm 
+找不到  ： stx: python2-lz4-0.9.0-1.el7.x86_64.rpm 
+找不到  ： stx: python2-markupsafe-0.23-16.el7.x86_64.rpm 
+找不到  ： stx: python2-matplotlib-2.0.0-1.el7.x86_64.rpm 
+找不到  ： stx: python2-matplotlib-tk-2.0.0-1.el7.x86_64.rpm 
+找不到  ： stx: python2-msgpack-0.5.6-4.el7.x86_64.rpm 
+找不到  ： stx: python2-numexpr-2.6.1-3.el7.x86_64.rpm 
+找不到  ： stx: python2-numpy-1.11.2-2.el7.x86_64.rpm 
+找不到  ： stx: python2-pandas-0.19.1-2.el7.2.x86_64.rpm 
+找不到  ： stx: python2-pillow-4.0.0-1.el7.x86_64.rpm 
+找不到  ： stx: python2-psutil-5.2.2-2.el7.x86_64.rpm 
+找不到  ： stx: python2-qpid-proton-0.24.0-2.el7.x86_64.rpm 
+找不到  ： stx: python2-rcssmin-1.0.6-2.el7.x86_64.rpm 
+找不到  ： stx: python2-rjsmin-1.0.12-2.el7.x86_64.rpm 
+找不到  ： stx: python2-ruamel-ordereddict-0.4.9-3.el7.x86_64.rpm 
+找不到  ： stx: python2-ruamel-yaml-0.13.14-1.el7.x86_64.rpm 
+找不到  ： stx: python2-scipy-0.18.0-3.el7.x86_64.rpm 
+找不到  ： stx: python2-scrypt-0.8.0-2.el7.x86_64.rpm 
+找不到  ： stx: python2-scss-1.3.4-6.el7.x86_64.rpm 
+找不到  ： stx: python2-simplejson-3.10.0-1.el7.x86_64.rpm 
+找不到  ： stx: python2-sqlalchemy-1.1.11-1.el7.x86_64.rpm 
+找不到  ： stx: python2-tables-3.3.0-4.el7.x86_64.rpm 
+找不到  ： stx: python2-twisted-16.1.1-3.el7.x86_64.rpm 
+找不到  ： stx: python2-ujson-1.35-1.el7.x86_64.rpm 
+找不到  ： stx: python2-yappi-1.0-1.el7.x86_64.rpm 
+版本一致：stx: pyxattr-0.5.1-5.el7.x86_64.rpm                      ---  centos: pyxattr-0.5.1-5.el7.aarch64.rpm
+找不到  ： stx: qpid-proton-c-0.24.0-2.el7.x86_64.rpm 
+版本一致：stx: qrencode-devel-3.4.1-3.el7.x86_64.rpm               ---  centos: qrencode-devel-3.4.1-3.el7.aarch64.rpm
+版本一致：stx: qrencode-libs-3.4.1-3.el7.x86_64.rpm                ---  centos: qrencode-libs-3.4.1-3.el7.aarch64.rpm
+版本一致：stx: qt-4.8.7-2.el7.x86_64.rpm                           ---  centos: qt-4.8.7-2.el7.aarch64.rpm
+版本一致：stx: qt-x11-4.8.7-2.el7.x86_64.rpm                       ---  centos: qt-x11-4.8.7-2.el7.aarch64.rpm
+版本一致：stx: quota-4.01-17.el7.x86_64.rpm                        ---  centos: quota-4.01-17.el7.aarch64.rpm
+版本一致：stx: radvd-2.17-3.el7.x86_64.rpm                         ---  centos: radvd-2.17-3.el7.aarch64.rpm
+版本一致：stx: readline-6.2-10.el7.x86_64.rpm                      ---  centos: readline-6.2-10.el7.aarch64.rpm
+版本一致：stx: readline-devel-6.2-10.el7.x86_64.rpm                ---  centos: readline-devel-6.2-10.el7.aarch64.rpm
+版本一致：stx: redhat-lsb-core-4.1-27.el7.centos.1.x86_64.rpm      ---  centos: redhat-lsb-core-4.1-27.el7.1.aarch64.rpm
+版本一致：stx: redhat-lsb-submod-security-4.1-27.el7.centos.1...&gt;  ---  centos: redhat-lsb-submod-security-4.1-27.el7.1.aarch64.rpm
+版本一致：stx: rest-0.8.1-2.el7.x86_64.rpm                         ---  centos: rest-0.8.1-2.el7.aarch64.rpm
+版本一致：stx: rpcbind-0.2.0-47.el7.x86_64.rpm                     ---  centos: rpcbind-0.2.0-47.el7.aarch64.rpm
+版本一致：stx: rpm-4.11.3-35.el7.x86_64.rpm                        ---  centos: rpm-4.11.3-35.el7.aarch64.rpm
+版本一致：stx: rpm-build-4.11.3-35.el7.x86_64.rpm                  ---  centos: rpm-build-4.11.3-35.el7.aarch64.rpm
+版本一致：stx: rpm-build-libs-4.11.3-35.el7.x86_64.rpm             ---  centos: rpm-build-libs-4.11.3-35.el7.aarch64.rpm
+版本一致：stx: rpm-libs-4.11.3-35.el7.x86_64.rpm                   ---  centos: rpm-libs-4.11.3-35.el7.aarch64.rpm
+版本一致：stx: rpm-python-4.11.3-35.el7.x86_64.rpm                 ---  centos: rpm-python-4.11.3-35.el7.aarch64.rpm
+版本一致：stx: rsync-3.1.2-4.el7.x86_64.rpm                        ---  centos: rsync-3.1.2-4.el7.aarch64.rpm
+名称一致：stx: ruby-2.0.0.648-34.el7_6.x86_64.rpm                  ---  centos: ruby-2.0.0.648-33.el7_4.aarch64.rpm
+找不到  ： stx: ruby-augeas-0.5.0-1.el7.x86_64.rpm 
+名称一致：stx: ruby-devel-2.0.0.648-34.el7_6.x86_64.rpm            ---  centos: ruby-devel-2.0.0.648-33.el7_4.aarch64.rpm
+名称一致：stx: ruby-libs-2.0.0.648-34.el7_6.x86_64.rpm             ---  centos: ruby-libs-2.0.0.648-33.el7_4.aarch64.rpm
+找不到  ： stx: ruby-shadow-1.4.1-23.el7.x86_64.rpm 
+名称一致：stx: rubygem-bigdecimal-1.2.0-34.el7_6.x86_64.rpm        ---  centos: rubygem-bigdecimal-1.2.0-33.el7_4.aarch64.rpm
+名称一致：stx: rubygem-io-console-0.4.2-34.el7_6.x86_64.rpm        ---  centos: rubygem-io-console-0.4.2-33.el7_4.aarch64.rpm
+名称一致：stx: rubygem-json-2.0.2-2.el7.x86_64.rpm                 ---  centos: rubygem-json-1.7.7-33.el7_4.aarch64.rpm
+名称一致：stx: rubygem-psych-2.0.0-34.el7_6.x86_64.rpm             ---  centos: rubygem-psych-2.0.0-33.el7_4.aarch64.rpm
+版本一致：stx: samba-client-libs-4.8.3-4.el7.x86_64.rpm            ---  centos: samba-client-libs-4.8.3-4.el7.aarch64.rpm
+版本一致：stx: samba-common-libs-4.8.3-4.el7.x86_64.rpm            ---  centos: samba-common-libs-4.8.3-4.el7.aarch64.rpm
+版本一致：stx: sanlock-3.6.0-1.el7.x86_64.rpm                      ---  centos: fence-sanlock-3.6.0-1.el7.aarch64.rpm
+版本一致：stx: sanlock-devel-3.6.0-1.el7.x86_64.rpm                ---  centos: sanlock-devel-3.6.0-1.el7.aarch64.rpm
+版本一致：stx: sanlock-lib-3.6.0-1.el7.x86_64.rpm                  ---  centos: sanlock-lib-3.6.0-1.el7.aarch64.rpm
+版本一致：stx: scl-utils-20130529-19.el7.x86_64.rpm                ---  centos: scl-utils-20130529-19.el7.aarch64.rpm
+版本一致：stx: screen-4.1.0-0.25.20120314git3c2946.el7.x86_64.rpm  ---  centos: screen-4.1.0-0.25.20120314git3c2946.el7.aarch64.rpm
+版本一致：stx: scrub-2.5.2-7.el7.x86_64.rpm                        ---  centos: scrub-2.5.2-7.el7.aarch64.rpm
+版本一致：stx: sed-4.2.2-5.el7.x86_64.rpm                          ---  centos: sed-4.2.2-5.el7.aarch64.rpm
+版本一致：stx: setools-libs-3.3.8-4.el7.x86_64.rpm                 ---  centos: setools-libs-3.3.8-4.el7.aarch64.rpm
+版本一致：stx: sg3_utils-1.37-17.el7.x86_64.rpm                    ---  centos: sg3_utils-1.37-17.el7.aarch64.rpm
+版本一致：stx: sg3_utils-libs-1.37-17.el7.x86_64.rpm               ---  centos: sg3_utils-libs-1.37-17.el7.aarch64.rpm
+版本一致：stx: shadow-utils-4.1.5.1-25.el7.x86_64.rpm              ---  centos: shadow-utils-4.1.5.1-25.el7.aarch64.rpm
+版本一致：stx: shared-mime-info-1.8-4.el7.x86_64.rpm               ---  centos: shared-mime-info-1.8-4.el7.aarch64.rpm
+版本一致：stx: sharutils-4.13.3-8.el7.x86_64.rpm                   ---  centos: sharutils-4.13.3-8.el7.aarch64.rpm
+名称一致：stx: sip-4.19-1.el7.x86_64.rpm                           ---  centos: sip-4.14.6-4.el7.aarch64.rpm
+版本一致：stx: slang-2.2.4-11.el7.x86_64.rpm                       ---  centos: slang-2.2.4-11.el7.aarch64.rpm
+版本一致：stx: slang-devel-2.2.4-11.el7.x86_64.rpm                 ---  centos: slang-devel-2.2.4-11.el7.aarch64.rpm
+版本一致：stx: smartmontools-6.5-1.el7.x86_64.rpm                  ---  centos: smartmontools-6.5-1.el7.aarch64.rpm
+版本一致：stx: snappy-1.1.0-3.el7.x86_64.rpm                       ---  centos: snappy-1.1.0-3.el7.aarch64.rpm
+版本一致：stx: snappy-devel-1.1.0-3.el7.x86_64.rpm                 ---  centos: snappy-devel-1.1.0-3.el7.aarch64.rpm
+版本一致：stx: socat-1.7.3.2-2.el7.x86_64.rpm                      ---  centos: socat-1.7.3.2-2.el7.aarch64.rpm
+版本一致：stx: source-highlight-3.1.6-6.el7.x86_64.rpm             ---  centos: source-highlight-3.1.6-6.el7.aarch64.rpm
+找不到  ： stx: spawn-fcgi-1.6.3-5.el7.x86_64.rpm 
+版本一致：stx: spax-1.5.2-13.el7.x86_64.rpm                        ---  centos: spax-1.5.2-13.el7.aarch64.rpm
+版本一致：stx: speex-1.2-0.19.rc1.el7.x86_64.rpm                   ---  centos: speex-1.2-0.19.rc1.el7.aarch64.rpm
+找不到  ： stx: spice-server-0.14.0-6.el7.x86_64.rpm 
+找不到  ： stx: spice-server-devel-0.14.0-6.el7.x86_64.rpm 
+版本一致：stx: sqlite-3.7.17-8.el7.x86_64.rpm                      ---  centos: sqlite-3.7.17-8.el7.aarch64.rpm
+版本一致：stx: sqlite-devel-3.7.17-8.el7.x86_64.rpm                ---  centos: sqlite-devel-3.7.17-8.el7.aarch64.rpm
+版本一致：stx: squashfs-tools-4.3-0.21.gitaae0aff4.el7.x86_64.rpm  ---  centos: squashfs-tools-4.3-0.21.gitaae0aff4.el7.aarch64.rpm
+找不到  ： stx: sshpass-1.06-1.el7.x86_64.rpm 
+找不到  ： stx: ssmtp-2.64-14.el7.x86_64.rpm 
+版本一致：stx: strace-4.12-9.el7.x86_64.rpm                        ---  centos: strace-4.12-9.el7.aarch64.rpm
+版本一致：stx: subversion-1.7.14-14.el7.x86_64.rpm                 ---  centos: subversion-1.7.14-14.el7.aarch64.rpm
+版本一致：stx: subversion-libs-1.7.14-14.el7.x86_64.rpm            ---  centos: subversion-libs-1.7.14-14.el7.aarch64.rpm
+版本一致：stx: supermin5-5.1.19-1.el7.x86_64.rpm                   ---  centos: supermin5-5.1.19-1.el7.aarch64.rpm
+版本一致：stx: swig-2.0.10-5.el7.x86_64.rpm                        ---  centos: swig-2.0.10-5.el7.aarch64.rpm
+版本一致：stx: sysfsutils-2.1.0-16.el7.x86_64.rpm                  ---  centos: sysfsutils-2.1.0-16.el7.aarch64.rpm
+找不到  ： stx: syslinux-4.05-15.el7.x86_64.rpm 
+找不到  ： stx: syslinux-extlinux-4.05-15.el7.x86_64.rpm 
+找不到  ： stx: syslog-ng-3.5.6-3.el7.x86_64.rpm 
+找不到  ： stx: syslog-ng-libdbi-3.5.6-3.el7.x86_64.rpm 
+版本一致：stx: sysstat-10.1.5-17.el7.x86_64.rpm                    ---  centos: sysstat-10.1.5-17.el7.aarch64.rpm
+版本一致：stx: systemd-219-62.el7_6.5.x86_64.rpm                   ---  centos: systemd-219-62.el7.aarch64.rpm
+版本一致：stx: systemd-devel-219-62.el7_6.5.x86_64.rpm             ---  centos: systemd-devel-219-62.el7.aarch64.rpm
+版本一致：stx: systemd-libs-219-62.el7_6.5.x86_64.rpm              ---  centos: systemd-libs-219-62.el7.aarch64.rpm
+版本一致：stx: systemd-sysv-219-62.el7_6.5.x86_64.rpm              ---  centos: systemd-sysv-219-62.el7.aarch64.rpm
+版本一致：stx: systemtap-3.3-3.el7.x86_64.rpm                      ---  centos: systemtap-3.3-3.el7.aarch64.rpm
+版本一致：stx: systemtap-client-3.3-3.el7.x86_64.rpm               ---  centos: systemtap-client-3.3-3.el7.aarch64.rpm
+版本一致：stx: systemtap-devel-3.3-3.el7.x86_64.rpm                ---  centos: systemtap-devel-3.3-3.el7.aarch64.rpm
+版本一致：stx: systemtap-runtime-3.3-3.el7.x86_64.rpm              ---  centos: systemtap-runtime-3.3-3.el7.aarch64.rpm
+版本一致：stx: systemtap-sdt-devel-3.3-3.el7.x86_64.rpm            ---  centos: systemtap-sdt-devel-3.3-3.el7.aarch64.rpm
+版本一致：stx: sysvinit-tools-2.88-14.dsf.el7.x86_64.rpm           ---  centos: sysvinit-tools-2.88-14.dsf.el7.aarch64.rpm
+版本一致：stx: t1lib-5.1.2-14.el7.x86_64.rpm                       ---  centos: t1lib-5.1.2-14.el7.aarch64.rpm
+版本一致：stx: taglib-1.8-7.20130218git.el7.x86_64.rpm             ---  centos: taglib-1.8-7.20130218git.el7.aarch64.rpm
+版本一致：stx: tar-1.26-35.el7.x86_64.rpm                          ---  centos: tar-1.26-35.el7.aarch64.rpm
+版本一致：stx: tcl-8.5.13-8.el7.x86_64.rpm                         ---  centos: tcl-8.5.13-8.el7.aarch64.rpm
+版本一致：stx: tcl-devel-8.5.13-8.el7.x86_64.rpm                   ---  centos: tcl-devel-8.5.13-8.el7.aarch64.rpm
+版本一致：stx: tcp_wrappers-7.6-77.el7.x86_64.rpm                  ---  centos: tcp_wrappers-7.6-77.el7.aarch64.rpm
+版本一致：stx: tcp_wrappers-devel-7.6-77.el7.x86_64.rpm            ---  centos: tcp_wrappers-devel-7.6-77.el7.aarch64.rpm
+版本一致：stx: tcp_wrappers-libs-7.6-77.el7.x86_64.rpm             ---  centos: tcp_wrappers-libs-7.6-77.el7.aarch64.rpm
+版本一致：stx: tcpdump-4.9.2-3.el7.x86_64.rpm                      ---  centos: tcpdump-4.9.2-3.el7.aarch64.rpm
+版本一致：stx: tcsh-6.18.01-15.el7.x86_64.rpm                      ---  centos: tcsh-6.18.01-15.el7.aarch64.rpm
+版本一致：stx: teamd-1.27-5.el7.x86_64.rpm                         ---  centos: teamd-1.27-5.el7.aarch64.rpm
+版本一致：stx: texinfo-5.1-5.el7.x86_64.rpm                        ---  centos: texinfo-5.1-5.el7.aarch64.rpm
+名称一致：stx: texlive-bibtex-bin-svn26509.0-43.20130427_r3013..&gt;  ---  centos: texlive-bibtex-bin-svn26509.0-43.20130427_r30134.el7.aarch64.rpm
+名称一致：stx: texlive-dvipdfmx-bin-svn26509.0-43.20130427_r30..&gt;  ---  centos: texlive-dvipdfmx-bin-svn26509.0-43.20130427_r30134.el7.aarch64.rpm
+名称一致：stx: texlive-dvipng-bin-svn26509.0-43.20130427_r3013..&gt;  ---  centos: texlive-dvipng-bin-svn26509.0-43.20130427_r30134.el7.aarch64.rpm
+名称一致：stx: texlive-dvips-bin-svn26509.0-43.20130427_r30134..&gt;  ---  centos: texlive-dvips-bin-svn26509.0-43.20130427_r30134.el7.aarch64.rpm
+名称一致：stx: texlive-gsftopk-bin-svn26509.0-43.20130427_r301..&gt;  ---  centos: texlive-gsftopk-bin-svn26509.0-43.20130427_r30134.el7.aarch64.rpm
+名称一致：stx: texlive-kpathsea-bin-svn27347.0-43.20130427_r30..&gt;  ---  centos: texlive-kpathsea-bin-svn27347.0-43.20130427_r30134.el7.aarch64.rpm
+名称一致：stx: texlive-kpathsea-lib-2012-43.20130427_r30134.el..&gt;  ---  centos: texlive-kpathsea-lib-2012-43.20130427_r30134.el7.aarch64.rpm
+名称一致：stx: texlive-luatex-bin-svn26912.0-43.20130427_r3013..&gt;  ---  centos: texlive-luatex-bin-svn26912.0-43.20130427_r30134.el7.aarch64.rpm
+名称一致：stx: texlive-makeindex-bin-svn26509.0-43.20130427_r3..&gt;  ---  centos: texlive-makeindex-bin-svn26509.0-43.20130427_r30134.el7.aarch64.rpm
+名称一致：stx: texlive-metafont-bin-svn26912.0-43.20130427_r30..&gt;  ---  centos: texlive-metafont-bin-svn26912.0-43.20130427_r30134.el7.aarch64.rpm
+名称一致：stx: texlive-mfware-bin-svn26509.0-43.20130427_r3013..&gt;  ---  centos: texlive-mfware-bin-svn26509.0-43.20130427_r30134.el7.aarch64.rpm
+名称一致：stx: texlive-pdftex-bin-svn27321.0-43.20130427_r3013..&gt;  ---  centos: texlive-pdftex-bin-svn27321.0-43.20130427_r30134.el7.aarch64.rpm
+名称一致：stx: texlive-tex-bin-svn26912.0-43.20130427_r30134.e..&gt;  ---  centos: texlive-tex-bin-svn26912.0-43.20130427_r30134.el7.aarch64.rpm
+名称一致：stx: texlive-texlive.infra-bin-svn22566.0-43.2013042..&gt;  ---  centos: texlive-texlive.infra-bin-svn22566.0-43.20130427_r30134.el7.aarch64.rpm
+名称一致：stx: texlive-xdvi-bin-svn26509.0-43.20130427_r30134...&gt;  ---  centos: texlive-xdvi-bin-svn26509.0-43.20130427_r30134.el7.aarch64.rpm
+版本一致：stx: time-1.7-45.el7.x86_64.rpm                          ---  centos: time-1.7-45.el7.aarch64.rpm
+找不到  ： stx: tinyxml2-2.1.0-2.20140406git6ee53e7.el7.x86_64.rpm 
+版本一致：stx: tix-8.4.3-12.el7.x86_64.rpm                         ---  centos: tix-8.4.3-12.el7.aarch64.rpm
+版本一致：stx: tix-devel-8.4.3-12.el7.x86_64.rpm                   ---  centos: tix-devel-8.4.3-12.el7.aarch64.rpm
+版本一致：stx: tk-8.5.13-6.el7.x86_64.rpm                          ---  centos: tk-8.5.13-6.el7.aarch64.rpm
+版本一致：stx: tk-devel-8.5.13-6.el7.x86_64.rpm                    ---  centos: tk-devel-8.5.13-6.el7.aarch64.rpm
+版本一致：stx: tkinter-2.7.5-76.el7.x86_64.rpm                     ---  centos: tkinter-2.7.5-76.el7.aarch64.rpm
+找不到  ： stx: tpm2-abrmd-1.1.0-10.el7.x86_64.rpm 
+找不到  ： stx: tpm2-abrmd-devel-1.1.0-10.el7.x86_64.rpm 
+找不到  ： stx: tpm2-tss-1.4.0-2.el7.x86_64.rpm 
+找不到  ： stx: tpm2-tss-devel-1.4.0-2.el7.x86_64.rpm 
+版本一致：stx: traceroute-2.0.22-2.el7.x86_64.rpm                  ---  centos: traceroute-2.0.22-2.el7.aarch64.rpm
+版本一致：stx: trousers-0.3.14-2.el7.x86_64.rpm                    ---  centos: trousers-0.3.14-2.el7.aarch64.rpm
+版本一致：stx: trousers-devel-0.3.14-2.el7.x86_64.rpm              ---  centos: trousers-devel-0.3.14-2.el7.aarch64.rpm
+版本一致：stx: ttmkfdir-3.0.9-42.el7.x86_64.rpm                    ---  centos: ttmkfdir-3.0.9-42.el7.aarch64.rpm
+版本一致：stx: unbound-libs-1.6.6-1.el7.x86_64.rpm                 ---  centos: unbound-libs-1.6.6-1.el7.aarch64.rpm
+版本一致：stx: unixODBC-2.3.1-11.el7.x86_64.rpm                    ---  centos: unixODBC-2.3.1-11.el7.aarch64.rpm
+版本一致：stx: unixODBC-devel-2.3.1-11.el7.x86_64.rpm              ---  centos: unixODBC-devel-2.3.1-11.el7.aarch64.rpm
+版本一致：stx: unzip-6.0-19.el7.x86_64.rpm                         ---  centos: unzip-6.0-19.el7.aarch64.rpm
+版本一致：stx: uriparser-0.7.5-9.el7.x86_64.rpm                    ---  centos: uriparser-0.7.5-9.el7.aarch64.rpm
+版本一致：stx: usbredir-0.7.1-3.el7.x86_64.rpm                     ---  centos: usbredir-0.7.1-3.el7.aarch64.rpm
+版本一致：stx: usbredir-devel-0.7.1-3.el7.x86_64.rpm               ---  centos: usbredir-devel-0.7.1-3.el7.aarch64.rpm
+找不到  ： stx: userspace-rcu-0.10.0-3.el7.x86_64.rpm 
+找不到  ： stx: userspace-rcu-devel-0.10.0-3.el7.x86_64.rpm 
+版本一致：stx: ustr-1.0.4-16.el7.x86_64.rpm                        ---  centos: ustr-1.0.4-16.el7.aarch64.rpm
+版本一致：stx: ustr-devel-1.0.4-16.el7.x86_64.rpm                  ---  centos: ustr-devel-1.0.4-16.el7.aarch64.rpm
+版本一致：stx: util-linux-2.23.2-59.el7.x86_64.rpm                 ---  centos: util-linux-2.23.2-59.el7.aarch64.rpm
+版本一致：stx: uuid-1.6.2-26.el7.x86_64.rpm                        ---  centos: uuid-1.6.2-26.el7.aarch64.rpm
+版本一致：stx: uuid-devel-1.6.2-26.el7.x86_64.rpm                  ---  centos: uuid-devel-1.6.2-26.el7.aarch64.rpm
+版本一致：stx: valgrind-3.13.0-13.el7.x86_64.rpm                   ---  centos: valgrind-3.13.0-13.el7.aarch64.rpm
+版本一致：stx: valgrind-devel-3.13.0-13.el7.x86_64.rpm             ---  centos: valgrind-devel-3.13.0-13.el7.aarch64.rpm
+版本一致：stx: vim-common-7.4.160-5.el7.x86_64.rpm                 ---  centos: vim-common-7.4.160-5.el7.aarch64.rpm
+版本一致：stx: vim-enhanced-7.4.160-5.el7.x86_64.rpm               ---  centos: vim-enhanced-7.4.160-5.el7.aarch64.rpm
+版本一致：stx: vim-filesystem-7.4.160-5.el7.x86_64.rpm             ---  centos: vim-filesystem-7.4.160-5.el7.aarch64.rpm
+版本一致：stx: vim-minimal-7.4.160-5.el7.x86_64.rpm                ---  centos: vim-minimal-7.4.160-5.el7.aarch64.rpm
+版本一致：stx: virt-what-1.18-4.el7.x86_64.rpm                     ---  centos: virt-what-1.18-4.el7.aarch64.rpm
+版本一致：stx: wavpack-4.60.1-9.el7.x86_64.rpm                     ---  centos: wavpack-4.60.1-9.el7.aarch64.rpm
+版本一致：stx: wayland-devel-1.15.0-1.el7.x86_64.rpm               ---  centos: wayland-devel-1.15.0-1.el7.aarch64.rpm
+版本一致：stx: wget-1.14-18.el7.x86_64.rpm                         ---  centos: wget-1.14-18.el7.aarch64.rpm
+版本一致：stx: which-2.20-7.el7.x86_64.rpm                         ---  centos: which-2.20-7.el7.aarch64.rpm
+版本一致：stx: xfsprogs-4.5.0-18.el7.x86_64.rpm                    ---  centos: xfsprogs-4.5.0-18.el7.aarch64.rpm
+版本一致：stx: xfsprogs-devel-4.5.0-18.el7.x86_64.rpm              ---  centos: xfsprogs-devel-4.5.0-18.el7.aarch64.rpm
+版本一致：stx: xmlsec1-1.2.20-7.el7_4.x86_64.rpm                   ---  centos: xmlsec1-1.2.20-7.el7_4.aarch64.rpm
+版本一致：stx: xmlsec1-openssl-1.2.20-7.el7_4.x86_64.rpm           ---  centos: xmlsec1-openssl-1.2.20-7.el7_4.aarch64.rpm
+找不到  ： stx: xmlstarlet-1.6.1-1.el7.x86_64.rpm 
+版本一致：stx: xmlto-0.0.25-7.el7.x86_64.rpm                       ---  centos: xmlto-0.0.25-7.el7.aarch64.rpm
+版本一致：stx: xorg-x11-font-utils-7.5-21.el7.x86_64.rpm           ---  centos: xorg-x11-font-utils-7.5-21.el7.aarch64.rpm
+版本一致：stx: xorg-x11-xauth-1.0.9-1.el7.x86_64.rpm               ---  centos: xorg-x11-xauth-1.0.9-1.el7.aarch64.rpm
+版本一致：stx: xz-5.2.2-1.el7.x86_64.rpm                           ---  centos: xz-5.2.2-1.el7.aarch64.rpm
+版本一致：stx: xz-devel-5.2.2-1.el7.x86_64.rpm                     ---  centos: xz-devel-5.2.2-1.el7.aarch64.rpm
+版本一致：stx: xz-libs-5.2.2-1.el7.x86_64.rpm                      ---  centos: xz-libs-5.2.2-1.el7.aarch64.rpm
+版本一致：stx: yajl-2.0.4-4.el7.x86_64.rpm                         ---  centos: yajl-2.0.4-4.el7.aarch64.rpm
+版本一致：stx: yajl-devel-2.0.4-4.el7.x86_64.rpm                   ---  centos: yajl-devel-2.0.4-4.el7.aarch64.rpm
+找不到  ： stx: yasm-1.2.0-4.el7.x86_64.rpm 
+版本一致：stx: yum-metadata-parser-1.1.4-10.el7.x86_64.rpm         ---  centos: yum-metadata-parser-1.1.4-10.el7.aarch64.rpm
+找不到  ： stx: zeromq-4.0.5-4.el7.x86_64.rpm 
+版本一致：stx: zip-3.0-11.el7.x86_64.rpm                           ---  centos: zip-3.0-11.el7.aarch64.rpm
+版本一致：stx: zlib-1.2.7-18.el7.x86_64.rpm                        ---  centos: zlib-1.2.7-18.el7.aarch64.rpm
+版本一致：stx: zlib-devel-1.2.7-18.el7.x86_64.rpm                  ---  centos: zlib-devel-1.2.7-18.el7.aarch64.rpm
+版本一致：stx: zziplib-0.13.62-9.el7.x86_64.rpm                    ---  centos: zziplib-0.13.62-9.el7.aarch64.rpm

@@ -167,7 +167,7 @@ Password:
 
 - 可以参考官方教程：https://docs.starlingx.io/deploy_install_guides/index.htmlz
 
-- 或者通过配置脚本
+- 或者通过配置脚本（未经过调试，请勿轻易使用）
 ```
 # 在能连接互联网的主机上下载脚本文件，并拷贝到StarlingX主机
 wget https://raw.githubusercontent.com/zhangkunpeng/starlingx/master/host-unlock/stx-2.0/unluck-host.sh

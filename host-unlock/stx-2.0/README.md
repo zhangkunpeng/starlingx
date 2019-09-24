@@ -1,4 +1,4 @@
-### 下载脚本
+### 运行脚本
 ```
 wget https://raw.githubusercontent.com/zhangkunpeng/starlingx/master/host-unlock/stx-2.0/unluck-host.sh
 bash unlock-host.sh

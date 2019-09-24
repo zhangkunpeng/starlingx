@@ -281,3 +281,9 @@ if [ "$NTPSERVERS" != ""];then
 fi
 
 config_host_label
+
+read -p "Unlock $COMPUTE [y/n]" unlock
+if [ $unlock = "y" ]; then
+	echo "unlock $COMPUTE"
+	system host-unlock $COMPUTE
+fi

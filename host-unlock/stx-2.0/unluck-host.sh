@@ -1,8 +1,8 @@
 #!/bin/bash
 
-source /etc/nova/openrc
-. /usr/bin/tsconfig
-
+source /etc/platform/openrc
+. /etc/build.info
+CONFIG_PATH=/opt/platform/config/${SW_VERSION}
 if [ ! -f ${CONFIG_PATH}/.bootstrap_completed ];then
     echo "Bootstrap未完成，请先执行bootstrap操作！！！
 ======================================================
@@ -55,20 +55,26 @@ while getopts "c:" o; do
 done
 shift $((OPTIND-1))
 
+SYSTEM_DETAIL=$(system show)
+system_mode=$(echo "$SYSTEM_DETAIL" |grep system_mode| awk '{print $4}')
+
 while [ ! $COMPUTE ] 
 do
     system host-list
     read -p "请输入需要配置的节点名称，默认为[controller-0]:" COMPUTE
     : ${COMPUTE:=controller-0}
 done
+HOST_DETAIL=$(system host-show $COMPUTE)
+PERSONALITY=$(echo $HOST_DETAIL  |grep personality | awk '{print $4}')
+SUBFUNCTIONS=$(echo $HOST_DETAIL  |grep subfunctions | awk '{print $4}')
 
-PERSONALITY=$(system host-show $COMPUTE  |grep personality | awk '{print $4}')
-
-while [ ! $OAM_INTERFACE ] 
-do
-    system host-port-list $COMPUTE
-    read -p "请输入外部访问网络接口:" OAM_INTERFACE
-done
+if [[ $PERSONALITY == controller ]];then
+    while [ ! $OAM_INTERFACE ] 
+    do
+        system host-port-list $COMPUTE
+        read -p "请输入外部访问网络接口:" OAM_INTERFACE
+    done
+fi
 
 if [ "$system_mode" != "simplex" ] && [ "$COMPUTE" == "controller-0" ];then
     while [ ! $MGMT_INTERFACE ] 
@@ -83,7 +89,7 @@ if [ "$system_mode" == "simplex" ];then
 MGMT_INTERFACE=lo
 fi
 
-if [[ $PERSONALITY == *worker* ]];then
+if [[ $SUBFUNCTIONS == *worker* ]];then
     while [ ! $DATA_INTERFACE ]
     do
         system host-if-list -a $COMPUTE
@@ -95,7 +101,7 @@ if [[ $PERSONALITY == *worker* ]];then
         read -p "请输入业务网络类型[ flat/vlan ]:" DATE_TYPE
     done
 
-        while [ ! $K8S_SRIOV ]
+    while [ ! $K8S_SRIOV ]
     do
         system host-if-list -a $COMPUTE
         read -p "是否开启Kubernets SRIOV网络插件,默认不开启，虚拟环境部署请选择n,[y/n]:" K8S_SRIOV
@@ -123,14 +129,14 @@ if [ "$COMPUTE" == "controller-0" ];then
     done
 fi
 
-if [[ "$DEPLOY_MODE" == "storage" ]] && [[ $PERSONALITY  == *storage* ]];then
+if [[ "$DEPLOY_MODE" == "storage" ]] && [[ $PERSONALITY  == storage ]];then
     while [ ! $CEPH_OSD_DISK ]
     do 
         system host-disk-list ${COMPUTE}
         read -p "请输入需要配置成ceph osd的硬盘，例如[sdb]:" CEPH_OSD_DISK
     done
     CEPH_OSD_DISK=/dev/$CEPH_OSD_DISK
-elif [[ "$DEPLOY_MODE" != "storage" ]] && [[ $PERSONALITY  == *controller* ]];then
+elif [[ "$DEPLOY_MODE" != "storage" ]] && [[ $PERSONALITY  == controller ]];then
     while [ ! $CEPH_OSD_DISK ]
     do 
         system host-disk-list ${COMPUTE}

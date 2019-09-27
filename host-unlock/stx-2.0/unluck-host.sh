@@ -55,8 +55,8 @@ while getopts "c:" o; do
 done
 shift $((OPTIND-1))
 
-SYSTEM_DETAIL=$(system show)
-system_mode=$(echo "$SYSTEM_DETAIL" |grep system_mode| awk '{print $4}')
+#SYSTEM_DETAIL=$(system show)
+#system_mode=$(echo "$SYSTEM_DETAIL" |grep system_mode| awk '{print $4}')
 
 while [ ! $COMPUTE ] 
 do
@@ -65,10 +65,10 @@ do
     : ${COMPUTE:=controller-0}
 done
 HOST_DETAIL=$(system host-show $COMPUTE)
-PERSONALITY=$(echo $HOST_DETAIL  |grep personality | awk '{print $4}')
-SUBFUNCTIONS=$(echo $HOST_DETAIL  |grep subfunctions | awk '{print $4}')
-
-if [[ $PERSONALITY == controller ]];then
+PERSONALITY=$(echo "$HOST_DETAIL"  |grep personality | awk '{print $4}')
+SUBFUNCTIONS=$(echo "$HOST_DETAIL"  |grep subfunctions | awk '{print $4}')
+echo PERSONALITY=$PERSONALITY
+if [ "$PERSONALITY" == "controller" ];then
     while [ ! $OAM_INTERFACE ] 
     do
         system host-port-list $COMPUTE
@@ -79,7 +79,7 @@ fi
 if [ "$system_mode" != "simplex" ] && [ "$COMPUTE" == "controller-0" ];then
     while [ ! $MGMT_INTERFACE ] 
     do
-        system host-port-list $COMPUTE
+        #system host-port-list $COMPUTE
         read -p "请输入管理网络接口:" MGMT_INTERFACE
     done
 fi
@@ -92,7 +92,7 @@ fi
 if [[ $SUBFUNCTIONS == *worker* ]];then
     while [ ! $DATA_INTERFACE ]
     do
-        system host-if-list -a $COMPUTE
+        #system host-if-list -a $COMPUTE
         read -p "请输入数据(业务)网络接口:" DATA_INTERFACE
     done
 
@@ -103,7 +103,6 @@ if [[ $SUBFUNCTIONS == *worker* ]];then
 
     while [ ! $K8S_SRIOV ]
     do
-        system host-if-list -a $COMPUTE
         read -p "是否开启Kubernets SRIOV网络插件,默认不开启，虚拟环境部署请选择n,[y/n]:" K8S_SRIOV
         : ${K8S_SRIOV:=n}
     done
@@ -114,22 +113,15 @@ if [[ $SUBFUNCTIONS == *worker* ]];then
         read -p "请输入nova服务需要的nova-local卷硬盘，例如[sdc]:" NOVA_LOCAL_DISK
     done
 
+    NOVA_LOCAL_DISK=/dev/$NOVA_LOCAL_DISK
+
     while [ ! $NOVA_SIZE ]
     do 
-        system host-disk-list ${COMPUTE}
         read -p "请输入nova local卷大小 (GB):" NOVA_SIZE
     done
 fi
-if [ "$COMPUTE" == "controller-0" ];then
-    while [ ! $NTPSERVERS ]
-    do
-        system host-if-list -a $COMPUTE
-        read -p "请输入时间同步服务地址，多个地址逗号分割，默认【0.pool.ntp.org,1.pool.ntp.org】:" NTPSERVERS
-        : ${NTPSERVERS:=0.pool.ntp.org,1.pool.ntp.org}
-    done
-fi
 
-if [[ "$DEPLOY_MODE" == "storage" ]] && [[ $PERSONALITY  == storage ]];then
+if [[ "$DEPLOY_MODE" == "storage" ]] && [[ "$PERSONALITY"  == "storage" ]];then
     while [ ! $CEPH_OSD_DISK ]
     do 
         system host-disk-list ${COMPUTE}
@@ -145,6 +137,13 @@ elif [[ "$DEPLOY_MODE" != "storage" ]] && [[ $PERSONALITY  == controller ]];then
     CEPH_OSD_DISK=/dev/$CEPH_OSD_DISK
 fi
 
+if [ "$COMPUTE" == "controller-0" ];then
+    while [ ! $NTPSERVERS ]
+    do
+        read -p "请输入时间同步服务地址，多个地址逗号分割，默认【0.pool.ntp.org,1.pool.ntp.org】:" NTPSERVERS
+        : ${NTPSERVERS:=0.pool.ntp.org,1.pool.ntp.org}
+    done
+fi
 
 echo "==============================================="
 echo "集群系统模式：$system_mode"
@@ -191,30 +190,44 @@ config_net_mgmt(){
 }
 
 config_net_data(){
-    if [[ $PERSONALITY == *worker* ]];then
-    echo ">>> 配置数据（业务）网络"
-    PHYSNET=physnet0
-    system datanetwork-add $PHYSNET $DATE_TYPE
-    system host-if-modify -m 1500 -c data ${COMPUTE} $DATA_INTERFACE
-    system interface-datanetwork-assign ${COMPUTE} $DATA_INTERFACE $PHYSNET
+    if [[ $SUBFUNCTIONS == *worker* ]];then
+        echo ">>> 配置数据（业务）网络"
+        PHYSNET=physnet0
+        system datanetwork-add $PHYSNET $DATE_TYPE
+        system host-if-modify -m 1500 -c data ${COMPUTE} $DATA_INTERFACE
+        system interface-datanetwork-assign ${COMPUTE} $DATA_INTERFACE $PHYSNET
     fi
 }
 
+check_osd_exist(){
+    echo ">>> 检查${CEPH_OSD_DISK}是否可配置"
+    system host-stor-list ${COMPUTE} | grep ${CEPH_OSD_DISK}
+    if [ $? -eq 0 ]; then
+        echo "磁盘${CEPH_OSD_DISK}已经被配置成osd"
+        return 1
+    fi
+    return 0
+}
+
 config_ceph_osd(){
+    check_osd_exist
+    if [ $? -ne 0 ];then
+        return
+    fi
     if [ "$DEPLOY_MODE" == "storage" ];then
         echo ">>> 专用存储节点部署模式"
-        if [[ $PERSONALITY  == *storage* ]];then
+        if [[ $PERSONALITY  == storage ]];then
             DISK_UUID=$(system host-disk-list $COMPUTE |grep $CEPH_OSD_DISK |awk '{print $2}')
             TIER_UUID=$(system storage-tier-list ceph_cluster |grep storage | awk '{print $2}')
             system host-stor-add $COMPUTE $DISK_UUID --tier-uuid $TIER_UUID
             while true; do 
                 system host-stor-list ${COMPUTE} | grep ${CEPH_OSD_DISK} | grep configuring; 
-                if [ $? -ne 0 ]; then break; fi; 
+                if [ $? -eq 0 ]; then break; fi; 
                 sleep 1; 
             done
         fi
     else
-        if [[ $PERSONALITY == *controller* ]];then
+        if [[ $PERSONALITY == controller ]];then
             echo ">>> 配置ceph osd"
             system host-disk-list $COMPUTE
             DISK_UUID=$(system host-disk-list $COMPUTE |grep $CEPH_OSD_DISK |awk '{print $2}')
@@ -222,8 +235,8 @@ config_ceph_osd(){
             system host-stor-add $COMPUTE $DISK_UUID --tier-uuid $TIER_UUID
             #system host-disk-list controller-0 | awk '/\/dev\/sdb/{print $2}' | xargs -i system host-stor-add controller-0 {}
             while true; do 
-                system host-stor-list ${COMPUTE} | grep ${CEPH_OSD_DISK} | grep configuring; 
-                if [ $? -ne 0 ]; then break; fi; 
+                system host-stor-list ${COMPUTE} | grep ${CEPH_OSD_DISK} | grep configuring
+                if [ $? -eq 0 ]; then break; fi; 
                 sleep 1; 
             done
         elif [ "$COMPUTE" == "compute-0" ];then
@@ -235,33 +248,46 @@ config_ceph_osd(){
             done
         fi
     fi
+}
 
+check_nova_local_configured(){
+    echo ">>> 检查nova-local是否已经配置"
+    system host-pv-list ${COMPUTE} | grep nova-local
+    if [ $? -eq 0 ]; then
+        echo "nova-local已经配置，跳过"
+        return 1
+    fi
+    return 0
 }
 
 config_nova_local(){
-    if [[ $PERSONALITY == *worker* ]];then
-    echo ">>> 配置nova local"
-    ROOT_DISK_UUID=$(system host-disk-list ${COMPUTE} --nowrap | grep ${NOVA_LOCAL_DISK} | awk '{print $2}')
-    echo "Nova Local disk: $NOVA_LOCAL_DISK, UUID: $ROOT_DISK_UUID"
+    if [[ $SUBFUNCTIONS == *worker* ]];then
+        check_nova_local_configured
+        if [ $? -ne 0 ];then
+            return
+        fi
+        echo ">>> 配置nova local"
+        ROOT_DISK_UUID=$(system host-disk-list ${COMPUTE} --nowrap | grep ${NOVA_LOCAL_DISK} | awk '{print $2}')
+        echo "Nova Local disk: $NOVA_LOCAL_DISK, UUID: $ROOT_DISK_UUID"
 
-    echo ">>>> Configuring nova-local"
+        echo ">>>> Configuring nova-local"
 
-    NOVA_PARTITION=$(system host-disk-partition-add -t lvm_phys_vol ${COMPUTE} ${ROOT_DISK_UUID} ${NOVA_SIZE})
-    NOVA_PARTITION_UUID=$(echo ${NOVA_PARTITION} | grep -ow "| uuid | [a-z0-9\-]* |" | awk '{print $4}')
-    system host-lvg-add ${COMPUTE} nova-local
-    system host-pv-add ${COMPUTE} nova-local ${NOVA_PARTITION_UUID}
-    sleep 2
+        NOVA_PARTITION=$(system host-disk-partition-add -t lvm_phys_vol ${COMPUTE} ${ROOT_DISK_UUID} ${NOVA_SIZE})
+        NOVA_PARTITION_UUID=$(echo ${NOVA_PARTITION} | grep -ow "| uuid | [a-z0-9\-]* |" | awk '{print $4}')
+        system host-lvg-add ${COMPUTE} nova-local
+        system host-pv-add ${COMPUTE} nova-local ${NOVA_PARTITION_UUID}
+        sleep 2
 
-    echo ">>> Wait for partition $NOVA_PARTITION_UUID to be ready."
-    while true; do system host-disk-partition-list $COMPUTE --nowrap | grep $NOVA_PARTITION_UUID | grep 'Ready\|on unlock'; if [ $? -eq 0 ]; then break; fi; sleep 1; done
+        echo ">>> Wait for partition $NOVA_PARTITION_UUID to be ready."
+        while true; do system host-disk-partition-list $COMPUTE --nowrap | grep $NOVA_PARTITION_UUID | grep 'Ready\|on unlock'; if [ $? -eq 0 ]; then break; fi; sleep 1; done
     fi
 }
 
 config_host_label(){
-    if [[ $PERSONALITY == *controller* ]];then
+    if [[ $SUBFUNCTIONS == *controller* ]];then
         system host-label-assign $COMPUTE openstack-control-plane=enabled
     fi
-    if [[ $PERSONALITY == *worker* ]];then
+    if [[ $SUBFUNCTIONS == *worker* ]];then
         system host-label-assign $COMPUTE  openstack-compute-node=enabled
         system host-label-assign $COMPUTE  openvswitch=enabled
         system host-label-assign $COMPUTE  sriov=enabled

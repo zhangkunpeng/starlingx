@@ -165,7 +165,7 @@ Password:
 
 ## 配置StarlingX
 
-- 可以参考官方教程：https://docs.starlingx.io/deploy_install_guides/index.htmlz
+- 可以参考官方教程：https://docs.starlingx.io/deploy_install_guides/index.html
 
 - 或者通过配置脚本（未经过调试，请勿轻易使用）
 ```

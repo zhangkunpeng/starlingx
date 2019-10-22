@@ -140,7 +140,7 @@ fi
 if [ "$COMPUTE" == "controller-0" ];then
     while [ ! $NTPSERVERS ]
     do
-        read -p "请输入时间同步服务地址，多个地址逗号分割，默认【0.pool.ntp.org,1.pool.ntp.org】:" NTPSERVERS
+        read -p "请输入时间同步服务地址，多个地址逗号分割，默认【0.pool.ntp.org,1.pool.ntp.org:" NTPSERVERS
         : ${NTPSERVERS:=0.pool.ntp.org,1.pool.ntp.org}
     done
 fi
@@ -314,7 +314,7 @@ fi
 
 config_host_label
 
-read -p "Unlock $COMPUTE [y/n]" unlock
+read -p "Unlock $COMPUTE [y/n]:" unlock
 if [ $unlock = "y" ]; then
 	echo "unlock $COMPUTE"
 	system host-unlock $COMPUTE

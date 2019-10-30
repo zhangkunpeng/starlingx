@@ -29,7 +29,7 @@ def download_new_file(remote_file, local_list, remote_url, local_dir):
         with open(local_file_path, "wb") as f:
             f.write(r.content)
     else:
-        print("√  "+remote_file+"is exist in "+ local_dir)
+        print("-> "+remote_file+"is exist in "+ local_dir)
 
 def compare_remote_and_local(uri):
     global remote_url

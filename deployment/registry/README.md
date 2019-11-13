@@ -4,7 +4,9 @@
 2. 自建私有镜像仓库
 
 ### 公网镜像仓库
-**镜像仓库地址： `registry.starlingx.cloud:15000`**
+
+**镜像仓库地址： `registry.starlingx.cloud:15000`** 这是我个人搭建的仓库，不需要科学上网即可访问，电信用户估计访问速度较快，其他未测。只需要在安装StarlingX时简单配置即可使用。
+
 > 部署STX时,在localhost.yml进行配置
 
 ```

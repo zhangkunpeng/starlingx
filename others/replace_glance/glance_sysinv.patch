@@ -1,0 +1,22 @@
+diff --git a/glance.py b/glance.py
+index 5429f5a0..d410e13d 100644
+--- a/glance.py
++++ b/glance.py
+@@ -171,7 +171,7 @@ class GlancePuppet(openstack.OpenstackBasePuppet):
+                 self._registry_authtoken_region_name(),
+ 
+             'openstack::glance::params::api_host':
+-                self._get_glance_address(),
++                "127.0.0.1",
+             'openstack::glance::params::enabled_backends':
+                 enabled_backends,
+             'openstack::glance::params::service_enabled':
+@@ -186,7 +186,7 @@ class GlancePuppet(openstack.OpenstackBasePuppet):
+             'glance::api::remote_registry_region_name':
+                 remote_registry_region_name,
+             'openstack::glance::params::configured_registry_host':
+-                registry_host,
++                "127.0.0.1",
+             'openstack::glance::params::glance_cached':
+                 self.get_glance_cached_status(),
+         }

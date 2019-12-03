@@ -1,13 +1,42 @@
 #! bin/bash
 
 WORKDIR=$(cd "$(dirname "$0")";pwd)
-RCFILE=$WORKDIR/openrc.sh
-if [ ! -f "$RCFILE" ]; then
-    echo "rc file is not exist ..."
-    exit 1
-fi
 
-source $RCFILE
+export OS_REGION_NAME=RegionOne
+export OS_PROJECT_DOMAIN_NAME=Default
+export OS_USER_DOMAIN_NAME=Default
+export OS_KEYSTONE_REGION_NAME=RegionOne
+export OS_IDENTITY_API_VERSION=3
+export OS_ENDPOINT_TYPE=publicURL
+export OS_INTERFACE=public
+export OS_AUTH_TYPE=password
+
+STX_OS_AUTH_URL=http://192.168.204.2:5000/v3
+STX_OS_PASSWORD=99cloud@SH
+
+DIST_OS_AUTH_URL=http://192.168.204.2:5000/v3
+DIST_OS_PASSWORD=99cloud@SH
+
+switch_dist_keytone(){
+    export OS_USERNAME=admin
+    export OS_PROJECT_NAME=admin
+    export OS_AUTH_URL=$DIST_OS_AUTH_URL
+    export OS_PASSWORD=$DIST_OS_PASSWORD
+}
+
+switch_stx_keystone(){
+    export OS_USERNAME=admin
+    export OS_PROJECT_NAME=admin
+    export OS_AUTH_URL=$STX_OS_AUTH_URL
+    export OS_PASSWORD=$STX_OS_PASSWORD
+}
+
+error_exit(){
+    if [ $? -ne 0 ];then
+        echo $1
+        exit 1
+    fi
+}
 
 ## insert users
 
@@ -159,6 +188,31 @@ create_region(){
     echo "Region $RegionName is ok ..."
 }
 
+create_role(){
+    local RoleName=$1
+    switch_dist_keytone
+    echo "check region $RoleName in external keystone"
+    openstack role show $RoleName
+    if [ $? -ne 0 ]; then
+        openstack role create $RoleName
+        error_exit "Region $RoleName create failed."
+    fi
+    echo "Role $RoleName is ok ..."
+}
+
+update_roles_in_dist(){
+    echo "Get all roles of starlingx ..."
+    switch_stx_keystone
+    ORL=/tmp/openstack-role-list
+    openstack role list > $ORL
+    local Roles=($(cat ${ORL} |grep -v Name | awk '{print $4}'))
+    for(( i=0;i<${#Roles[@]};i++)) do
+        #${#array[@]}获取数组长度用于循环
+        #echo ${ServiceNames[i]},${ServiceTypes[i]};
+        create_role ${Regions[i]}
+    done;
+}
+
 update_regions_in_dist(){
     echo "Get all regions of starlingx ..."
     switch_stx_keystone
@@ -207,6 +261,7 @@ update_endpoints_in_dist(){
 
 
 ### main 
+update_roles_in_dist
 update_projects_in_dist
 
 update_regions_in_dist

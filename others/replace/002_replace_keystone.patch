@@ -1,0 +1,35 @@
+diff --git a/keystone.pp b/keystone.pp
+index ccd772f5..0c8aad60 100644
+--- a/keystone.pp
++++ b/keystone.pp
+@@ -15,6 +15,7 @@ class openstack::keystone::params(
+   $fernet_keys_rotation_month = '*/1',
+   $fernet_keys_rotation_monthday = '1',
+   $fernet_keys_rotation_weekday = '*',
++  $remote_host,
+ ) {}
+ 
+ class openstack::keystone (
+@@ -148,6 +149,7 @@ class openstack::keystone::haproxy
+   inherits ::openstack::keystone::params {
+ 
+   include ::platform::params
++  include ::platform::haproxy::params
+ 
+   if !$::platform::params::region_config {
+     platform::haproxy::proxy { 'keystone-restapi':
+@@ -155,6 +157,14 @@ class openstack::keystone::haproxy
+       public_port  => $api_port,
+       private_port => $api_port,
+     }
++
++    platform::haproxy::proxy { 'keystone-mgmt-restapi':
++      server_name  => 's-keystone-mgmt',
++      public_port  => $api_port,
++      private_port => $api_port,
++      public_ip_address => $::platform::haproxy::params::private_ip_address,
++      private_ip_address => $remote_host,
++    }
+   }
+ }
+ 

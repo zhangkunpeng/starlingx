@@ -1,0 +1,54 @@
+diff --git a/glance.pp b/glance.pp
+index 98c89e70..e82b1637 100644
+--- a/glance.pp
++++ b/glance.pp
+@@ -14,6 +14,7 @@ class openstack::glance::params (
+   $glance_delete_interval = 6,
+   $rbd_store_pool = 'images',
+   $rbd_store_ceph_conf = '/etc/ceph/ceph.conf',
++  $remote_host,
+ ) { }
+ 
+ 
+@@ -131,6 +132,29 @@ class openstack::glance::haproxy
+     private_port => $api_port,
+     private_ip_address => $api_host,
+   }
++
++  platform::haproxy::proxy { 'glance-mgmtapi':
++    server_name => 's-glance-mgmt',
++    public_port => $api_port,
++    private_port => $api_port,
++    public_ip_address => $api_host,
++    private_ip_address => $remote_host,
++  }
++
++  platform::haproxy::proxy { 'glance-registry-restapi':
++    server_name => 's-glance-registry',
++    public_port => 9191,
++    private_port => 9191,
++    private_ip_address => $api_host,
++  }
++
++  platform::haproxy::proxy { 'glance-registry-mgmtapi':
++    server_name => 's-glance-registry-mgmt',
++    public_port => 9191,
++    private_port => 9191,
++    public_ip_address => $api_host,
++    private_ip_address => $remote_host,
++  }
+ }
+ 
+ 
+@@ -170,9 +194,9 @@ class openstack::glance::api
+     }
+ 
+     class { '::glance::api':
+-      bind_host             => $api_host,
++      bind_host             => '127.0.0.1',
+       use_user_token        => $api_use_user_token,
+-      registry_host         => $registry_host,
++      registry_host         => '127.0.0.1',
+       remote_registry_region_name => $remote_registry_region_name,
+       workers               => $api_workers,
+       sync_db   => $::platform::params::init_database,

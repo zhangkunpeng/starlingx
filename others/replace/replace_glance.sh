@@ -23,7 +23,7 @@ elif [ "$CMD" == "rollback" ];then
     cd $work_path
 else
     echo ""
-    echo "$0 setup [remote glance server]      安装glance替换补丁"
+    echo "$0 setup [remote host IP]            安装glance替换补丁"
     echo "$0 rollback                          回退glance替换补丁"
 fi
 

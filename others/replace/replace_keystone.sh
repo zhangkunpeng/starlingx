@@ -16,15 +16,17 @@ if [ "$CMD" == "setup" ];then
     cat /etc/puppet/hieradata/global.yaml |grep "openstack::keystone::params::remote_host"
     sed -i '/^openstack::keystone::params::remote_host.*/d' /etc/puppet/hieradata/global.yaml
     echo "openstack::keystone::params::remote_host: $remote_host" >> /etc/puppet/hieradata/global.yaml
+    sed -i 's/BIND_PUBLIC=$PUBLIC_BIND_ADDR:5000/BIND_PUBLIC=127.0.0.1:5000/' /usr/bin/keystone-all
     cd $work_path
 elif [ "$CMD" == "rollback" ];then
     cd $puppet_path
     patch -Rp1 < $patch_path
     sed -i '/^openstack::keystone::params::remote_host.*/d' /etc/puppet/hieradata/global.yaml
+    sed -i 's/BIND_PUBLIC=127.0.0.1:5000/BIND_PUBLIC=$PUBLIC_BIND_ADDR:5000/' /usr/bin/keystone-all
     cd $work_path
 else
     echo ""
-    echo "$0 setup [remote keystone server]      安装keystone替换补丁"
+    echo "$0 setup [remote host IP]              安装keystone替换补丁"
     echo "$0 rollback                            回退keystone替换补丁"
 fi
 

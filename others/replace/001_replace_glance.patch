@@ -1,5 +1,5 @@
 diff --git a/glance.pp b/glance.pp
-index 98c89e70..e82b1637 100644
+index 98c89e70..e5c8eec8 100644
 --- a/glance.pp
 +++ b/glance.pp
 @@ -14,6 +14,7 @@ class openstack::glance::params (
@@ -9,6 +9,15 @@ index 98c89e70..e82b1637 100644
 +  $remote_host,
  ) { }
  
+ 
+@@ -64,7 +65,7 @@ class openstack::glance
+     include ::glance::registry::authtoken
+ 
+     class { '::glance::registry':
+-      bind_host => $bind_host,
++      bind_host => '127.0.0.1',
+       workers   => $::platform::params::eng_workers,
+     }
  
 @@ -131,6 +132,29 @@ class openstack::glance::haproxy
      private_port => $api_port,

@@ -2,14 +2,8 @@
 
 WORKDIR=$(cd "$(dirname "$0")";pwd)
 
-export OS_REGION_NAME=RegionOne
-export OS_PROJECT_DOMAIN_NAME=Default
-export OS_USER_DOMAIN_NAME=Default
-export OS_KEYSTONE_REGION_NAME=RegionOne
-export OS_IDENTITY_API_VERSION=3
-export OS_ENDPOINT_TYPE=publicURL
-export OS_INTERFACE=public
-export OS_AUTH_TYPE=password
+DIST_REGION=RegionOne
+DIST_REGION_TMP=Region250
 
 STX_OS_AUTH_URL=http://192.168.204.2:5000/v3
 STX_OS_PASSWORD=99cloud@SH
@@ -17,11 +11,20 @@ STX_OS_PASSWORD=99cloud@SH
 DIST_OS_AUTH_URL=http://192.168.204.2:5000/v3
 DIST_OS_PASSWORD=99cloud@SH
 
+export OS_PROJECT_DOMAIN_NAME=Default
+export OS_USER_DOMAIN_NAME=Default
+export OS_IDENTITY_API_VERSION=3
+export OS_ENDPOINT_TYPE=publicURL
+export OS_INTERFACE=public
+export OS_AUTH_TYPE=password
+
 switch_dist_keytone(){
     export OS_USERNAME=admin
     export OS_PROJECT_NAME=admin
     export OS_AUTH_URL=$DIST_OS_AUTH_URL
     export OS_PASSWORD=$DIST_OS_PASSWORD
+    export OS_REGION_NAME=$DIST_REGION
+    export OS_KEYSTONE_REGION_NAME=$DIST_REGION
 }
 
 switch_stx_keystone(){
@@ -29,6 +32,8 @@ switch_stx_keystone(){
     export OS_PROJECT_NAME=admin
     export OS_AUTH_URL=$STX_OS_AUTH_URL
     export OS_PASSWORD=$STX_OS_PASSWORD
+    export OS_REGION_NAME=RegionOne
+    export OS_KEYSTONE_REGION_NAME=RegionOne
 }
 
 error_exit(){
@@ -191,11 +196,11 @@ create_region(){
 create_role(){
     local RoleName=$1
     switch_dist_keytone
-    echo "check region $RoleName in external keystone"
+    echo "check role $RoleName in external keystone"
     openstack role show $RoleName
     if [ $? -ne 0 ]; then
         openstack role create $RoleName
-        error_exit "Region $RoleName create failed."
+        error_exit "role $RoleName create failed."
     fi
     echo "Role $RoleName is ok ..."
 }
@@ -209,7 +214,7 @@ update_roles_in_dist(){
     for(( i=0;i<${#Roles[@]};i++)) do
         #${#array[@]}获取数组长度用于循环
         #echo ${ServiceNames[i]},${ServiceTypes[i]};
-        create_role ${Regions[i]}
+        create_role ${Roles[i]}
     done;
 }
 
@@ -259,8 +264,27 @@ update_endpoints_in_dist(){
     done;
 }
 
+new_region_in_dist(){
+    echo "Get keystone endpoints of dist ..."
+    switch_dist_keytone
+    create_region $DIST_REGION_TMP
+    OEL=/tmp/dist-endpoint-list
+    openstack endpoint list --service keystone --region $DIST_REGION > ${OEL}
+    local Interfaces=($(cat ${OEL} |grep  http: | awk '{print $12}'))
+    local URLs=($(cat ${OEL} |grep  http: | awk '{print $14}'))
+
+    for(( i=0;i<${#ServiceNames[@]};i++)) do
+        #${#array[@]}获取数组长度用于循环
+        #echo ${ServiceNames[i]},${ServiceTypes[i]};
+        create_endpoint $DIST_REGION_TMP keystone ${Interfaces[i]} ${URLs[i]}
+    done;
+}
 
 ### main 
+new_region_in_dist
+
+DIST_REGION=$DIST_REGION_TMP
+
 update_roles_in_dist
 update_projects_in_dist
 
